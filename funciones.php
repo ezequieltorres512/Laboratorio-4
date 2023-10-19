@@ -15,6 +15,6 @@ function getReservas(){
 
     if(mysqli_num_rows($res) > 0) return $row;
 }
-$respuesta = setReserva();
-echo $respuesta."\n";
+// $respuesta = setReserva();
+// echo $respuesta."\n";
 ?>
