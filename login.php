@@ -9,8 +9,8 @@ $nr = mysqli_num_rows($query);
 
 if($nr == 1)
 {
-	//header("Location: pagina.html")
-	echo "Bienvenido:" .$nombre;
+	header("Location: menu.html");
+	//echo "Bienvenido:" .$nombre;
 }
 else if ($nr == 0) 
 {
