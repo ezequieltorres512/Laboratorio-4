@@ -18,7 +18,7 @@
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
-        <li><a href="#home">Inicio</a></li>
+        <li><a href="menu2.html">Inicio</a></li>
         <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>
         <li><a href="#services">Servicios</a></li>
@@ -26,7 +26,22 @@
         <div class="bx bx-moon" id="darkmode"></div>
     </ul>
 </header>
-<h2>Modificacion</h2>
+<section class="about" id="about">
+    <form action="controlador.php" method="post">
+    <div class="about-container">
+        <div class="about-text">
+            <input type="date" name="llegada" id="llegada">
+            <input type="date" name="salida" id="salida">
+            <select name="tipoHabitacion" id="tipoHabitacion">
+                <option value=""></option>
+                <option value="1">King</option>
+                <option value="2">Classic</option>
+            </select>
+            <input type="submit">
+        </div>
+    </div>
+    </form>
+</section>
 </body>
 
 </html>
