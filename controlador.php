@@ -1,6 +1,15 @@
 <?php
 include_once("funciones.php");
-$res = getReservas();
-print_r($res);
+if($_POST['origen']){
+    ?>
+    <pre>
+    <?print_r($_POST);
+    ?>    
+    </pre>
+    <?
+}else{
+    $res = getReservas();
+    print_r($res);
+}
 
 ?>
