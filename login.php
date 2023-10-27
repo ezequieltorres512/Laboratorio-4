@@ -10,7 +10,8 @@ $nr = mysqli_num_rows($query);
 if($nr == 1)
 {
 	header("Location: menu2.html");
-	//echo "Bienvenido:" .$nombre;
+	session_start();
+	$_SESSION['user']  = $pass;
 }
 else if ($nr == 0) 
 {
