@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once("conexion.php");
 if($_POST['llegada']){
     //print_r();
     if ($_POST['origen'] == 8) {
