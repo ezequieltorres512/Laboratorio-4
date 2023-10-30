@@ -10,7 +10,7 @@ $row = mysqli_fetch_assoc($query);
 $usuario = $row['id_usuario'];
 if($nr == 1)
 {
-	//header("Location: menu2.html");
+	
 	session_start();
 	$_SESSION['email']  = $email;
 	$_SESSION['usuario'] = $usuario;
@@ -21,10 +21,11 @@ if($nr == 1)
 	if($cantReservas > 0){
 		$rowReserva = mysqli_fetch_assoc($queryReserva);
 		//$_SESSION['']
-		print_r($_SESSION);
-		echo "\n";
-		print_r($rowReserva);
+		//print_r($_SESSION);
+		//echo "\n";
+		//print_r($rowReserva);
 	}
+	header("Location: menu2.html");
 }
 else if ($nr == 0) 
 {
