@@ -25,7 +25,6 @@ if($nr == 1)
 		echo "\n";
 		print_r($rowReserva);
 	}
-
 }
 else if ($nr == 0) 
 {
