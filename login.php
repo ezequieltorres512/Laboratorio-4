@@ -17,7 +17,7 @@ if($nr == 1)
 	$queryR = "SELECT * FROM reserva WHERE id_usuario = $usuario";
 	$queryReserva = mysqli_query($conn, $queryR);
 	$cantReservas = mysqli_num_rows($queryReserva);
-	echo "HOLAAA\n";
+	//echo "HOLAAA\n";
 	if($cantReservas > 0){
 		$rowReserva = mysqli_fetch_assoc($queryReserva);
 		//$_SESSION['']
@@ -25,7 +25,7 @@ if($nr == 1)
 		//echo "\n";
 		//print_r($rowReserva);
 	}
-	header("Location: menu2.html");
+	header("Location: menu2.php");
 }
 else if ($nr == 0) 
 {
