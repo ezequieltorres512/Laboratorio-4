@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +30,28 @@
     </ul>
 </header>
 <section class="about" id="about">
-    <h1>Modificacion Realizada!!</h1>
+    <form action="baja_reserva.php" method="post">
+    <div class="about-container">
+        <div class="about-text">
+            <div class="home-text">
+                  <span>Formulario de Baja de Reservas</span>
+                  <!---
+                  <input type="hidden" name="motivo" value="Alta de reserva">
+                  <p>Fecha de inicio<br>
+                  <input type="date" name="llegada" id="llegada">
+                  <p>Fecha de Salida<br>
+                  <input type="date" name="salida" id="salida">
+                  -->
+                  <p>Seleccione nro de reserva a dar de Baja: <br>
+                  <?php
+                  require("reserva.php");
+                  ?>
+                  <input type="text" name="origen" id="origen" value="8" hidden>
+                  <input type="submit">
+            </div>
+        </div>
+    </div>
+    </form>
 </section>
 </body>
 
