@@ -1,0 +1,60 @@
+table 
+{
+border: 2px solid #353A46;
+background-color: #3ABAF1;
+}
+
+input[type=text], input[type=password]
+{
+width: 100%;
+padding: 8px 20px;
+border: 2px solid #ccc;
+box-sizing: border-box;
+}
+
+img
+{
+width: 100px;
+height: 100px;
+}
+
+label
+{
+font-size: 14px;
+font-weight: bold;
+font-family: arial;
+}
+
+input[type=submit]
+{
+background-color: #1C94C8;
+color:white;
+padding: 8px 10px;
+margin: 8px 0px;
+border: solid;
+cursor: pointer;
+width: 40%;
+}
+/* Estilos para el menú */
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 200px;
+}
+
+li {
+    background-color: #333;
+    margin: 2px;
+    padding: 10px;
+    text-align: center;
+}
+
+li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+li:hover {
+    background-color: #555;
+}
