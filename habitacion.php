@@ -4,7 +4,7 @@ include_once("conexion.php");
 $query = mysqli_query($conn,"SELECT * FROM tipohabitacion");
 $nr = mysqli_num_rows($query);
 $precios=array();
-echo "<select name='tipo_habitacion' id='tipo_habitacion'>";
+echo "<select name='tipoH' id='tipoH'>";
 echo "<option value=''></option>";
 while($row = mysqli_fetch_assoc($query)){
     echo "<option value=".$row['id'].">".$row['titulo']."</option>";
