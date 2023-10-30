@@ -1,4 +1,5 @@
 <?php
+session_start();
    //   echo"<pre>";print_r($_POST);echo"</pre>";
       $mensaje=$_POST['motivo'];
      // echo "El mensaje es: $mensaje";
@@ -42,7 +43,7 @@
 <script>
       // Espera 5 segundos (5000 milisegundos) antes de redirigir
       setTimeout(function() {
-            window.location.href = 'menu2.html'; // Reemplaza 'pagina_de_inicio.html' con la URL de tu página de inicio
+            window.location.href = 'menu2.html'; // Reemplaza 'pagina_de_inicio.html' con la URL de tu pï¿½gina de inicio
       }, 5000); // 5000 milisegundos = 5 segundos
 </script>
 </body>
