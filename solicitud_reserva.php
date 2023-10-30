@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,11 +41,9 @@
                   <p>Fecha de Salida<br>
                   <input type="date" name="salida" id="salida">
                   <p>Seleccione el tipo de habitacion<br>
-                  <select name="tipoH" id="tipoH">
-                  <option value=""></option>
-                  <option value="1">King</option>
-                  <option value="2">Classic</option>
-                  </select>
+                  <?php
+                  require("habitacion.php");
+                  ?>
                   <p>Seleccione como nos conocio<br>
                   <?php
                   require("publicidad.php");
