@@ -43,7 +43,7 @@ session_start();
 <script>
       // Espera 5 segundos (5000 milisegundos) antes de redirigir
       setTimeout(function() {
-            window.location.href = 'menu2.html'; // Reemplaza 'pagina_de_inicio.html' con la URL de tu p�gina de inicio
+            window.location.href = 'menu2.php'; // Reemplaza 'pagina_de_inicio.html' con la URL de tu p�gina de inicio
       }, 5000); // 5000 milisegundos = 5 segundos
 </script>
 </body>

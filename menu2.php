@@ -40,10 +40,14 @@
         <img src="/Foto.jpg" alt="">
     </div>
     <div class="home-text">
-        <span>Bienvenidos!</span>
         <h1>La 7ma esta feliz de recibirlos</h1>
         <h2>Somos un Hotel hermoso</h2>
-        <h3>Chamullo</h3>
+        <h3>
+        <?php
+            echo "Bienvenido"." ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
+        ?>
+
+        </h3>
         <p>Te invito a que conozcas mas sobre nuestros servicios<br> <br>
         <a href="controlador.php" class="btn">Descargar</a>
     </div>
@@ -114,14 +118,10 @@
         </div>
 
         <div class="services-box">
-            <i class='bx bx-server'></i>
-            <h3>Base de Datos</h3>
-           
-        </div>
-        <div class="services-box">
-            <i class='bx bx-wifi'></i>
-            <h3>Redes</h3>
-           
+            <a href="solicitud_baja_reserva.php">
+                <i class='bx bx-server'></i>
+                <h3>Baja de Reserva</h3>
+            </a>
         </div>
 
         <div class="services-box">

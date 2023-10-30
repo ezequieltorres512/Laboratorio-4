@@ -11,7 +11,7 @@ $adicional = 0;
 $vendedor=0;
 $query = mysqli_query($conn,"INSERT INTO reserva ( fecha_inicio, fecha_fin, tipoHabitacion, adicional,vendedor, conocidosPor) VALUES ('$llegada','$salida',$tipo_habitacion,$adicional,$vendedor,$canal)");
 if($query){
-    //  header("Location: menu2.html");
+    //  header("Location: menu2.php");
       require("redireccion_mensaje.php");
 }else{
       echo mysqli_error($conn);
