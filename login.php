@@ -6,14 +6,25 @@ $pass = $_POST["txtpassword"];
 
 $query = mysqli_query($conn,"SELECT * FROM usuarios WHERE email = '$email' and clave = '".$pass."'");
 $nr = mysqli_num_rows($query);
-$row = mysqli_fetch_array($query);
-
+$row = mysqli_fetch_assoc($query);
+$usuario = $row['id_usuario'];
 if($nr == 1)
 {
-	header("Location: menu2.html");
+	//header("Location: menu2.html");
 	session_start();
 	$_SESSION['email']  = $email;
-	$_SESSION['usuario'] = $row['id_usuario'];
+	$_SESSION['usuario'] = $usuario;
+	$queryR = "SELECT * FROM reserva WHERE id_usuario = $usuario";
+	$queryReserva = mysqli_query($conn, $queryR);
+	$cantReservas = mysqli_num_rows($queryReserva);
+	echo "HOLAAA\n";
+	if($cantReservas > 0){
+		$rowReserva = mysqli_fetch_assoc($queryReserva);
+		//$_SESSION['']
+		print_r($_SESSION);
+		echo "\n";
+		print_r($rowReserva);
+	}
 }
 else if ($nr == 0) 
 {
