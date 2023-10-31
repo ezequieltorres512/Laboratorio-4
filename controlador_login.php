@@ -16,7 +16,7 @@ $usuario = $row['id_usuario'];
 	
 if($nr == 1)
 {
-	//header("Location: menu2.html");
+	//header("Location: inicio.html");
 	session_start();
 	$_SESSION['email']  = $email;
 	$_SESSION['usuario'] = $usuario;

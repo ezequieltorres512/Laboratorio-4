@@ -44,7 +44,7 @@ session_start();
 
 <script>
       setTimeout(function() {
-            window.location.href = 'menu2.php';
+            window.location.href = 'inicio.php';
       }, 5000); 
 </script>
 </body>

@@ -1,13 +1,6 @@
-<!--menu2.html-->
-
 <?php
     session_start();
-    if(empty($_SESSION["id"])){
-        header("location: index.php");
-    }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +27,6 @@
         <li><a href="#services">Servicios</a></li>
         <li><a href="#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
-        <li><a href="controlador_cerrar_session.php">Salir</a></li>
     </ul>
 </header>
  
