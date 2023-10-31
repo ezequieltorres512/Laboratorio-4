@@ -42,11 +42,12 @@ session_start();
                   <input type="date" name="salida" id="salida">
                   <p>Seleccione el tipo de habitacion<br>
                   <?php
-                  require("habitacion.php");
+                    require("habitacion.php");
                   ?>
+                  <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
                   <p>Seleccione como nos conocio<br>
                   <?php
-                  require("publicidad.php");
+                    require("publicidad.php");
                   ?>
                   <input type="text" name="origen" id="origen" value="8" hidden>
                   <input type="submit">
@@ -56,5 +57,30 @@ session_start();
     </form>
 </section>
 </body>
+<script src="script.js"></script>
+<script>
+    const llegadaInput = document.getElementById('llegada');
+    const salidaInput = document.getElementById('salida');
+    const tipoHInput = document.getElementById('tipoH');
+    const precioElement = document.getElementById('precio');
+
+    llegadaInput.addEventListener('input', calcularPrecioTotal);
+    salidaInput.addEventListener('input', calcularPrecioTotal);
+    tipoHInput.addEventListener('change', calcularPrecioTotal);
+
+    function calcularPrecioTotal() {
+        const fechaLlegada = new Date(llegadaInput.value);
+        const fechaSalida = new Date(salidaInput.value);
+        if(tipoHInput.value == ''){
+            return false;
+         }
+        const tipoHValue = tipoHInput.value;
+        const precio = document.querySelector(`input[name="${tipoHValue}"]`).value;
+        const unDia = 24 * 60 * 60 * 1000; 
+        const numeroDias = Math.round((fechaSalida - fechaLlegada) / unDia);
+        const precioTotal = precio * numeroDias;
+        precioElement.value  = `$${precioTotal}`;
+    }
+</script>
 
 </html>
