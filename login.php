@@ -55,7 +55,7 @@ if($nr == 1)
 		//echo "\n";
 		//print_r($rowReserva);
 	}
-	header("Location: menu2.php");
+	header("Location: inicio.php");
 }
 else if ($nr == 0) 
 {

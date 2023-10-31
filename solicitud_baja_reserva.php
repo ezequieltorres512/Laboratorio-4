@@ -22,7 +22,7 @@ session_start();
 
     <ul class="navbar">
 
-        <li><a href="menu2.php">Inicio</a></li>
+        <li><a href="inicio.php">Inicio</a></li>
         <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>
         <li><a href="#services">Servicios</a></li>

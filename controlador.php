@@ -10,7 +10,7 @@ if($_POST['llegada']){
         if($res == true) header("Location: confirmacion.html");
     }else{
 
-        header("Location: menu2.php");
+        header("Location: inicio.php");
 
     }
 }else{
