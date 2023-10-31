@@ -35,16 +35,17 @@ session_start();
                   <img src="/Foto.jpg" alt="">
             </div>
             <div class="home-text">
-                  <span><?php echo $mensaje?> exitosa, en breve nos comunicaremos con usted</span>
+
+                  <span><?php echo $mensaje ?> exitosa, en breve nos comunicaremos con usted</span>
+
                   <parse_str>Redireccionando a la p&aacute;gina de inicio en 3 segundos...</parse_str>
             </div>
       </section>
 
 <script>
-      // Espera 5 segundos (5000 milisegundos) antes de redirigir
       setTimeout(function() {
-            window.location.href = 'inicio.php'; // Reemplaza 'pagina_de_inicio.html' con la URL de tu p�gina de inicio
-      }, 5000); // 5000 milisegundos = 5 segundos
+            window.location.href = 'inicio.php';
+      }, 5000); 
 </script>
 </body>
 </html>

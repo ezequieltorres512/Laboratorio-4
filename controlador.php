@@ -9,7 +9,9 @@ if($_POST['llegada']){
         //echo $_SESSION['user']."-----\n$sql\n";
         if($res == true) header("Location: confirmacion.html");
     }else{
-        header("Location: menu2.html");
+
+        header("Location: inicio.php");
+
     }
 }else{
     include_once("funciones.php");

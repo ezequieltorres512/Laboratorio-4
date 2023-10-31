@@ -10,7 +10,9 @@ while($row = mysqli_fetch_assoc($query)){
 }
 echo "</select>";
 if($nr == 0) 
-{	
+
+{
+
 	//header("Location: login.html");
 	//echo "No ingreso"; 
 	echo "<script> alert('Error');window.location= 'index.html' </script>";
