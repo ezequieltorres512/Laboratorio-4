@@ -18,6 +18,7 @@ $query = mysqli_query($conn,"INSERT INTO reserva (precio,id_usuario,fecha_inicio
                                                 ($precio,$id_usuario,'$llegada','$salida',$tipo_habitacion,$adicional,$vendedor,$canal)");
 if($query){
     //  header("Location: menu2.php");
+
       require("redireccion_mensaje.php");
 }else{
       echo mysqli_error($conn);

@@ -21,6 +21,7 @@ session_start();
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
+
         <li><a href="menu2.php">Inicio</a></li>
         <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>

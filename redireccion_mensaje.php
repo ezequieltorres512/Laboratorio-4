@@ -35,7 +35,9 @@ session_start();
                   <img src="/Foto.jpg" alt="">
             </div>
             <div class="home-text">
+
                   <span><?php echo $mensaje ?> exitosa, en breve nos comunicaremos con usted</span>
+
                   <parse_str>Redireccionando a la p&aacute;gina de inicio en 3 segundos...</parse_str>
             </div>
       </section>
