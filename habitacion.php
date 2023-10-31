@@ -14,6 +14,9 @@ while($row = mysqli_fetch_assoc($query)){
     $precios[$row['id']]=$row['precio'];
 }
 echo "</select>";
+foreach($precios as $id_precio => $cantidad){
+    echo "<input type='hidden' name='$id_precio' value='$cantidad'>";
+}
 //echo "<pre>";print_r($precios);echo"</pre>";
 if($nr == 0) 
 {
