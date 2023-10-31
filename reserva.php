@@ -1,7 +1,7 @@
 <?php
 include_once("conexion.php");
 
-$query = mysqli_query($conn,"SELECT * FROM reserva");
+$query = mysqli_query($conn,"SELECT * FROM reserva WHERE id_usuario = 1");
 $nr = mysqli_num_rows($query);
 echo "<select name='reservas' id='reservas'>";  
 while($row = mysqli_fetch_assoc($query)){
