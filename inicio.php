@@ -110,7 +110,7 @@
             <input type="text" name='nombre 'placeholder="Tu nombre">
             <input type="email" name="correo" id="" placeholder="Tu email">
             <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu mensaje que me conindextacto a la brevedad"></textarea>
-                <a href="/" class="btn">Descargar</a>
+                <a href="/" class="btn">Enviar</a>
         </form>
     </div>
 </section>
