@@ -11,6 +11,7 @@
 <body>
         
     <center>
+        <h1>Bienvenido al sistema de gestion Hotelera!!</h1>
         <form method="post" action="login.php">
             <table>
                 <tr><td colspan="2" style="background-color:#33A8DB; padding-bottom:5px; padding-top:5px;">

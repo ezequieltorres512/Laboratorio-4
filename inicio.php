@@ -53,7 +53,7 @@
         </h3>
         <p>Te invito a que conozcas mas sobre nuestros servicios<br> <br>
         <a href="controlador.php" class="btn">Descargar</a>
-        <h1>888<?echo $_SESSION['tipoUser'];?>888</h1>
+        <h1><?echo $_SESSION['tipoUser'];?></h1>
     </div>
 </section>
 
