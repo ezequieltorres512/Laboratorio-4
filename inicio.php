@@ -1,9 +1,5 @@
 <?php
     session_start();
-<<<<<<< HEAD
-    print_r($_SESSION);
-=======
->>>>>>> 848b3d7d3ca903bc0f140d4223cab0fc19cf1daa
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,14 +44,10 @@
         <h2>Somos un Hotel hermoso</h2>
         <h3>
         <?php
-<<<<<<< HEAD
         echo "Bienvenido";
         if(isset($_SESSION["nombre"])){
             echo " ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
         }
-=======
-            echo "Bienvenido"." ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
->>>>>>> 848b3d7d3ca903bc0f140d4223cab0fc19cf1daa
         ?>
 
         </h3>
@@ -174,23 +166,5 @@
                            
                             <script src="script.js"></script>
 </body>
-<<<<<<< HEAD
-<script>
-    // Elementos del DOM
-    const loginForm = document.getElementById("loginForm");
-    const showLoginFormButton = document.getElementById("showLoginFormButton");
-    const pageContent = document.getElementById("pageContent");
 
-    // Manejar el evento de clic en el botón
-    showLoginFormButton.addEventListener("click", function() {
-      // Mostrar u ocultar el formulario de inicio de sesión
-      loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
-      
-      // Mostrar u ocultar el contenido de la página
-      pageContent.style.display = pageContent.style.display === "none" ? "block" : "none";
-    });
-  </script>
-=======
-
->>>>>>> 848b3d7d3ca903bc0f140d4223cab0fc19cf1daa
 </html>
