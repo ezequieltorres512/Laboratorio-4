@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include("check.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,6 +95,7 @@
     </div>
     <div class="contact-form">
         <form action="enviar_correo.php">
+            <input type="hidden" name="motivo" value="Envio de comentario">
             <input type="text" name='nombre 'placeholder="Tu nombre">
             <input type="email" name="correo" id="" placeholder="Tu email">
             <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu mensaje que me conindextacto a la brevedad"></textarea>
