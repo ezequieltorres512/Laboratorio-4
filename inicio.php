@@ -22,9 +22,13 @@
 
     <ul class="navbar">
         <li><a href="#home">Inicio</a></li>
-        <li><a href="#about">Reservas</a></li>
-        <li><a href="#skills">Instalaciones</a></li>
-        <li><a href="#services">Servicios</a></li>
+        <?php if(isset($_SESSION['usuario'])){ ?>
+           
+       
+            <li><a href="#about">Reservas</a></li>
+            <li><a href="#skills">Instalaciones</a></li>
+            <li><a href="#services">Servicios</a></li>
+        <?php } ?>
         <li><a href="#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
         <?php if(isset($_SESSION['usuario'])){ ?>
@@ -64,7 +68,7 @@
     </div>
 </section>
 
-
+<?php if(isset($_SESSION['usuario'])){ ?>
 <section class="services" id="services">
     <div class="heading">
         <h2>Servicios</h2>
@@ -94,7 +98,7 @@
         </div>
     </div>
 </section>
-
+<?php } ?>
 <section class="contact" id="contact">
     <div class="heading">
         <h2>Contacto</h2>
