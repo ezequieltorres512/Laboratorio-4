@@ -44,19 +44,19 @@ if($nr == 1)
 					WHERE R.id_usuario = $usuario";
 	$queryReserva = mysqli_query($conn, $queryR);
 	$cantReservas = mysqli_num_rows($queryReserva);
-	
+	$rowReserva = mysqli_fetch_assoc($queryReserva);	
+	$_SESSION['apellido'] = $rowReserva['apellido'];
+	$_SESSION['nombre'] = $rowReserva['nombre'];
+	$_SESSION['tipoUser'] = $rowReserva['TipoUsuario'];
+	print_r($_SESSION);
+	echo "\n";
+	print_r($rowReserva);
 	
 	//echo "HOLAAA\t$cantReservas\n";
 	if($cantReservas > 0){
-		$rowReserva = mysqli_fetch_assoc($queryReserva);
 		
-		$_SESSION['apellido'] = $rowReserva['apellido'];
-		$_SESSION['nombre'] = $rowReserva['nombre'];
-		//print_r($_SESSION);
-		//echo "\n";
-		//print_r($rowReserva);
+		//header("Location: inicio.php");
 	}
-	header("Location: inicio.php");
 }
 else if ($nr == 0) 
 {
