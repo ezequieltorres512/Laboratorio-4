@@ -3,6 +3,7 @@ include_once("conexion.php");
 
 $email = $_POST["txtusuario"];
 $pass = $_POST["txtpassword"];
+$pass=md5($pass);
 
 $query = mysqli_query($conn,"SELECT * FROM usuarios WHERE email = '$email' and clave = '".$pass."'");
 $nr = mysqli_num_rows($query);

@@ -3,6 +3,7 @@ session_start();
    //   echo"<pre>";print_r($_POST);echo"</pre>";
       $mensaje=$_POST['motivo'];
      // echo "El mensaje es: $mensaje";
+     
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,9 +44,14 @@ session_start();
       </section>
 
 <script>
-      setTimeout(function() {
-            window.location.href = 'inicio.php';
-      }, 5000); 
+setTimeout(function() {
+    var variablePost = '<?php echo $_POST['motivo']; ?>';
+    if (variablePost === 'Alta de usuario') {
+        window.location.href = 'index.php';
+    } else {
+        window.location.href = 'inicio.php';
+    }
+}, 5000);
 </script>
 </body>
 </html>

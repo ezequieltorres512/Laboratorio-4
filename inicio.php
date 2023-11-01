@@ -44,7 +44,10 @@
         <h2>Somos un Hotel hermoso</h2>
         <h3>
         <?php
-            echo "Bienvenido"." ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
+        echo "Bienvenido";
+        if(isset($_SESSION["nombre"])){
+            echo " ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
+        }
         ?>
 
         </h3>
