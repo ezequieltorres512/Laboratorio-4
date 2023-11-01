@@ -58,7 +58,11 @@ if(!empty($_POST["btnIngresar"])){
 			$_SESSION["id"]=$datos["id_usuario"];
 			$_SESSION["nombre"]=$datos["nombres"];
 			$_SESSION["apellido"]=$datos["apellidos"];
-			header("location: inicio.php");
+			$_SESSION['tipoUser'] = $datos['TipoUsuario'];
+			print_r($_SESSION);
+			echo "\n";
+			print_r($datos);
+			//header("location: inicio.php");
 		}
 		else{
 			echo "Acceso denegado";
