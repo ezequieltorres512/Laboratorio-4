@@ -39,9 +39,9 @@ session_start();
                   <span>Formulario de alta de Reservas</span>
                   <input type="hidden" name="motivo" value="Alta de reserva">
                   <p>Fecha de inicio<br>
-                  <input type="date" name="llegada" id="llegada">
+                  <input type="date" name="llegada" id="llegada" required>
                   <p>Fecha de Salida<br>
-                  <input type="date" name="salida" id="salida">
+                  <input type="date" name="salida" id="salida" required>
                   <p>Seleccione el tipo de habitacion<br>
                   <?php
                     require("habitacion.php");
