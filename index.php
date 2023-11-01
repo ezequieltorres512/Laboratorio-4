@@ -11,7 +11,7 @@
 <body>
         
     <center>
-        <form method="post" action="controlador_login.php">
+        <form method="post" action="login.php">
             <table>
                 <tr><td colspan="2" style="background-color:#33A8DB; padding-bottom:5px; padding-top:5px;">
                 <label>ACCESO:</label></td>

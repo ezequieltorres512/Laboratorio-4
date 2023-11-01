@@ -48,14 +48,14 @@ if($nr == 1)
 	$_SESSION['apellido'] = $rowReserva['apellido'];
 	$_SESSION['nombre'] = $rowReserva['nombre'];
 	$_SESSION['tipoUser'] = $rowReserva['TipoUsuario'];
-	print_r($_SESSION);
-	echo "\n";
-	print_r($rowReserva);
-	
+	//print_r($_SESSION);
+	//echo "\n";
+	//print_r($rowReserva);
+	header("Location: inicio.php");
 	//echo "HOLAAA\t$cantReservas\n";
 	if($cantReservas > 0){
 		
-		//header("Location: inicio.php");
+		//
 	}
 }
 else if ($nr == 0) 
