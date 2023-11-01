@@ -312,7 +312,10 @@ span {
 .services-box:hover h3 {
   color: #fff;
 }
-
+#alta_usr {
+  margin-top:7%;
+  width:70% ;
+}
 .services-box .bx {
   padding-top: 2rem;
   font-size: 54px;

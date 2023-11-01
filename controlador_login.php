@@ -50,6 +50,7 @@ if(!empty($_POST["btnIngresar"])){
 	if(!empty($_POST["txtusuario"]) and !empty($_POST["txtpassword"])){
 		$usuario = $_POST["txtusuario"];
 		$password = $_POST["txtpassword"];
+		$password = md5($password);
 		$query = mysqli_query($conn,"SELECT * FROM usuarios WHERE email = '$usuario' and clave = '$password'");
 		$datos = mysqli_fetch_assoc($query);
 
