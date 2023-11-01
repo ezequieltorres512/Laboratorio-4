@@ -1,8 +1,7 @@
 <?php      
-session_start();
 /*termina function */
       include_once("conexion.php");
-      $nombre = $_POST["nombre"];
+      $persona = $_POST["nombre"];
       $correo = $_POST["correo"];
       $comentario = $_POST["comentario"];
 
