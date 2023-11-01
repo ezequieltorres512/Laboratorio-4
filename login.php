@@ -51,11 +51,12 @@ if($nr == 1)
 		
 		$_SESSION['apellido'] = $rowReserva['apellido'];
 		$_SESSION['nombre'] = $rowReserva['nombre'];
-		//print_r($_SESSION);
-		//echo "\n";
-		//print_r($rowReserva);
+		$_SESSION['tipoUser'] = $rowReserva['TipoUsuario'];
+		print_r($_SESSION);
+		echo "\n";
+		print_r($rowReserva);
 	}
-	header("Location: inicio.php");
+	//header("Location: inicio.php");
 }
 else if ($nr == 0) 
 {
