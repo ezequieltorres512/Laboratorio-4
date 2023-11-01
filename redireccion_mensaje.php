@@ -3,6 +3,7 @@ session_start();
    //   echo"<pre>";print_r($_POST);echo"</pre>";
       $mensaje=$_POST['motivo'];
      // echo "El mensaje es: $mensaje";
+     
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,15 +36,22 @@ session_start();
                   <img src="/Foto.jpg" alt="">
             </div>
             <div class="home-text">
+
                   <span><?php echo $mensaje ?> exitosa, en breve nos comunicaremos con usted</span>
+
                   <parse_str>Redireccionando a la p&aacute;gina de inicio en 3 segundos...</parse_str>
             </div>
       </section>
 
 <script>
-      setTimeout(function() {
-            window.location.href = 'menu2.php';
-      }, 5000); 
+setTimeout(function() {
+    var variablePost = '<?php echo $_POST['motivo']; ?>';
+    if (variablePost === 'Alta de usuario') {
+        window.location.href = 'index.php';
+    } else {
+        window.location.href = 'inicio.php';
+    }
+}, 5000);
 </script>
 </body>
 </html>

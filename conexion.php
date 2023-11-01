@@ -1,4 +1,9 @@
 <?php
+/* $dbHost = "boqabnrvhlsejwww4hty-mysql.services.clever-cloud.com";
+$dbUser = "uya9bsrnyguckms9";
+$dbPass = "uPPq9dkQyxvMqLdwmi7Y";
+$dbName = "boqabnrvhlsejwww4hty"; */
+
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "";
