@@ -11,7 +11,7 @@
 <body>
         
     <center>
-        <form method="post" action="">
+        <form method="post" action="controlador_login.php">
             <table>
                 <tr><td colspan="2" style="background-color:#33A8DB; padding-bottom:5px; padding-top:5px;">
                 <label>ACCESO:</label></td>
@@ -24,10 +24,6 @@
                 <tr><td><input type="password" name="txtpassword" /> </td></tr>
                 <tr><td><input type="submit" name="btnIngresar" value="Ingresar"  /> </td></tr>
             </table>
-
-            <?php
-                include_once("controlador_login.php");
-            ?>
         </form>
         <form action="alta_usuario.php">
             <table>
