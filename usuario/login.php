@@ -1,5 +1,5 @@
 <?php
-include_once("conexion.php");
+include_once("../conexion.php");
 
 $email = $_POST["txtusuario"];
 $pass = $_POST["txtpassword"];
@@ -29,15 +29,15 @@ if($nr == 1)
 		//print_r($_SESSION);
 		//echo "\n";
 		//print_r($row);
-		header("Location: inicio.php");
+		header("Location: ../inicio.php");
 	}else{
-		echo "<script> alert('Usuario dado de Baja');window.location= 'index.php' </script>";
+		echo "<script> alert('Usuario dado de Baja');window.location= '../index.php' </script>";
 	}
 }
 else if ($nr == 0) 
 {
 	//header("Location: login.html");
 	//echo "No ingreso"; 
-	echo "<script> alert('Error en los datos Ingresados');window.location= 'index.php' </script>";
+	echo "<script> alert('Error en los datos Ingresados');window.location= '../index.php' </script>";
 }
 ?>

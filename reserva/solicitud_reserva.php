@@ -9,7 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel la 7ma</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../estilos/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
@@ -22,7 +22,7 @@ session_start();
 
     <ul class="navbar">
 
-        <li><a href="inicio.php">Inicio</a></li>
+        <li><a href="../inicio.php">Inicio</a></li>
 
         <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>
@@ -44,12 +44,12 @@ session_start();
                   <input type="date" name="salida" id="salida" required>
                   <p>Seleccione el tipo de habitacion<br>
                   <?php
-                    require("habitacion.php");
+                    require("../habitacion/habitacion.php");
                   ?>
                   <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
                   <p>Seleccione como nos conocio<br>
                   <?php
-                    require("publicidad.php");
+                    require("../publicidad/publicidad.php");
                   ?>
                   <input type="text" name="origen" id="origen" value="8" hidden>
                   <input type="submit">
@@ -59,7 +59,7 @@ session_start();
     </form>
 </section>
 </body>
-<script src="script.js"></script>
+<script src="../js/script.js"></script>
 <script>
     const llegadaInput = document.getElementById('llegada');
     const salidaInput = document.getElementById('salida');

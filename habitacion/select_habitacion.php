@@ -1,5 +1,5 @@
 <?php
-include_once("conexion.php");
+include_once("../conexion.php");
 
 $query = mysqli_query($conn,"SELECT * FROM tipohabitacion");
 $nr = mysqli_num_rows($query);
@@ -22,6 +22,6 @@ if($nr == 0)
 {
 	//header("Location: login.html");
 	//echo "No ingreso"; 
-	echo "<script> alert('Error');window.location= 'index.html' </script>";
+	echo "<script> alert('Error');window.location= '../index.html' </script>";
 }
 ?>
