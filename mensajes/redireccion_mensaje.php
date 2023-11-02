@@ -1,8 +1,8 @@
 <?php
-session_start();
    //   echo"<pre>";print_r($_POST);echo"</pre>";
       $mensaje=$_POST['motivo'];
      // echo "El mensaje es: $mensaje";
+     
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@ session_start();
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Hotel la 7ma</title>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="../estilos/style.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
@@ -32,7 +32,7 @@ session_start();
       </header>
       <section class="home" id="home">
             <div class="home-img">
-                  <img src="/Foto.jpg" alt="">
+                  <img src="../imagenes/Foto.jpg" alt="">
             </div>
             <div class="home-text">
 
@@ -43,9 +43,14 @@ session_start();
       </section>
 
 <script>
-      setTimeout(function() {
-            window.location.href = 'inicio.php';
-      }, 5000); 
+setTimeout(function() {
+    var variablePost = '<?php echo $_POST['motivo']; ?>';
+    if (variablePost === 'Alta de usuario') {
+        window.location.href = '../index.php';
+    } else {
+        window.location.href = '../inicio.php';
+    }
+}, 5000);
 </script>
 </body>
 </html>

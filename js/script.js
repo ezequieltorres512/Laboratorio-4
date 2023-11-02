@@ -26,4 +26,10 @@ darkmode.onclick = () => {
   }
 };
 
-             
+function visible(userType) {
+  //alert('tipo: ' + userType);
+  if (userType === "Empleado") {
+      var imagenesTab = document.querySelector(".services-box");
+      imagenesTab.style.display = "flex";
+  }
+}             
