@@ -50,7 +50,7 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO usuarios (clave,fecha_registro,email,estado,cod_desbloqueo) VALUES ('$contrasenaCifrada',NOW(),'$user',1,$numeroAleatorio)");
+      $query = mysqli_query($conn,"INSERT INTO cliente (clave,fecha_registro,email,estado,apellido, nombre) VALUES ('$contrasenaCifrada',NOW(),'$user',0,'Moran','Alfredo')");
 
                                                
       if($query){
