@@ -44,7 +44,7 @@ session_start();
                   <input type="date" name="salida" id="salida" required>
                   <p>Seleccione el tipo de habitacion<br>
                   <?php
-                    require("../habitacion/habitacion.php");
+                    require("../habitacion/select_habitacion.php");
                   ?>
                   <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
                   <p>Seleccione como nos conocio<br>
