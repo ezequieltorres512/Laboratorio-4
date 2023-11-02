@@ -105,7 +105,8 @@
   
     </div>
     <div class="contact-form">
-        <form action="comentario/comentario.php">
+        <form action="comentario/comentario.php" method='post'>
+            <input type="hidden" name="motivo" value="Consulta cargada">
             <input type="text" name='nombre 'placeholder="Tu nombre">
             <input type="email" name="correo" id="" placeholder="Tu email">
             <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu comentario que me contacto a la brevedad"></textarea>
