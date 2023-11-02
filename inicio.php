@@ -105,12 +105,12 @@
   
     </div>
     <div class="contact-form">
-        <form action="enviar_correo.php">
-            <input type="hidden" name="motivo" value="Envio de comentario">
+        <form action="comentario.php">
             <input type="text" name='nombre 'placeholder="Tu nombre">
             <input type="email" name="correo" id="" placeholder="Tu email">
-            <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu mensaje que me conindextacto a la brevedad"></textarea>
-                <a href="/" class="btn">Enviar</a>
+            <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu comentario que me contacto a la brevedad"></textarea>
+                <input type='submit'  class="btn"></input>
+
         </form>
     </div>
 </section>

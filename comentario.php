@@ -7,6 +7,7 @@
 
       $query = mysqli_query($conn,"INSERT INTO comentarios (persona,correo,comentario) VALUES ('$persona','$correo','$comentario')");
 
+
                                                
       if($query){
             require("redireccion_mensaje.php");
