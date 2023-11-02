@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("conexion.php");
+include_once("../conexion.php");
 //echo "<pre>";
 //print_r($_POST);
 //print_r($_SESSION);
@@ -19,7 +19,7 @@ $query = mysqli_query($conn,"INSERT INTO reserva (precio,id_usuario,fecha_inicio
 if($query){
     //  header("Location: inicio.php");
 
-      require("redireccion_mensaje.php");
+      require("../mensajes/redireccion_mensaje.php");
 }else{
       echo mysqli_error($conn);
 }

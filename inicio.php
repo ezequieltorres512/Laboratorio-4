@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel la 7ma</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
@@ -32,7 +32,7 @@
         <li><a href="#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
         <?php if(isset($_SESSION['usuario'])){ ?>
-            <li><a href="controlador_cerrar_session.php">Cerrar Sesion</a></li>
+            <li><a href="usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
         <?php }
         if(!isset($_SESSION['usuario'])){
            // print_r($_SESSION);?>
@@ -63,7 +63,7 @@
 
         </h3>
         <p>Te invito a que conozcas mas sobre nuestros servicios<br> <br>
-        <a href="controlador.php" class="btn">Descargar</a>
+        <a href="#" class="btn">Descargar</a>
         
     </div>
 </section>
@@ -77,21 +77,21 @@
     <div class="services-content">
 
         <div class="services-box">
-            <a href="solicitud_reserva.php">
+            <a href="reserva/solicitud_reserva.php">
                 <i class='bx bx-code-alt'></i>
                 <h3>Alta de Reserva</h3>
             </a>
         </div>
 
         <div class="services-box">
-            <a href="solicitud_baja_reserva.php">
+            <a href="reserva/solicitud_baja_reserva.php">
                 <i class='bx bx-server'></i>
                 <h3>Baja de Reserva</h3>
             </a>
         </div>
 
         <div class="services-box">
-            <a href="formModif.html">
+            <a href="#">
                 <i class='bx bxl-android'></i>
                 <h3>Modificacion</h3>
             </a>
@@ -105,7 +105,8 @@
   
     </div>
     <div class="contact-form">
-        <form action="comentario.php">
+        <form action="comentario/comentario.php" method='post'>
+            <input type="hidden" name="motivo" value="Consulta cargada">
             <input type="text" name='nombre 'placeholder="Tu nombre">
             <input type="email" name="correo" id="" placeholder="Tu email">
             <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu comentario que me contacto a la brevedad"></textarea>
@@ -128,7 +129,7 @@
     </div>
 
                            
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

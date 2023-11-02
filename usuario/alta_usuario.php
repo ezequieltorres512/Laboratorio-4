@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel la 7ma</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../estilos/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
@@ -41,7 +41,7 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
             return $numero;
       }
       /*termina function */
-      include_once("conexion.php");
+      include_once("../conexion.php");
       $user = $_POST["user"];
       $pw = $_POST["pw"];
       $contrasenaCifrada = md5($pw);
@@ -50,11 +50,11 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO cliente (clave,fecha_registro,email,estado,apellido, nombre) VALUES ('$contrasenaCifrada',NOW(),'$user',0,'Moran','Alfredo')");
+      $query = mysqli_query($conn,"INSERT INTO cliente (clave,fecha_registro,email,estado,apellido, nombre) VALUES ('$contrasenaCifrada',NOW(),'$user',1,'Moran','Alfredo')");
 
                                                
       if($query){
-            require("redireccion_mensaje.php");
+            require("../mensajes/redireccion_mensaje.php");
       }else{
             echo mysqli_error($conn);
       }
@@ -95,4 +95,4 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
       <?php
 }
       ?>
-<script src="script.js"></script>
+<script src="../js/script.js"></script>
