@@ -1,5 +1,6 @@
 <?php
     session_start();
+ //   include("check.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +22,22 @@
 
     <ul class="navbar">
         <li><a href="#home">Inicio</a></li>
-        <li><a href="#about">Reservas</a></li>
-        <li><a href="#skills">Instalaciones</a></li>
-        <li><a href="#services">Servicios</a></li>
+        <?php if(isset($_SESSION['usuario'])){ ?>
+           
+       
+            <li><a href="#about">Reservas</a></li>
+            <li><a href="#skills">Instalaciones</a></li>
+            <li><a href="#services">Servicios</a></li>
+        <?php } ?>
         <li><a href="#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
+        <?php if(isset($_SESSION['usuario'])){ ?>
+            <li><a href="controlador_cerrar_session.php">Cerrar Sesion</a></li>
+        <?php }
+        if(!isset($_SESSION['usuario'])){
+           // print_r($_SESSION);?>
+                <li><a href="index.php">Iniciar Sesion</a></li>
+        <?php } ?>
     </ul>
 </header>
  
@@ -52,11 +64,11 @@
         </h3>
         <p>Te invito a que conozcas mas sobre nuestros servicios<br> <br>
         <a href="controlador.php" class="btn">Descargar</a>
-        <h1>888<?echo $_SESSION['tipoUser'];?>888</h1>
+        
     </div>
 </section>
 
-
+<?php if(isset($_SESSION['usuario'])){ ?>
 <section class="services" id="services">
     <div class="heading">
         <h2>Servicios</h2>
@@ -86,7 +98,7 @@
         </div>
     </div>
 </section>
-
+<?php } ?>
 <section class="contact" id="contact">
     <div class="heading">
         <h2>Contacto</h2>
@@ -94,10 +106,11 @@
     </div>
     <div class="contact-form">
         <form action="enviar_correo.php">
+            <input type="hidden" name="motivo" value="Envio de comentario">
             <input type="text" name='nombre 'placeholder="Tu nombre">
             <input type="email" name="correo" id="" placeholder="Tu email">
             <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu mensaje que me conindextacto a la brevedad"></textarea>
-                <a href="/" class="btn">Descargar</a>
+                <a href="/" class="btn">Enviar</a>
         </form>
     </div>
 </section>
