@@ -31,35 +31,51 @@ session_start();
         <div class="bx bx-moon" id="darkmode"></div>
     </ul>
 </header>
-<?if( false/*isset($_POST['id_seleccionado'])*/ ){?>
-<section class="about" id="about">
-    <form action="update_reserva.php" method="post">
-    <div class="about-container">
-        <div class="about-text">
-            <div class="home-text">
-                  <span>Formulario de alta de Reservas</span>
-                  <input type="hidden" name="motivo" value="Alta de reserva">
-                  <p>Fecha de inicio<br>
-                  <input type="date" name="llegada" id="llegada" required>
-                  <p>Fecha de Salida<br>
-                  <input type="date" name="salida" id="salida" required>
-                  <p>Seleccione el tipo de habitacion<br>
-                  <?php
-                    require("../habitacion/select_habitacion.php");
-                  ?>
-                  <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
-                  <p>Seleccione como nos conocio<br>
-                  <?php
-                    require("../publicidad/publicidad.php");
-                  ?>
-                  <input type="text" name="origen" id="origen" value="8" hidden>
-                  <input type="submit">
+<?php if( !isset($_POST['id_seleccionado']) ){?>
+    <section class="about" id="about">
+        <form action="solicitud_modif.php" method="post">
+            <div class="about-container">
+                <div class="about-text">
+                    <div class="home-text">
+                        <span>Modificacion de Reservas</span>
+                        <!-- <input type="hidden" name="id_seleccionado" value="Alta de reserva"> -->
+                        <p>Seleccione el ID de la reserva<br>
+                        <?php
+                            require("select_reservas.php");
+                        ?>
+                        <input type="submit">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+<?php }?>
+<?php if( isset($_POST['id_seleccionado']) ){ print_r($_POST);?>
+    <section class="about" id="about">
+        <form action="update_reserva.php" method="post">
+        <div class="about-container">
+            <div class="about-text">
+                <div class="home-text">
+                    <span>Formulario de modificacion de Reservas</span>
+                    <input type="hidden" name="motivo" value="Modificacion de reserva">
+                    <input type="hidden" name="id_reserva" value="<?php echo $_POST['id_seleccionado']?>">
+                    <p>Fecha de inicio<br>
+                    <input type="date" name="llegada" id="llegada" required>
+                    <p>Fecha de Salida<br>
+                    <input type="date" name="salida" id="salida" required>
+                    <p>Seleccione el tipo de habitacion<br>
+                    <?php
+                        require("../habitacion/select_habitacion.php");
+                    ?>
+                    <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
+                    <input type="text" name="origen" id="origen" value="8" hidden>
+                    <input type="submit">
+                </div>
             </div>
         </div>
-    </div>
-    </form>
-</section>
-<?}?>
+        </form>
+    </section>
+<?php }?>
 </body>
 <script src="../js/script.js"></script>
 <script>
