@@ -44,13 +44,23 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
       include_once("../conexion.php");
       $user = $_POST["user"];
       $pw = $_POST["pw"];
+      $apellido = $_POST["ape"];
+      $nombre = $_POST["nom"];
+      $direccion = '';
+      $telefono = null;
+      if(isset($_POST["dir"])){
+            $direccion = $_POST["dir"];
+      }
+      if(isset($_POST["tel"])){
+            $telefono = $_POST['tel'];
+      }
       $contrasenaCifrada = md5($pw);
       $palabra_clave = $_POST["clave_palabra"];
       $numeroAleatorio = generarNumeroAleatorio();
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO cliente (clave,fecha_registro,email,estado,apellido, nombre) VALUES ('$contrasenaCifrada',NOW(),'$user',1,'Moran','Alfredo')");
+      $query = mysqli_query($conn,"INSERT INTO cliente (clave,email,fecha_registro,estado,apellido, nombre , direccion, telefono) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$direccion', $telefono)");
 
                                                
       if($query){
@@ -67,7 +77,15 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
                         <span>Formulario de alta nuevo usuario</span>
                         <input type="hidden" name="motivo" value="Alta de usuario">
                         <p>Correo electr&oacute;nico<br>
-                        <input type="email" name="user" id="user">
+                        <input type="email" name="user" id="user" required>
+                        <p>Apellido<br>
+                        <input type="text" name="ape" id="ape" required>
+                        <p>Nombre<br>
+                        <input type="text" name="nom" id="nom" required>
+                        <p>Direccion<br>
+                        <input type="text" name="dir" id="dir">
+                        <p>Telefono<br>
+                        <input type="number" name="tel" id="tel">
                         <p>Contrase&nacute;a<br>
                         <input type="password" name="pw" id="pw">
                         <p>Repita la contrase&nacute;a<br>
