@@ -48,17 +48,17 @@ session_start();
 				</svg></button>
 			</h2>
 
-			<table id="tabla_enca">
-				<tr id="menu">
-						<td><button class="" disabled>ID</button></td>
-						<td><button class="" disabled>Nombre y Apellido</button></td>
-						<td><button class="" disabled>Fecha inicio</button></td>
-						<td><button class="" disabled>Fecha finalizacion</button></td>
-						<td><button class="" disabled>Precio</button></td>
-                        <td><button class="" disabled>Tipo Habitacion</button></td>
-						<td><button class="" disabled>Estado</button></td>				
+			<table id="">
+				<tr id="">
+						<th><button class="" disabled>ID</button></th>
+						<th><button class="" disabled>Nombre y Apellido</button></th>
+						<th><button class="" disabled>Fecha inicio</button></th>
+						<th><button class="" disabled>Fecha finalizacion</button></th>
+						<th><button class="" disabled>Precio</button></th>
+                        <th><button class="" disabled>Tipo Habitacion</button></th>
+						<th><button class="" disabled>Estado</button></th>				
 				</tr>
-				<tr>
+                <tr>
 						<td ><input class="" id="fId" type='text' placeholder="Filtro ID"></input></td>
 						<td ><input class="" id="fPerso" type='text' placeholder="Filtro Nombre"></input></td>
 						<td ><input class="" id="fInicio" type='date' placeholder="Filtro inicio"></input></td>
@@ -67,19 +67,16 @@ session_start();
                         <td ><input class="" id="fTipo" type='text' placeholder="Filtro Habitacion"></input></td>
 						<td ><input  class="" id='colorfondo' disabled></input></td>				
 				</tr>
+	
 			
-			</table>
-                <table class="table table-striped" id="tabla">
-			<div id="conttabla">
+		
+                <tbody id="conttabla">
+		
                 
-            <tbody id="cuerpoTabla">
-
-            </tbody>
-               
    
-					
-			</div>
-		</table>
+   
+			
+		    </table>
                 <div class="ultima">		</div>	
 			<footer class="footer" id="footervalor">
 			<div id="totalRegistros"></div>
@@ -132,11 +129,11 @@ function CargarTabla(){
                 objJson.planes.forEach(element => {
                     newRow = document.createElement("tr");
                     // Establecer el color de fondo alternante
-                    if (isGray) {
+                  /*  if (isGray) {
                     newRow.style.backgroundColor = "#f2f2f2";
                     } else {
                     newRow.style.backgroundColor = "#e6e6e6";
-                    }
+                    }*/
                     isGray = !isGray;
                     
                     newCell = document.createElement("td");
@@ -168,6 +165,11 @@ function CargarTabla(){
                     newCell = document.createElement("td");
                     newCell.setAttribute("campo-dato", "tipo_hab")
                     newCell.innerHTML = element.tipoHabitacion;
+                    newRow.appendChild(newCell);
+
+                      newCell = document.createElement("td");
+                    newCell.setAttribute("campo-dato", "estado")
+                    newCell.innerHTML = '';//ACA MODIFICAR CUANDO TENGA UN ESTADO
                     newRow.appendChild(newCell);
 
             /*      newCell = document.createElement("td");
