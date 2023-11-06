@@ -27,7 +27,7 @@
        
             <li><a href="#about">Reservas</a></li>
             <li><a href="#skills">Instalaciones</a></li>
-            <li><a href="#services">Servicios</a></li>
+            <li><a href="#reservas">Reservas</a></li>
         <?php } ?>
         <li><a href="#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
@@ -69,24 +69,30 @@
 </section>
 
 <?php if(isset($_SESSION['usuario'])){ ?>
-<section class="services" id="services">
+<section class="services" id="reservas">
     <div class="heading">
-        <h2>Servicios</h2>
+        <h2>Reservas</h2>
         
     </div>
     <div class="services-content">
+        <div class="services-box">
+            <a href="reserva/listado.php">
+                <i class='bx bx-code-alt'></i>
+                <h3>Listado</h3>
+            </a>
+        </div>
 
         <div class="services-box">
             <a href="reserva/solicitud_reserva.php">
                 <i class='bx bx-code-alt'></i>
-                <h3>Alta de Reserva</h3>
+                <h3>Alta</h3>
             </a>
         </div>
 
         <div class="services-box">
             <a href="reserva/solicitud_baja_reserva.php">
                 <i class='bx bx-server'></i>
-                <h3>Baja de Reserva</h3>
+                <h3>Baja</h3>
             </a>
         </div>
 
