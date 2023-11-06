@@ -559,3 +559,32 @@ form textarea {
     margin-left: 25%;
   }
 }
+
+/* Estilo básico para la tabla */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto; 
+}
+
+th {
+  background-color: #f2f2f2; 
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #e0e0e0;
+}

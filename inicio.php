@@ -97,7 +97,7 @@
         </div>
 
         <div class="services-box">
-            <a href="#">
+            <a href="reserva/solicitud_modif.php">
                 <i class='bx bxl-android'></i>
                 <h3>Modificacion</h3>
             </a>
