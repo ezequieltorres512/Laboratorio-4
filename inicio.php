@@ -56,8 +56,12 @@
         <h3>
         <?php
         echo "Bienvenido";
+        
         if(isset($_SESSION["nombre"])){
             echo " ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
+            if($_SESSION["tipoUser"] != "cliente"){
+                echo " (".$_SESSION["tipoUser"].")";
+            }
         }
         ?>
 
