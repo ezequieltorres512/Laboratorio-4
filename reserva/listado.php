@@ -123,6 +123,7 @@ function CargarTabla(){
                 fPrecio: $("#fPrecio").val(), 
             },
             success: function(respuestaDelServer,estado) {
+                //alert(estado+"->"+respuestaDelServer);
                 $('#conttabla').empty();
                 objJson=JSON.parse(respuestaDelServer);
                 let isGray = true;
