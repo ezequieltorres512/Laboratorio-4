@@ -38,10 +38,15 @@ session_start();
     <div class="about-container">
         <div class="about-text">
             <div class="home-text">
-                  <span>Formulario de baja de Reservas</span>
-                  <p>Seleccione Nro. de reserva a dar de Baja: <br>
+                  <h1>Formulario baja de Reservas</h1>
+                  <br>
+                  <h2>Lista de solicitudes</h2>
                   <?php
-                  require("reserva.php");
+                    require("lista_reserva.php");
+                  ?>
+                  <p>Seleccione Nro. de reserva a dar de Baja: </p>
+                  <?php
+                    require("reserva.php");
                   ?>
                   <input type="text" name="origen" id="origen" value="8" hidden>
                   <input type="submit">
