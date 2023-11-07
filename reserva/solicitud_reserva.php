@@ -23,7 +23,6 @@ session_start();
     <ul class="navbar">
 
         <li><a href="../inicio.php">Inicio</a></li>
-
         <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>
         <li><a href="#services">Servicios</a></li>
@@ -36,27 +35,38 @@ session_start();
     <div class="about-container">
         <div class="about-text">
             <div class="home-text">
-                  <span>Formulario de alta de Reservas</span>
-                  <input type="hidden" name="motivo" value="Alta de reserva">
-                  <p>Fecha de inicio<br>
-                  <input type="date" name="llegada" id="llegada" required>
-                  <p>Fecha de Salida<br>
-                  <input type="date" name="salida" id="salida" required>
-                  <p>Seleccione el tipo de habitacion<br>
-                  <?php
-                    require("../habitacion/select_habitacion.php");
-                  ?>
-                  <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
-                  <p>Seleccione como nos conocio<br>
-                  <?php
-                    require("../publicidad/publicidad.php");
-                  ?>
-                  <input type="text" name="origen" id="origen" value="8" hidden>
-                  <input type="submit">
+                    <span>Formulario de alta de Reservas</span>
+                    <input type="hidden" name="motivo" value="Alta de reserva">
+                    <p>Apellido<br>
+                    <input type="text" name="ape" id="ape" required>
+                    <p>Nombre<br>
+                    <input type="text" name="nom" id="nom" required>
+                    <p>Email<br>
+                    <input type="email" name="correo" id="correo" required>
+                    <p>Telefono<br>
+                    <input type="number" name="tel" id="tel" required>
+                    <p>Fecha de inicio<br>
+                    <input type="date" name="llegada" id="llegada" required>
+                    <p>Fecha de Salida<br>
+                    <input type="date" name="salida" id="salida" required>                
+                    <p>Seleccione el tipo de habitacion<br>
+                    <?php
+                        require("../habitacion/select_habitacion.php");
+                    ?>
+                    <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
+                    <p>Seleccione como nos conocio<br>
+                    <?php
+                        require("../publicidad/publicidad.php");
+                    ?>
+                    <input type="text" name="origen" id="origen" value="8" hidden>
+                    <input type="submit">
             </div>
         </div>
     </div>
     </form>
+</section>
+<section>
+
 </section>
 </body>
 <script src="../js/script.js"></script>
