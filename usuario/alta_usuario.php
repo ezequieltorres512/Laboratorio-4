@@ -29,8 +29,12 @@
 </header>
 <center>
 <?php
-
-if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
+// echo "<br>";
+// echo "<br>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
+if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA USUARIO y validar con mail
       /*   FUNCION */
       function generarNumeroAleatorio() {
             $numero = '';
@@ -55,7 +59,7 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
             $telefono = $_POST['tel'];
       }
       $contrasenaCifrada = md5($pw);
-      $palabra_clave = $_POST["clave_palabra"];
+      //$palabra_clave = $_POST["clave_palabra"];
       $numeroAleatorio = generarNumeroAleatorio();
       $adicional = 0;
       $vendedor=0;
@@ -68,7 +72,7 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
       }else{
             echo mysqli_error($conn);
       }
-}elseif(isset($_POST['empleado'])){
+}else if($_POST['motivo'] == "Alta de empleado" && $_POST['empleado'] == "ok"){
       function generarNumeroAleatorio() {
             $numero = '';
             for ($i = 0; $i < 9; $i++) {
@@ -87,12 +91,12 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
       $telefono = null;
       $puesto = $_POST['puesto'];
       $contrasenaCifrada = md5($pw);
-      $palabra_clave = $_POST["clave_palabra"];
+      //$palabra_clave = $_POST["clave_palabra"];
       $numeroAleatorio = generarNumeroAleatorio();
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', $puesto)");
+      $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto')");
 
                                                
       if($query){

@@ -34,7 +34,7 @@
                     <div class="home-text">
                             <span>Formulario de alta nuevo usuario</span>
                             <input type="hidden" name="motivo" value="Alta de empleado">
-                            <input type="hidden" name="empleado">
+                            <input type="hidden" name="empleado" id="empleado" value="ok">
                             <p>Correo electr&oacute;nico<br>
                             <input type="email" name="user" id="user" required>
                             <p>Apellido<br>
