@@ -68,6 +68,38 @@ if(isset($_POST['user'])){//DAR DE ALTA USUARIO y validar con mail
       }else{
             echo mysqli_error($conn);
       }
+}elseif(isset($_POST['empleado'])){
+      function generarNumeroAleatorio() {
+            $numero = '';
+            for ($i = 0; $i < 9; $i++) {
+                  $digito = rand(0, 9); 
+                  $numero .= $digito; 
+            }
+            return $numero;
+      }
+      /*termina function */
+      include_once("../conexion.php");
+      $user = $_POST["user"];
+      $pw = $_POST["pw"];
+      $apellido = $_POST["ape"];
+      $nombre = $_POST["nom"];
+      $direccion = '';
+      $telefono = null;
+      $puesto = $_POST['puesto'];
+      $contrasenaCifrada = md5($pw);
+      $palabra_clave = $_POST["clave_palabra"];
+      $numeroAleatorio = generarNumeroAleatorio();
+      $adicional = 0;
+      $vendedor=0;
+
+      $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', $puesto)");
+
+                                               
+      if($query){
+            require("../mensajes/redireccion_mensaje.php");
+      }else{
+            echo mysqli_error($conn);
+      }
 }else{//Formulario para llenar alta
 ?>
       <form id = 'alta_usr' action="alta_usuario.php" method="post">

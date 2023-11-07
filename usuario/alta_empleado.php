@@ -27,22 +27,22 @@
         <div class="bx bx-moon" id="darkmode"></div>
     </ul>
 </header>
+<center>  
     <form id = 'alta_usr' action="alta_usuario.php" method="post">
         <div class="about-container">
                 <div class="about-text">
                     <div class="home-text">
                             <span>Formulario de alta nuevo usuario</span>
-                            <input type="hidden" name="motivo" value="Alta de usuario">
+                            <input type="hidden" name="motivo" value="Alta de empleado">
+                            <input type="hidden" name="empleado">
                             <p>Correo electr&oacute;nico<br>
                             <input type="email" name="user" id="user" required>
                             <p>Apellido<br>
                             <input type="text" name="ape" id="ape" required>
                             <p>Nombre<br>
                             <input type="text" name="nom" id="nom" required>
-                            <p>Direccion<br>
-                            <input type="text" name="dir" id="dir">
-                            <p>Telefono<br>
-                            <input type="number" name="tel" id="tel">
+                            <p>Puesto<br>
+                            <input type="text" name="puesto" id="puesto">
                             <p>Contrase&nacute;a<br>
                             <input type="password" name="pw" id="pw">
                             <p>Repita la contrase&nacute;a<br>
@@ -54,4 +54,5 @@
                 </div>
         </div>
     </form>
+</center>
 </body>
