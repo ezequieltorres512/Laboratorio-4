@@ -108,6 +108,19 @@
         </div>
     </div>
 </section>
+<section class="services" id="reservas">
+    <div class="heading">
+            <h2>Empleados</h2>
+    </div>
+    <div class="services-content">
+        <div class="services-box">
+            <a href="usuario/alta_empleado.php">
+                <i class='bx bx-code-alt'></i>
+                <h3>Alta</h3>
+            </a>
+        </div>
+    </div>
+</section>
 <?php } ?>
 <section class="contact" id="contact">
     <div class="heading">
