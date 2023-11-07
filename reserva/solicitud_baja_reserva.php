@@ -40,7 +40,7 @@ session_start();
             <div class="home-text">
                   <h1>Formulario baja de Reservas</h1>
                   <br>
-                  <h2>Lista de solicitudes</h2>
+                  <span>Lista de solicitudes</span>
                   <?php
                     require("lista_reserva.php");
                   ?>
