@@ -65,7 +65,7 @@ else if ($nr == 0)
 	//echo "No ingreso"; 
 	echo "<script> alert('Error');window.location= 'index.html' </script>";
 }
-*/
+
 /************************************************************* */
 include_once("conexion.php");
 session_start();

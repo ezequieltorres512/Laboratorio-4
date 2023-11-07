@@ -14,7 +14,7 @@ session_start();
 </head>
 
 <body>
- 
+
 <header>
     <a href="#" class="logo">La 7ma <span>Hotel</span></a>
 
@@ -23,6 +23,7 @@ session_start();
     <ul class="navbar">
 
         <li><a href="../inicio.php">Inicio</a></li>
+
         <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>
         <li><a href="#services">Servicios</a></li>
@@ -30,22 +31,22 @@ session_start();
         <div class="bx bx-moon" id="darkmode"></div>
     </ul>
 </header>
+
+
 <section class="about" id="about">
     <form action="baja_reserva.php" method="post">
     <div class="about-container">
         <div class="about-text">
             <div class="home-text">
-                  <span>Formulario de Baja de Reservas</span>
-                  <!---
-                  <input type="hidden" name="motivo" value="Alta de reserva">
-                  <p>Fecha de inicio<br>
-                  <input type="date" name="llegada" id="llegada">
-                  <p>Fecha de Salida<br>
-                  <input type="date" name="salida" id="salida">
-                  -->
-                  <p>Seleccione nro de reserva a dar de Baja: <br>
+                  <h1>Formulario baja de Reservas</h1>
+                  <br>
+                  <span>Lista de solicitudes</span>
                   <?php
-                  require("reserva.php");
+                    require("lista_reserva.php");
+                  ?>
+                  <p>Seleccione Nro. de reserva a dar de Baja: </p>
+                  <?php
+                    require("reserva.php");
                   ?>
                   <input type="text" name="origen" id="origen" value="8" hidden>
                   <input type="submit">
@@ -55,5 +56,5 @@ session_start();
     </form>
 </section>
 </body>
-
+<script src="../js/script.js"></script>
 </html>
