@@ -33,7 +33,7 @@
                 <div class="about-text">
                     <div class="home-text">
                             <span>Formulario de alta nuevo tipo de Habitacion</span>
-                            <input type="hidden" name="motivo" value="Alta de tipo de Habitacion">
+                            <input type="hidden" name="motivo" value="Alta de tipo de habitacion">
                             <input type="hidden" name="tipoHabi" id="tipoHabi" value="ok">
                             <p>Precio<br>
                             <input type="numbre" name="precio" id="precio" required>

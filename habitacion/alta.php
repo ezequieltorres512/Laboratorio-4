@@ -41,17 +41,25 @@ if(isset($_POST['habi']) && $_POST['motivo'] == "Alta de habitacion"){//DAR DE A
     }else{
         echo mysqli_error($conn);
     }
-}else if($_POST['motivo'] == "Alta de tipo de Habitacion" && $_POST['tipoHabi'] == "ok"){
-      $precio = $_POST["precio"];
-      $titulo = $_POST["titulo"];
-      $toilets = $_POST["toilets"];
-      $metros = $_POST["metros"];
-      $descCamas = $_POST["descCamas"];
-      $query = mysqli_query($conn,"INSERT INTO tipohabitacion (precio, titulo, metros, cantBaños, cantCamas) VALUES ($precio, '$titulo', $metros, $toilets, '$descCamas')");
-                                               
-      if($query){
+}else {//if($_POST['motivo'] == "Alta de tipo de habitacion" && $_POST['tipoHabi'] == "ok")
+    $precio = $_POST["precio"];
+    $titulo = $_POST["titulo"];
+    $toilets = $_POST["toilets"];
+    $metros = $_POST["metros"];
+    $descCamas = $_POST["descCamas"];
+    $sql = "INSERT INTO tipohabitacion (precio, titulo, metros, cantBaños, descripcionCamas) VALUES ($precio, '$titulo', $metros, $toilets, '$descCamas')";
+    //   echo "<br>";
+    //   echo "<br>";
+    //   echo "<br>";
+    //   echo "<pre>"; 
+    //   print_r($_POST);
+    //   echo "</pre>"; 
+    //   echo "$sql\n";
+    $query = mysqli_query($conn,$sql);
+                                                
+    if($query){
             require("../mensajes/redireccion_mensaje.php");
-      }else{
+    }else{
             echo mysqli_error($conn);
-      }
+    }
 }
