@@ -168,9 +168,19 @@ function CargarTabla(){
                     newCell.innerHTML = element.tipoHabitacion;
                     newRow.appendChild(newCell);
 
-                      newCell = document.createElement("td");
+                    newCell = document.createElement("td");
                     newCell.setAttribute("campo-dato", "estado")
-                    newCell.innerHTML = '';//ACA MODIFICAR CUANDO TENGA UN ESTADO
+                    newImg = document.createElement("img");
+                    newImg.setAttribute("src","../imagenes/editar.png");
+                    newImg.setAttribute("class","icono-redireccion");
+                    newImg.setAttribute("alt","Editar registro");
+                    newCell.appendChild(newImg)
+
+                    newImg = document.createElement("img");
+                    newImg.setAttribute("src","../imagenes/eliminar.jpg");
+                    newImg.setAttribute("class","icono-redireccion");
+                    newImg.setAttribute("alt","Eliminar registro");
+                    newCell.appendChild(newImg)
                     newRow.appendChild(newCell);
 
             /*      newCell = document.createElement("td");
