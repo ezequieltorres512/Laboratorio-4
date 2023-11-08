@@ -67,7 +67,7 @@ session_start();
                     <?php
                         require("../habitacion/select_habitacion.php");
                     ?>
-                    <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
+                    <p>Precio: <input type="number" id="precio" name="precio" readonly></p>
                     <input type="text" name="origen" id="origen" value="8" hidden>
                     <input type="submit">
                 </div>
