@@ -31,7 +31,11 @@ session_start();
         <div class="bx bx-moon" id="darkmode"></div>
     </ul>
 </header>
-<?php if( !isset($_POST['id_seleccionado']) ){?>
+<?php if( !isset($_POST['id_seleccionado']) ){
+        echo "<pre>"; 
+        print_r($_POST);
+        echo "</pre>";
+        ?>
     <section class="about" id="about">
         <form action="solicitud_modif.php" method="post">
             <div class="about-container">
@@ -50,7 +54,12 @@ session_start();
         </form>
     </section>
 <?php }?>
-<?php if( isset($_POST['id_seleccionado']) ){ print_r($_POST);?>
+<?php if( isset($_POST['id_seleccionado']) ){ 
+    echo "<pre>"; 
+    print_r($_POST);
+    echo "</pre>";
+        
+    ?>    
     <section class="about" id="about">
         <form action="update_reserva.php" method="post">
         <div class="about-container">
@@ -67,7 +76,7 @@ session_start();
                     <?php
                         require("../habitacion/select_habitacion.php");
                     ?>
-                    <p>Precio: <input type="number" id="precio" name="precio" readonly></p>
+                    <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
                     <input type="text" name="origen" id="origen" value="8" hidden>
                     <input type="submit">
                 </div>
@@ -76,7 +85,7 @@ session_start();
         </form>
     </section>
     <script src="../js/script.js"></script>
-<script>
+    <script>
     const llegadaInput = document.getElementById('llegada');
     const salidaInput = document.getElementById('salida');
     const tipoHInput = document.getElementById('tipoH');
