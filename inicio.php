@@ -110,13 +110,25 @@
 <?php if($_SESSION['tipoUser'] == 'admin'){ ?>
 <section class="services" id="reservas">
     <div class="heading">
-            <h2>Empleados</h2>
+        <h2>Centro de Control</h2>
     </div>
     <div class="services-content">
         <div class="services-box">
             <a href="usuario/alta_empleado.php">
                 <i class='bx bx-code-alt'></i>
-                <h3>Alta</h3>
+                <h3>Alta de Empleado</h3>
+            </a>
+        </div>
+        <div class="services-box">
+            <a href="habitacion/alta_tipo_habitacion.php">
+                <i class='bx bx-code-alt'></i>
+                <h3>Alta de Tipo de habitacion</h3>
+            </a>
+        </div>
+        <div class="services-box">
+            <a href="habitacion/alta_habitacion.php">
+                <i class='bx bx-code-alt'></i>
+                <h3>Alta de habitacion</h3>
             </a>
         </div>
     </div>
