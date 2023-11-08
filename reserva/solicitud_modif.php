@@ -67,7 +67,7 @@ session_start();
                     <?php
                         require("../habitacion/select_habitacion.php");
                     ?>
-                    <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
+                    <p>Precio: <input type="number" id="precio" name="precio" readonly></p>
                     <input type="text" name="origen" id="origen" value="8" hidden>
                     <input type="submit">
                 </div>
@@ -75,9 +75,7 @@ session_start();
         </div>
         </form>
     </section>
-<?php }?>
-</body>
-<script src="../js/script.js"></script>
+    <script src="../js/script.js"></script>
 <script>
     const llegadaInput = document.getElementById('llegada');
     const salidaInput = document.getElementById('salida');
@@ -102,5 +100,6 @@ session_start();
         precioElement.value  = `$${precioTotal}`;
     }
 </script>
-
+<?php }?>
+</body>
 </html>

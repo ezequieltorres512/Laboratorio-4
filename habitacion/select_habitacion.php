@@ -22,6 +22,6 @@ if($nr == 0)
 {
 	//header("Location: login.html");
 	//echo "No ingreso"; 
-	echo "<script> alert('Error');window.location= '../index.html' </script>";
+	echo "<script> alert('Error Habitacion');window.location= '../index.php' </script>";
 }
 ?>

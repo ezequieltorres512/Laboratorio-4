@@ -15,6 +15,6 @@ while($row = mysqli_fetch_assoc($query)){
 echo "</select>";
 if($nr == 0) 
 {
-	echo "<script> alert('Error');window.location= '../index.html' </script>";
+	echo "<script> alert('Error Reservas');window.location= '../index.php' </script>";
 }
 ?>
