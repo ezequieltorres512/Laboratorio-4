@@ -79,27 +79,26 @@
         
     </div>
     <div class="services-content">
+    <?php if($_SESSION['tipoUser'] == 'admin' || $_SESSION['tipoUser'] == 'recepcionista'){ ?>
         <div class="services-box">
             <a href="reserva/listado.php">
                 <i class='bx bx-code-alt'></i>
                 <h3>Listado</h3>
             </a>
         </div>
-
-        <div class="services-box">
-            <a href="reserva/solicitud_reserva.php">
-                <i class='bx bx-code-alt'></i>
-                <h3>Alta</h3>
-            </a>
-        </div>
-
         <div class="services-box">
             <a href="reserva/solicitud_baja_reserva.php">
                 <i class='bx bx-server'></i>
                 <h3>Baja</h3>
             </a>
         </div>
-
+        <?php } ?>
+        <div class="services-box">
+            <a href="reserva/solicitud_reserva.php">
+                <i class='bx bx-code-alt'></i>
+                <h3>Alta</h3>
+            </a>
+        </div>
         <div class="services-box">
             <a href="reserva/solicitud_modif.php">
                 <i class='bx bxl-android'></i>
@@ -108,6 +107,7 @@
         </div>
     </div>
 </section>
+<?php if($_SESSION['tipoUser'] == 'admin'){ ?>
 <section class="services" id="reservas">
     <div class="heading">
             <h2>Empleados</h2>
@@ -121,6 +121,7 @@
         </div>
     </div>
 </section>
+<?php } ?>
 <?php } ?>
 <section class="contact" id="contact">
     <div class="heading">
