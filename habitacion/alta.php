@@ -29,6 +29,11 @@
 </header>
 <center>
 <?php
+print_r($_POST);
+//exit();
+
+echo "<br>";
+
 if(isset($_POST['habi']) && $_POST['motivo'] == "Alta de habitacion"){//DAR DE ALTA USUARIO y validar con mail
     $piso = $_POST["piso"];
     $puerta = $_POST["puerta"];
