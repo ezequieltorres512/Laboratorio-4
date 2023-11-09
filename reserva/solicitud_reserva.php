@@ -1,6 +1,31 @@
 <?php
 session_start();
+include("../conexion.php");
+
+$telefono="";
+$apellido="";
+$nombre="";
+$email="";
+
+if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
+    $query = mysqli_query($conn," SELECT telefono, apellido, nombre, email 
+								FROM Cliente
+								WHERE id =".$_SESSION['usuario']);
+    $row = mysqli_fetch_assoc($query);
+    $telefono = $row['telefono'];
+    $apellido = $row['apellido'];
+    $nombre = $row['nombre'];
+    $email = $row['email'];   
+}
+
+//echo "<pre>"; 
+//    print_r($_SESSION);  echo "</pre>";
+//exit();
+
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,13 +63,13 @@ session_start();
                     <span>Formulario de alta de Reservas</span>
                     <input type="hidden" name="motivo" value="Alta de reserva">
                     <p>Apellido<br>
-                    <input type="text" name="ape" id="ape" required>
+                    <input type="text" name="ape" id="ape" required value = "<?php echo $apellido ?>">
                     <p>Nombre<br>
-                    <input type="text" name="nom" id="nom" required>
+                    <input type="text" name="nom" id="nom" required value = "<?php echo $nombre ?>">
                     <p>Email<br>
-                    <input type="email" name="correo" id="correo" required>
+                    <input type="email" name="correo" id="correo" required value = "<?php echo $email ?>">
                     <p>Telefono<br>
-                    <input type="number" name="tel" id="tel" required>
+                    <input type="number" name="tel" id="tel" required value = "<?php echo $telefono ?>">
                     <p>Fecha de inicio<br>
                     <input type="date" name="llegada" id="llegada" required>
                     <p>Fecha de Salida<br>
