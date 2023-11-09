@@ -120,13 +120,13 @@
             </a>
         </div>
         <div class="services-box">
-            <a href="habitacion/alta_tipo_habitacion.php">
+            <a href="habitacion/tipo_habitacion.php">
                 <i class='bx bx-code-alt'></i>
                 <h3>Alta de Tipo de habitacion</h3>
             </a>
         </div>
         <div class="services-box">
-            <a href="habitacion/alta_habitacion.php">
+            <a href="habitacion/habitacion.php">
                 <i class='bx bx-code-alt'></i>
                 <h3>Alta de habitacion</h3>
             </a>

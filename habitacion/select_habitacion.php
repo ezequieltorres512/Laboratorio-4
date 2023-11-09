@@ -5,7 +5,7 @@ $query = mysqli_query($conn,"SELECT * FROM tipohabitacion");
 $nr = mysqli_num_rows($query);
 $precios=array();
 
-echo "<select name='tipoH' id='tipoH'>";
+echo "<select name='tipoH' id='tipoH' required>";
 
 echo "<option value=''></option>";
 while($row = mysqli_fetch_assoc($query)){
@@ -22,6 +22,6 @@ if($nr == 0)
 {
 	//header("Location: login.html");
 	//echo "No ingreso"; 
-	echo "<script> alert('Error');window.location= '../index.html' </script>";
+	echo "<script> alert('Error Habitacion');window.location= '../index.php' </script>";
 }
 ?>
