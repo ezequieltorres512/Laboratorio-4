@@ -588,3 +588,10 @@ tr:nth-child(odd) {
 tr:hover {
   background-color: #e0e0e0;
 }
+.icono-redireccion {
+  width: 20px; /* Ancho de la imagen */
+  height: 20px; /* Alto de la imagen */
+  display: inline-block; /* Para que la imagen se comporte como un elemento en línea */
+  margin-right: 5px; /* Margen a la derecha para separar el icono de otros elementos */
+  /* Puedes ajustar el tamaño, margen y otros estilos según tus necesidades */
+}
