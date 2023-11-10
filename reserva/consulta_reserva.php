@@ -1,37 +1,37 @@
 <?php 
 include_once("../conexion.php");
 
-
-
-
-
 $planes=[];
+//print_r($_GET);
+/*FILTROS */
+$fid = $_GET['fId'];
+$fpersona  = $_GET['fPerso'];
+$ftipo  =  $_GET['fHabitacion'];
+$finicio= $_GET['fInicio'];
+$ffin= $_GET['fFin'];
+$fprecio= $_GET['fPrecio'];
 
-/*FILTROS
-$cod_tipo = $_GET['orden'];
-$fSolicitante  = $_GET['fSolicitante'];
-$fFecha  =  $_GET['fFecha'];
-$fTipo= $_GET['fTipo'];
-$fServicio= $_GET['fServicio'];
+$sql="SELECT * FROM reserva WHERE BAJA IS NULL ";
 
-$fContrato= $_GET['fContrato'];
-$fConsulta= $_GET['fConsulta'];
-*/
+if($fpersona)
+  $sql=$sql . " and apellido LIKE '%$fpersona%' or nombre like '%$fpersona%'";
+if($fid)
+  $sql=$sql . " and id_reserva LIKE '$fid%' ";
+if($ftipo)
+  $sql=$sql . " and tipoHabitacion LIKE '$ftipo%' ";
+if($finicio)
+    $sql=$sql . " and fecha_inicio >='".$finicio."' ";
+if($ffin)
+  $sql=$sql . " and fecha_fin ='".$ffin."' ";
+ if($fprecio)
+    $sql=$sql . " and precio LIKE '".$fprecio."%' ";
 
-$query = mysqli_query($conn,"SELECT * FROM reserva");
-/*
-  if($fRazon)
-  $sql=$sql . " and a.razon_social LIKE '".$fRazon."%' ";
-  if($fFecha)
-    $sql=$sql . " and a.fecha >= to_timestamp('".$fFecha."','YYYY/MM/DD') ";
-  if($fSolicitante)
-    $sql=$sql . " and a.usuario_solicitante LIKE '".$fSolicitante."%' ";
-  if($fTipo)
-    $sql=$sql . " and z.descripcion LIKE '%".$fTipo."%' ";
-*/
+$query = mysqli_query($conn,$sql);
+
 $nr = mysqli_num_rows($query);
 $cantidad=0;
 while($row = mysqli_fetch_assoc($query)){
+ // print_r($row);
   $objPlan = new stdClass();
   $objPlan->id=$row['id_reserva'];
   $objPlan->precio=$row['precio'];
@@ -42,10 +42,10 @@ while($row = mysqli_fetch_assoc($query)){
   $objPlan->fecha_fin=$row['fecha_fin'];
   $objPlan->habitacion=$row['habitacion'];
   $objPlan->tipoHabitacion=$row['tipoHabitacion'];
-  $objPlan->tipoHabitacion=$row['adicional'];
-  $objPlan->tipoHabitacion=$row['vendedor'];
-  $objPlan->tipoHabitacion=$row['conocidosPor'];
-  $objPlan->tipoHabitacion=$row['baja'];
+  $objPlan->adicional=$row['adicional'];
+  $objPlan->vendedor=$row['vendedor'];
+  $objPlan->conocidosPor=$row['conocidosPor'];
+  $objPlan->baja=$row['baja'];
   array_push($planes,$objPlan);
   $cantidad++;
 }
