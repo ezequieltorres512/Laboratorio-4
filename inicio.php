@@ -82,26 +82,26 @@
     <?php if($_SESSION['tipoUser'] == 'admin' || $_SESSION['tipoUser'] == 'recepcionista'){ ?>
         <div class="services-box">
             <a href="reserva/listado.php">
-                <i class='bx bx-code-alt'></i>
+                <i class='bx bx-list-ul bx-flip-vertical' ></i>
                 <h3>Listado</h3>
             </a>
         </div>
         <div class="services-box">
             <a href="reserva/solicitud_baja_reserva.php">
-                <i class='bx bx-server'></i>
+                <i class='bx bx-folder-minus' ></i>
                 <h3>Baja</h3>
             </a>
         </div>
         <?php } ?>
         <div class="services-box">
             <a href="reserva/solicitud_reserva.php">
-                <i class='bx bx-code-alt'></i>
+                <i class='bx bx-folder-plus bx-tada' ></i>
                 <h3>Alta</h3>
             </a>
         </div>
         <div class="services-box">
             <a href="reserva/solicitud_modif.php">
-                <i class='bx bxl-android'></i>
+                <i class='bx bx-edit' ></i>
                 <h3>Modificacion</h3>
             </a>
         </div>
@@ -115,19 +115,19 @@
     <div class="services-content">
         <div class="services-box">
             <a href="usuario/alta_empleado.php">
-                <i class='bx bx-code-alt'></i>
+                <i class='bx bx-child' ></i>
                 <h3>Alta de Empleado</h3>
             </a>
         </div>
         <div class="services-box">
             <a href="habitacion/tipo_habitacion.php">
-                <i class='bx bx-code-alt'></i>
+                <i class='bx bx-bookmark-plus'></i>
                 <h3>Alta de Tipo de habitacion</h3>
             </a>
         </div>
         <div class="services-box">
             <a href="habitacion/habitacion.php">
-                <i class='bx bx-code-alt'></i>
+                <i class='bx bx-buildings' ></i>
                 <h3>Alta de habitacion</h3>
             </a>
         </div>
