@@ -61,6 +61,8 @@
             echo " ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
             if($_SESSION["tipoUser"] != "cliente"){
                 echo " (".$_SESSION["tipoUser"].")";
+            }else{
+                //CONSULTA PARA SABER LA CANTIDAD DE RESERVAS POSEE Y HACER EL CONDICIONAL EN LA SECCION DE MODIF
             }
         }
         ?>

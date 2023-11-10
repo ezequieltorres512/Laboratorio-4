@@ -32,9 +32,13 @@ session_start();
     </ul>
 </header>
 <?php if( !isset($_POST['id_seleccionado']) ){
-        echo "<pre>"; 
-        print_r($_POST);
-        echo "</pre>";
+        // echo "<br>";
+        // echo "<br>";
+        // echo "<br>";
+        // echo "<br>";
+        // echo "<pre>"; 
+        // print_r($_POST);
+        // echo "</pre>";
         ?>
     <section class="about" id="about">
         <form action="solicitud_modif.php" method="post">
@@ -55,6 +59,10 @@ session_start();
     </section>
 <?php }?>
 <?php if( isset($_POST['id_seleccionado']) ){ 
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
     echo "<pre>"; 
     print_r($_POST);
     echo "</pre>";
