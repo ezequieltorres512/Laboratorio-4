@@ -22,13 +22,11 @@
 
     <ul class="navbar">
         <li><a href="#home">Inicio</a></li>
-        <?php if(isset($_SESSION['usuario'])){ ?>
-           
-       
-            <li><a href="#about">Reservas</a></li>
-            <li><a href="#skills">Instalaciones</a></li>
+        <?php if(isset($_SESSION['usuario'])){ ?>   
             <li><a href="#reservas">Reservas</a></li>
         <?php } ?>
+        <li><a href="sobrenosotros.php#galeria">Galeria</a></li>
+        <li><a href="sobrenosotros.php">Sobre Nosotros</a></li>
         <li><a href="#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
         <?php if(isset($_SESSION['usuario'])){ ?>
@@ -47,9 +45,11 @@
         <a href="#"><i class='bx bxl-instagram'></i></a>
         <a href="#"><i class='bx bxl-facebook'></i></a>
     </div>
+
     <div class="home-img">
-        <img src="/Foto.jpg" alt="">
+        <img src="imagenes/habitacion.jpg" alt="imagen habitacion inicio">
     </div>
+
     <div class="home-text">
         <h1>La 7ma esta feliz de recibirlos</h1>
         <h2>Somos un Hotel hermoso</h2>
@@ -67,7 +67,7 @@
 
         </h3>
         <p>Te invito a que conozcas mas sobre nuestros servicios<br> <br>
-        <a href="#" class="btn">Descargar</a>
+        <a href="sobrenosotros.php" class="btn">SOBRE NOSOTROS</a>
         
     </div>
 </section>
@@ -138,18 +138,18 @@
 <section class="contact" id="contact">
     <div class="heading">
         <h2>Contacto</h2>
-  
-    </div>
-    <div class="contact-form">
-        <form action="comentario/comentario.php" method='post'>
-            <input type="hidden" name="motivo" value="Consulta cargada">
-            <input type="text" name='nombre 'placeholder="Tu nombre">
-            <input type="email" name="correo" id="" placeholder="Tu email">
-            <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu comentario que me contacto a la brevedad"></textarea>
-                <input type='submit'  class="btn"></input>
 
-        </form>
     </div>
+        <div class="contact-form">
+            <form action="comentario/comentario.php" method='post'>
+                <input type="hidden" name="motivo" value="Consulta cargada">
+                <input type="text" name='nombre 'placeholder="Tu nombre">
+                <input type="email" name="correo" id="" placeholder="Tu email">
+                <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu comentario que me contacto a la brevedad"></textarea>
+                    <input type='submit'  class="btn"></input>
+
+            </form>
+        </div>
 </section>
                            
     <div class="footer">

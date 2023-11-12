@@ -32,7 +32,7 @@
       </header>
       <section class="home" id="home">
             <div class="home-img">
-                  <img src="../imagenes/Foto.jpg" alt="">
+                  <img src="../imagenes/penthouse.jpg" alt="foto patio">
             </div>
             <div class="home-text">
 

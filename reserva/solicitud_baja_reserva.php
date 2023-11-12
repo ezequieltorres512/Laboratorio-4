@@ -41,7 +41,13 @@ session_start();
                   <h1>Formulario baja de Reservas</h1>
                   <br>
                   <span>Lista de solicitudes</span>
+   
+
                   <?php
+                                    echo "<pre>"; 
+                                    print_r($_SESSION);  echo "</pre>";
+                                    
+                                    exit(); 
                     require("lista_reserva.php");
                   ?>
                   <p>Seleccione Nro. de reserva a dar de Baja: </p>
