@@ -17,22 +17,21 @@
 <body>
       
       <header>
-      <a href="#" class="logo">La 7ma <span>Hotel</span></a>
+        <a href="../inicio.php" class="logo">La 7ma <span>Hotel</span></a>
 
-      <div class="bx bx-menu" id="menu-icon"></div>
+        <div class="bx bx-menu" id="menu-icon"></div>
 
-      <ul class="navbar">
-            <li><a href="#home">Inicio</a></li>
-            <li><a href="#about">Reservas</a></li>
-            <li><a href="#skills">Instalaciones</a></li>
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="#contact">Contacto</a></li>
+        <ul class="navbar">
+            <li><a href="../inicio.php">Inicio</a></li>
+            <li><a href="../sobrenosotros.php#galeria">Galeria</a></li>
+            <li><a href="../sobrenosotros.php">Sobre Nosotros</a></li>
+            <li><a href="../inicio.php#contact">Contacto</a></li>
             <div class="bx bx-moon" id="darkmode"></div>
-      </ul>
-      </header>
+        </ul>
+    </header>
       <section class="home" id="home">
             <div class="home-img">
-                  <img src="../imagenes/penthouse.jpg" alt="foto patio">
+                  <img src="../imagenes/penthouse.jpg" alt="foto penthouse">
             </div>
             <div class="home-text">
 
