@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../check.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,47 +32,36 @@ session_start();
         <div class="bx bx-moon" id="darkmode"></div>
     </ul>
 </header>
-<?php if( !isset($_POST['id_seleccionado']) ){
-        ?>
+<?php 
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";?>
     <section class="about" id="about">
         <form action="update_reserva.php" method="post">
             <div class="about-container">
                 <div class="about-text">
                     <div class="home-text">
-                        <span>Modificacion de Reservas</span>
-                        <!-- <input type="hidden" name="id_seleccionado" value="Alta de reserva"> -->
-                        <p>Seleccione el ID de la reserva</p>
-                        <?php
-                            require("select_reservas.php");
-                        ?>
-                        <p>Fecha de Inicio</p>
-                        <input type="checkbox" name="fInicio" id="fInicio" onchange="habilitarInput('fInicio')">
-                        <p>Fecha de Salida</p>
-                        <input type="checkbox" name="fFin" id="fFin" onchange="habilitarInput('fFin')">
-                        <p>Tipo de Habitacion</p>
-                        <input type="checkbox" name="tHabi" id="tHabi" onchange="habilitarInput()">
-                    </div>
-                </div>
-                <div class="about-text">
-                    <div class="home-text">
-                        <span id="span" hidden>Ingresos de la Modificacion</span>
+                        <span id="span">Ingresos de la Modificacion</span>
                         <input type="hidden" name="motivo" value="Modificacion de reserva">
-                        <p id="fIniciop" hidden>Fecha de inicio</p>
-                        <input type="date" name="fInicioI" id="fInicioI" hidden>
-                        <p id="fFinp" hidden>Fecha de Salida</p>
-                        <input type="date" name="fFinI" id="fFinI" hidden>
-                        <p id="tHabip" hidden>Seleccione el tipo de habitacion
+                        <p id="fIniciop">Fecha de inicio</p>
+                        <input type="date" name="fInicioI" id="fInicioI">
+                        <p id="fFinp">Fecha de Salida</p>
+                        <input type="date" name="fFinI" id="fFinI">
+                        <p id="tHabip">Seleccione el tipo de habitacion
                         <?php
                             require("../habitacion/select_habitacion.php");
                         ?></p>
-                        <p id="pPrecio" hidden>Precio: <input type="text" id="precio" name="precio" hidden></p>
-                    <input type="submit" id="submit" hidden>
+                        <p id="pPrecio">Precio: <input type="text" id="precio" name="precio"></p>
+                    <input type="submit" id="submit">
                     </div>
                 </div>
             </div>
         </form>
     </section>
-    <script>
+    <!-- <script>
     function habilitar() {
         var submit = document.getElementById('submit');
         var span = document.getElementById('span');
@@ -125,8 +115,7 @@ session_start();
     }
         habilitar();
     }
-    </script>
+    </script> -->
     <script src="../js/script.js"></script>
-<?php }?>
 </body>
 </html>

@@ -179,6 +179,27 @@ function CargarTabla(){
                     newImg.setAttribute("src","../imagenes/editar.png");
                     newImg.setAttribute("class","icono-redireccion");
                     newImg.setAttribute("alt","Editar registro");
+                    newImg.addEventListener("click", function() {
+
+                        var form = document.createElement("form");
+                        form.setAttribute("method", "post");
+                        form.setAttribute("action", "solicitud_modif.php");
+
+                        var input1 = document.createElement("input");
+                        input1.setAttribute("type", "hidden");
+                        input1.setAttribute("name", "fecha_ini");
+                        input1.setAttribute("value", element.fecha_inicio);
+                        form.appendChild(input1);
+
+                        var input2 = document.createElement("input");
+                        input2.setAttribute("type", "hidden");
+                        input2.setAttribute("name", "fecha_fin");
+                        input2.setAttribute("value", element.fecha_fin);
+                        form.appendChild(input2);
+
+                        document.body.appendChild(form);
+                        form.submit();
+                    });
                     newCell.appendChild(newImg)
 
                     newImg = document.createElement("img");
