@@ -173,7 +173,7 @@ header.shadow {
   border-radius: 0.5rem;
 }
 
-.btn:hover {
+.btn:hover {  
   background: var(--hover);
 }
 
@@ -186,7 +186,7 @@ header.shadow {
 }
 
 .about-img img {
-  width: 80%;
+  width: 95%;
   border-radius: 0.5rem;
 }
 
@@ -594,4 +594,49 @@ tr:hover {
   display: inline-block; /* Para que la imagen se comporte como un elemento en línea */
   margin-right: 5px; /* Margen a la derecha para separar el icono de otros elementos */
   /* Puedes ajustar el tamaño, margen y otros estilos según tus necesidades */
+}
+
+
+
+.secundario{
+	margin-top: 5%;
+	display: flex;
+}
+.secundario div{
+	width: 33%;
+	padding: 2%;
+	text-align: center;
+}
+.secundario div img{
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+.contenedor-secundario{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.contenedor-secundario .tarjeta-secundario{
+  padding: 1.5%;
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+text-align:start;
+transition: all 400ms ease-out;
+cursor: default;
+  margin-bottom: 2%;
+}
+
+.contenedor-secundario .tarjeta-secundario:hover{
+  border-radius: 6px;
+  transform: translateY(-3%);
+}
+
+.tarjeta-secundario img{
+  width: 100%;
+  margin-bottom: 2rem;
 }
