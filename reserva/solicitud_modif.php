@@ -65,6 +65,10 @@ include("../check.php");
                             require("../habitacion/select_habitacion.php");
                         ?></p>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
+                        <?php if($_SESSION['tipoUser'] != 'cliente'){?>
+                        <p id="fFinp">Habitaacion</p>
+                        <input type="numbre" name="habitacion" id="habitacion">
+                        <?php }?>
                     <input type="submit" id="submit">
                     </div>
                 </div>

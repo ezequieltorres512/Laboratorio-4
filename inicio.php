@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body onload="visible('<?echo $_SESSION['tipoUser']?>');">
+<body onload="visible('<?echo $_SESSION['tipoUser']?>')">
 <header>
     <a href="#" class="logo">La 7ma <span>Hotel</span></a>
 
