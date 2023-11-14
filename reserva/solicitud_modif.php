@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../check.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,53 +41,66 @@ session_start();
             <?php } ?>
     </ul>
 </header>
-<?php if( !isset($_POST['id_seleccionado']) ){?>
+<?php 
+// echo "<br>";
+// echo "<br>";
+// echo "<br>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
+?>
     <section class="about" id="about">
-        <form action="solicitud_modif.php" method="post">
+        <form action="update_reserva.php" method="post">
             <div class="about-container">
                 <div class="about-text">
                     <div class="home-text">
-                        <span>Modificacion de Reservas</span>
-                        <!-- <input type="hidden" name="id_seleccionado" value="Alta de reserva"> -->
-                        <p>Seleccione el ID de la reserva<br>
+                        <span id="span">Ingresos de la Modificacion</span>
+                        <input type="hidden" name="motivo" value="Modificacion de reserva">
+                        <p id="fIniciop">Fecha de inicio</p>
+                        <input type="date" name="fInicioI" id="fInicioI" value="<?php echo $_POST['fecha_ini']?>">
+                        <p id="fFinp">Fecha de Salida</p>
+                        <input type="date" name="fFinI" id="fFinI" value="<?php echo $_POST['fecha_fin']?>">
+                        <p id="tHabip">Seleccione el tipo de habitacion
                         <?php
-                            require("select_reservas.php");
-                        ?>
-                        <input type="submit">
+                            require("../habitacion/select_habitacion.php");
+                        ?></p>
+                        <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
+                    <input type="submit" id="submit">
                     </div>
                 </div>
             </div>
         </form>
     </section>
-<?php }?>
-<?php if( isset($_POST['id_seleccionado']) ){ print_r($_POST);?>
-    <section class="about" id="about">
-        <form action="update_reserva.php" method="post">
-        <div class="about-container">
-            <div class="about-text">
-                <div class="home-text">
-                    <span>Formulario de modificacion de Reservas</span>
-                    <input type="hidden" name="motivo" value="Modificacion de reserva">
-                    <input type="hidden" name="id_reserva" value="<?php echo $_POST['id_seleccionado']?>">
-                    <p>Fecha de inicio<br>
-                    <input type="date" name="llegada" id="llegada" required>
-                    <p>Fecha de Salida<br>
-                    <input type="date" name="salida" id="salida" required>
-                    <p>Seleccione el tipo de habitacion<br>
-                    <?php
-                        require("../habitacion/select_habitacion.php");
-                    ?>
-                    <p>Precio: <input type="number" id="precio" name="precio" readonly></p>
-                    <input type="text" name="origen" id="origen" value="8" hidden>
-                    <input type="submit">
-                </div>
-            </div>
-        </div>
-        </form>
-    </section>
-    <script src="../js/script.js"></script>
-<script>
-    const llegadaInput = document.getElementById('llegada');
+    <!-- <script>
+    function habilitar() {
+        var submit = document.getElementById('submit');
+        var span = document.getElementById('span');
+        var checkbox1 = document.getElementById('tHabi');
+        var checkbox2 = document.getElementById('fInicio');
+        var checkbox3 = document.getElementById('fFin');
+
+        submit.hidden = !(checkbox1.checked || checkbox2.checked || checkbox3.checked);
+        span.hidden = !(checkbox1.checked || checkbox2.checked || checkbox3.checked);
+    }
+    function habilitarInput(inputId) {            
+       if(inputId){ var checkbox1 = document.getElementById(inputId);
+        var input = document.getElementById(inputId+"I");
+        var p = document.getElementById(inputId+"p");
+
+        input.hidden = !checkbox1.checked;
+        p.hidden = !checkbox1.checked;
+    }else{
+        var checkbox3 = document.getElementById('tHabi');
+        var inputTH = document.getElementById("tipoH");
+        var pTH = document.getElementById("tHabip");
+        var precio = document.getElementById("precio");
+        var pPrecio = document.getElementById("pPrecio");
+
+        inputTH.hidden = !checkbox3.checked;
+        pTH.hidden = !checkbox3.checked;
+        pPrecio.hidden = !checkbox3.checked;
+        precio.hidden = !checkbox3.checked;
+        const llegadaInput = document.getElementById('llegada');
     const salidaInput = document.getElementById('salida');
     const tipoHInput = document.getElementById('tipoH');
     const precioElement = document.getElementById('precio');
@@ -108,7 +122,10 @@ session_start();
         const precioTotal = precio * numeroDias;
         precioElement.value  = `$${precioTotal}`;
     }
-</script>
-<?php }?>
+    }
+        habilitar();
+    }
+    </script> -->
+    <script src="../js/script.js"></script>
 </body>
 </html>

@@ -51,22 +51,31 @@
     </div>
 
     <div class="home-text">
-        <h1>La 7ma esta feliz de recibirlos</h1>
-        <h2>Somos un Hotel hermoso</h2>
+        <h1>Bienvenidos a La 7ma Hotel</h1>
+        <h2>Ubicado en el centro de la ciudad con un diseño urbano, moderno y de vanguardia. Ofrecemos instalaciones de primer nivel para su estadía de negocios o placer. </h2>
         <h3>
         <?php
         echo "Bienvenido";
-        
+        $mostrarModificacion = false;
         if(isset($_SESSION["nombre"])){
             echo " ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
             if($_SESSION["tipoUser"] != "cliente"){
                 echo " (".$_SESSION["tipoUser"].")";
+                $mostrarModificacion = true;
+            }else{
+                include_once("conexion.php");
+                $sql = "SELECT * FROM reserva WHERE id_usuario = ".$_SESSION["usuario"];
+                $query = mysqli_query($conn, $sql);
+                $cantidadReservas = mysqli_num_rows($query);
+                if($cantidadReservas > 0){
+                    $mostrarModificacion = true;
+                }
             }
         }
         ?>
 
         </h3>
-        <p>Te invito a que conozcas mas sobre nuestros servicios<br> <br>
+        <p>Los invitamos a conocer mas sobre nuestros servicios<br> <br>
         <a href="sobrenosotros.php" class="btn">SOBRE NOSOTROS</a>
         
     </div>
@@ -99,12 +108,14 @@
                 <h3>Alta</h3>
             </a>
         </div>
+        <?php if($mostrarModificacion === true){ ?>        
         <div class="services-box">
-            <a href="reserva/solicitud_modif.php">
+            <a href="reserva/listado.php">
                 <i class='bx bx-edit' ></i>
                 <h3>Modificacion</h3>
             </a>
         </div>
+        <?php } ?>    
     </div>
 </section>
 <?php if($_SESSION['tipoUser'] == 'admin'){ ?>
@@ -134,7 +145,8 @@
     </div>
 </section>
 <?php } ?>
-<?php } ?>
+<?php }
+if($_SESSION["tipoUser"] == "cliente"){ ?>
 <section class="contact" id="contact">
     <div class="heading">
         <h2>Contacto</h2>
@@ -151,7 +163,7 @@
             </form>
         </div>
 </section>
-                           
+<?php } ?>                     
     <div class="footer">
         <h2>Redes Sociales</h2>
         <div class="footer-social">

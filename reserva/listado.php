@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../check.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,8 @@ session_start();
     </ul>
 </header>
 <section class="about" id="about">
-
+    <?php 
+    ?>
     <div id="mayor" style='margin-top:2%'>		            
 			<h2>Listado de solicitudes 
 				<select name="tipo_solicitud" id="tipo_solicitud">
@@ -42,12 +44,13 @@ session_start();
 				<option value="2">CONFIRMADAS</option>
 				<option value="3">ELIMINADAS</option>
 				</select>
+                <input id='cliente' value="<?php if($_SESSION['tipoUser'] == 'cliente') echo $_SESSION['usuario'];?>" ></input>				
 				<button id="mostrar"><label for="mostrar"></label><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
 				<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
 				<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
 				</svg></button>
 			</h2>
-
+            
 			<table id="">
 				<tr id="">
 						<th><button class="" disabled>ID</button></th>
@@ -93,6 +96,7 @@ var bodyt = document.getElementById("conttabla");
 var newRow;
 var newCell;
 function CargarTabla(){
+    //alert($("#cliente").val());
     $("#conttabla").empty(); 
     $("#conttabla").append("<h2>Esperando respuesta ...</h2>");
     var request = $.ajax({
@@ -120,10 +124,11 @@ function CargarTabla(){
                 fHabitacion: $("#fTipo").val(), 
                 fInicio: $("#fInicio").val(), 
                 fFin: $("#fFin").val(),
-                fPrecio: $("#fPrecio").val(), 
+                fPrecio: $("#fPrecio").val(),
+                id : $("#cliente").val(),
             },
             success: function(respuestaDelServer,estado) {
-                //alert(estado+"->"+respuestaDelServer);
+                alert(estado+"->"+respuestaDelServer);
                 $('#conttabla').empty();
                 objJson=JSON.parse(respuestaDelServer);
                 let isGray = true;
@@ -174,12 +179,67 @@ function CargarTabla(){
                     newImg.setAttribute("src","../imagenes/editar.png");
                     newImg.setAttribute("class","icono-redireccion");
                     newImg.setAttribute("alt","Editar registro");
+                    newImg.addEventListener("click", function() {
+
+                        var form = document.createElement("form");
+                        form.setAttribute("method", "post");
+                        form.setAttribute("action", "solicitud_modif.php");
+
+                        var input1 = document.createElement("input");
+                        input1.setAttribute("type", "hidden");
+                        input1.setAttribute("name", "fecha_ini");
+                        input1.setAttribute("value", element.fecha_inicio);
+                        form.appendChild(input1);
+
+                        var input2 = document.createElement("input");
+                        input2.setAttribute("type", "hidden");
+                        input2.setAttribute("name", "fecha_fin");
+                        input2.setAttribute("value", element.fecha_fin);
+                        form.appendChild(input2);
+
+                        var input3 = document.createElement("input");
+                        input3.setAttribute("type", "hidden");
+                        input3.setAttribute("name", "id_reserva");
+                        input3.setAttribute("value", element.id);
+                        form.appendChild(input3);
+
+                        var input4 = document.createElement("input");
+                        input4.setAttribute("type", "hidden");
+                        input4.setAttribute("name", "tipo_hab");
+                        input4.setAttribute("value", element.tipoHabitacion);
+                        form.appendChild(input4);
+
+                        var input5 = document.createElement("input");
+                        input5.setAttribute("type", "hidden");
+                        input5.setAttribute("name", "precio");
+                        input5.setAttribute("value", element.precio);
+                        form.appendChild(input5);
+
+                        document.body.appendChild(form);
+                        form.submit();
+                    });
                     newCell.appendChild(newImg)
 
                     newImg = document.createElement("img");
                     newImg.setAttribute("src","../imagenes/eliminar.jpg");
                     newImg.setAttribute("class","icono-redireccion");
                     newImg.setAttribute("alt","Eliminar registro");
+                    newImg.addEventListener("click", function() {
+                    if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
+                        var form = document.createElement("form");
+                        form.setAttribute("method", "post");
+                        form.setAttribute("action", "baja_reserva.php");
+
+                        var input1 = document.createElement("input");
+                        input1.setAttribute("type", "hidden");
+                        input1.setAttribute("name", "reservas");
+                        input1.setAttribute("value", element.id);
+                        form.appendChild(input1);
+
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
+                    });
                     newCell.appendChild(newImg)
                     newRow.appendChild(newCell);
 
@@ -227,6 +287,9 @@ function CargarTabla(){
     Cargar.onclick = function() {
       CargarTabla();
     }
+    document.addEventListener("DOMContentLoaded", function() {
+        CargarTabla();
+    });
 
 </script>
 

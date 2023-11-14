@@ -1,8 +1,19 @@
 <?php
 //session_start();
 include_once("../conexion.php");
-$where = ($_SESSION['tipoUser'] = 'cliente')? 'WHERE id_usuario = '.$_SESSION['usuario'] :''; 
-$query = mysqli_query($conn,"SELECT * FROM reserva $where order by fecha_inicio asc");
+// echo "<br>";
+// echo "<br>";
+// echo "<br>";
+// echo "<br>";
+// echo "<pre>"; 
+// print_r($_SESSION);
+// echo "</pre>";
+
+$where = ($_SESSION['tipoUser'] == 'cliente')? 'WHERE id_usuario = '.$_SESSION['usuario'] :''; 
+$sql = "SELECT * FROM reserva $where order by fecha_inicio asc";
+// echo "$sql";
+$query = mysqli_query($conn,$sql);
+
 $nr = mysqli_num_rows($query);
 $precios=array();
 
