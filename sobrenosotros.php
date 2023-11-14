@@ -56,10 +56,9 @@ session_start();
         
         <div class="home-text">
             <h1>Sobre Nosotros</h1>
-            <h2>Somos un Hotel hermoso ubicado cómodamente cerca a Plaza de Mayo, Obelisco de Buenos Aires</h2>
-            <p>Un establecimiento con más de 30 años de experiencia, en el servicio al turismo, que siempre busca innovar y acompañar los cambios constantes que nos exigen estos tiempos.</p>
-            <p>Para no quedarse sin alojamiento por la noche, use nuestro sitio para reservación online la 7ma Hotel by Design. Son los precios más bajos, tampoco son presentes los cargos adicionales.</p>
-            <h3>Desde la ventana hay una hermosa vista a la ciudad.</h3>
+            <h2>Ubicado estratégicamente cerca de Plaza de Mayo, ciudad de Buenos Aires.</h2>
+            <p>Con más de 30 años de experiencia, se destaca por ofrecer un servicio turístico de calidad y por su continua búsqueda de innovación para adaptarse a los cambios de la actualidad.</p>
+            <p>Asegúrese de garantizar su alojamiento utilizando nuestro sitio de reservas en línea, La 7ma Hotel by Design. Ofrecemos las tarifas más competitivas, sin cargos adicionales sorpresa.</p>
         </div>
 
     </section>
