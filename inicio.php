@@ -56,11 +56,20 @@
         <h3>
         <?php
         echo "Bienvenido";
-        
+        $mostrarModificacion = false;
         if(isset($_SESSION["nombre"])){
             echo " ".$_SESSION["nombre"]." ".$_SESSION["apellido"];
             if($_SESSION["tipoUser"] != "cliente"){
                 echo " (".$_SESSION["tipoUser"].")";
+                $mostrarModificacion = true;
+            }else{
+                include_once("conexion.php");
+                $sql = "SELECT * FROM reserva WHERE id_usuario = ".$_SESSION["usuario"];
+                $query = mysqli_query($conn, $sql);
+                $cantidadReservas = mysqli_num_rows($query);
+                if($cantidadReservas > 0){
+                    $mostrarModificacion = true;
+                }
             }
         }
         ?>
@@ -99,12 +108,14 @@
                 <h3>Alta</h3>
             </a>
         </div>
+        <?php if($mostrarModificacion === true){ ?>        
         <div class="services-box">
-            <a href="reserva/solicitud_modif.php">
+            <a href="reserva/listado.php">
                 <i class='bx bx-edit' ></i>
                 <h3>Modificacion</h3>
             </a>
         </div>
+        <?php } ?>    
     </div>
 </section>
 <?php if($_SESSION['tipoUser'] == 'admin'){ ?>
