@@ -33,12 +33,13 @@ include("../check.php");
     </ul>
 </header>
 <?php 
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";?>
+// echo "<br>";
+// echo "<br>";
+// echo "<br>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
+?>
     <section class="about" id="about">
         <form action="update_reserva.php" method="post">
             <div class="about-container">
@@ -47,14 +48,14 @@ echo "</pre>";?>
                         <span id="span">Ingresos de la Modificacion</span>
                         <input type="hidden" name="motivo" value="Modificacion de reserva">
                         <p id="fIniciop">Fecha de inicio</p>
-                        <input type="date" name="fInicioI" id="fInicioI">
+                        <input type="date" name="fInicioI" id="fInicioI" value="<?php echo $_POST['fecha_ini']?>">
                         <p id="fFinp">Fecha de Salida</p>
-                        <input type="date" name="fFinI" id="fFinI">
+                        <input type="date" name="fFinI" id="fFinI" value="<?php echo $_POST['fecha_fin']?>">
                         <p id="tHabip">Seleccione el tipo de habitacion
                         <?php
                             require("../habitacion/select_habitacion.php");
                         ?></p>
-                        <p id="pPrecio">Precio: <input type="text" id="precio" name="precio"></p>
+                        <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
                     <input type="submit" id="submit">
                     </div>
                 </div>

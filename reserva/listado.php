@@ -197,6 +197,24 @@ function CargarTabla(){
                         input2.setAttribute("value", element.fecha_fin);
                         form.appendChild(input2);
 
+                        var input3 = document.createElement("input");
+                        input3.setAttribute("type", "hidden");
+                        input3.setAttribute("name", "id_reserva");
+                        input3.setAttribute("value", element.id);
+                        form.appendChild(input3);
+
+                        var input4 = document.createElement("input");
+                        input4.setAttribute("type", "hidden");
+                        input4.setAttribute("name", "tipo_hab");
+                        input4.setAttribute("value", element.tipoHabitacion);
+                        form.appendChild(input4);
+
+                        var input5 = document.createElement("input");
+                        input5.setAttribute("type", "hidden");
+                        input5.setAttribute("name", "precio");
+                        input5.setAttribute("value", element.precio);
+                        form.appendChild(input5);
+
                         document.body.appendChild(form);
                         form.submit();
                     });
