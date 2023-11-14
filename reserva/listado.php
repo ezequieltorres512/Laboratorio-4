@@ -224,6 +224,22 @@ function CargarTabla(){
                     newImg.setAttribute("src","../imagenes/eliminar.jpg");
                     newImg.setAttribute("class","icono-redireccion");
                     newImg.setAttribute("alt","Eliminar registro");
+                    newImg.addEventListener("click", function() {
+                    if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
+                        var form = document.createElement("form");
+                        form.setAttribute("method", "post");
+                        form.setAttribute("action", "baja_reserva.php");
+
+                        var input1 = document.createElement("input");
+                        input1.setAttribute("type", "hidden");
+                        input1.setAttribute("name", "reservas");
+                        input1.setAttribute("value", element.id);
+                        form.appendChild(input1);
+
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
+                    });
                     newCell.appendChild(newImg)
                     newRow.appendChild(newCell);
 
@@ -271,6 +287,9 @@ function CargarTabla(){
     Cargar.onclick = function() {
       CargarTabla();
     }
+    document.addEventListener("DOMContentLoaded", function() {
+        CargarTabla();
+    });
 
 </script>
 
