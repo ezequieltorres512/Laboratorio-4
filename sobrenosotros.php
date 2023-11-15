@@ -28,7 +28,9 @@ session_start();
             <?php } ?>
             <li><a href="#galeria">Galeria</a></li>
             <li><a href="#">Sobre Nosotros</a></li>
-            <li><a href="index.php#contact">Contacto</a></li>
+            <?php if($_SESSION["tipoUser"] == "cliente"){?>
+                <li><a href="index.php#contact">Contacto</a></li>
+            <?php } ?>
             <div class="bx bx-moon" id="darkmode"></div>
             <?php if(isset($_SESSION['usuario'])){ ?>
                 <li><a href="usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
