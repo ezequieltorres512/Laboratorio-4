@@ -58,11 +58,11 @@ while($row = mysqli_fetch_assoc($query)){
   $objPlan->conocidosPor=$row['conocidosPor'];
   $objPlan->baja=$row['baja'];
   if($row['habitacion'] == '' && $row['baja'] == ''){
-    $estado="PENDIENTE";
+    $estado="PENDIENTE ";
   }elseif($row['habitacion'] != '' && $row['baja'] == ''){
     $estado="CONFIRMADA";
   }elseif($row['baja']!=''){
-    $estado="ELIMINADA";
+    $estado="ELIMINADA ";
   }
   $objPlan->estado=$estado;
   array_push($planes,$objPlan);
