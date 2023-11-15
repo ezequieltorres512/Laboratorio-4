@@ -22,20 +22,22 @@ session_start();
         <div class="bx bx-menu" id="menu-icon"></div>
 
         <ul class="navbar">
-            <li><a href="inicio.php">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <?php if(isset($_SESSION['usuario'])){ ?>   
-                <li><a href="inicio.php#reservas">Reservas</a></li>
+                <li><a href="index.php#reservas">Reservas</a></li>
             <?php } ?>
             <li><a href="#galeria">Galeria</a></li>
             <li><a href="#">Sobre Nosotros</a></li>
-            <li><a href="inicio.php#contact">Contacto</a></li>
+            <?php if($_SESSION["tipoUser"] == "cliente"){?>
+                <li><a href="index.php#contact">Contacto</a></li>
+            <?php } ?>
             <div class="bx bx-moon" id="darkmode"></div>
             <?php if(isset($_SESSION['usuario'])){ ?>
                 <li><a href="usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
             <?php }
         if(!isset($_SESSION['usuario'])){
            // print_r($_SESSION);?>
-                <li><a href="index.php">Iniciar Sesion</a></li>
+                <li><a href="inicio.php">Iniciar Sesion</a></li>
         <?php } ?>
 
 

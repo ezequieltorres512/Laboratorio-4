@@ -44,6 +44,6 @@ echo "</table>";
 // {
 // 	//header("Location: login.html");
 // 	//echo "No ingreso"; 
-// 	echo "<script> alert('No hay Solicitudes de Reservas Pendientes!!');window.location= '../inicio.php' </script>";
+// 	echo "<script> alert('No hay Solicitudes de Reservas Pendientes!!');window.location= '../index.php' </script>";
 // }
 // ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../conexion.php");
-
+include("../check.php");
 $telefono="";
 $apellido="";
 $nombre="";
@@ -41,25 +41,25 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
 <body onload="alta()">
  
 <header>
-    <a href="../inicio.php" class="logo">La 7ma <span>Hotel</span></a>
+    <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
 
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
 
-        <li><a href="../inicio.php">Inicio</a></li>
+        <li><a href="../index.php">Inicio</a></li>
 
         <!-- <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>
         <li><a href="#services">Servicios</a></li>
         <li><a href="#contact">Contacto</a></li> -->
         <?php if(isset($_SESSION['usuario'])){ ?>   
-                <li><a href="../inicio.php#reservas">Reservas</a></li>
+                <li><a href="../index.php#reservas">Reservas</a></li>
             <?php } ?>
             <li><a href="../sobrenosotros.php#galeria">Galeria</a></li>
             <li><a href="../sobrenosotros.php#">Sobre Nosotros</a></li>
             <?php if($_SESSION["tipoUser"] == "cliente"){?>
-                <li><a href="../inicio.php#contact">Contacto</a></li>
+                <li><a href="../index.php#contact">Contacto</a></li>
             <?php } ?>
             <div class="bx bx-moon" id="darkmode"></div>
             <?php if(isset($_SESSION['usuario'])){ ?>

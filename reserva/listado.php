@@ -24,7 +24,7 @@ include("../check.php");
 
     <ul class="navbar">
 
-        <li><a href="../inicio.php">Inicio</a></li>
+        <li><a href="../index.php">Inicio</a></li>
 
         <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>
@@ -44,24 +44,25 @@ include("../check.php");
 				<option value="2">CONFIRMADAS</option>
 				<option value="3">ELIMINADAS</option>
 				</select>
+                <input type="hidden" id="cliente" value="<?php if($_SESSION['tipoUser'] == 'cliente') echo $_SESSION['usuario'];?>">
 			</h2>
             
 			<table id="">
 				<tr id="">
-						<th><button class="" disabled>ID</button></th>
-						<th><button class="" disabled>Nombre y Apellido</button></th>
-						<th><button class="" disabled>Fecha inicio</button></th>
-						<th><button class="" disabled>Fecha finalizacion</button></th>
-						<th><button class="" disabled>Precio</button></th>
-                        <th><button class="" disabled>Tipo Habitacion</button></th>
-						<th><button class="" disabled>Estado</button></th>				
+						<th><label class="" disabled>ID</label></th>
+						<th><label class="" disabled>Nombre y Apellido</label></th>
+						<th><label class="" disabled>Fecha inicio</label></th>
+						<th><label class="" disabled>Fecha finalizacion</label></th>
+						<th><label class="" disabled>Precio</label></th>
+                        <th><label class="" disabled>Tipo Habitacion</label></th>
+						<th><label class="" disabled>Estado</label></th>				
 				</tr>
                 <tr>
-						<td ><input class="" id="fId" type='text' placeholder="Filtro ID"></input></td>
+						<td ><input style='width:55px;' class="" id="fId" type='text' placeholder="Filtro ID"></input></td>
 						<td ><input class="" id="fPerso" type='text' placeholder="Filtro Nombre"></input></td>
 						<td ><input class="" id="fInicio" type='date' placeholder="Filtro inicio"></input></td>
                         <td ><input class="" id="fFin" type='date' placeholder="Filtro fin"></input></td>
-						<td ><input class="" id="fPrecio" type='text' placeholder="Filtro Precio $$"></input></td>
+						<td ><input  style='width:65px;' class="" id="fPrecio" type='text' placeholder="Precio $$"></input></td>
                         <td ><input class="" id="fTipo" type='text' placeholder="Filtro Habitacion"></input></td>
 						<td ><input  class="" id='colorfondo' disabled></input></td>				
 				</tr>
@@ -167,7 +168,7 @@ function CargarTabla(){
 
                     newCell = document.createElement("td");
                     newCell.setAttribute("campo-dato", "tipo_hab")
-                    newCell.innerHTML = element.tipoHabitacion;
+                    newCell.innerHTML = element.titulo;
                     newRow.appendChild(newCell);
 
                     newCell = document.createElement("td");
@@ -177,76 +178,76 @@ function CargarTabla(){
                     newCell.appendChild(newspan);
                     newCell.setAttribute("campo-dato", "estado")
                     
+                    if(element.estado == 'PENDIENTE'){
+                        newImg = document.createElement("img");
+                        newImg.setAttribute("src","../imagenes/eliminar.jpg");
+                        newImg.setAttribute("class","icono-redireccion");
+                        newImg.setAttribute("alt","Eliminar registro");
+                        newImg.setAttribute("style","float:right;");
+                        newImg.addEventListener("click", function() {
+                        if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
+                            var form = document.createElement("form");
+                            form.setAttribute("method", "post");
+                            form.setAttribute("action", "baja_reserva.php");
 
-                    newImg = document.createElement("img");
-                    newImg.setAttribute("src","../imagenes/eliminar.jpg");
-                    newImg.setAttribute("class","icono-redireccion");
-                    newImg.setAttribute("alt","Eliminar registro");
-                    newImg.setAttribute("style","float:right;");
-                    newImg.addEventListener("click", function() {
-                    if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
-                        var form = document.createElement("form");
-                        form.setAttribute("method", "post");
-                        form.setAttribute("action", "baja_reserva.php");
+                            var input1 = document.createElement("input");
+                            input1.setAttribute("type", "hidden");
+                            input1.setAttribute("name", "reservas");
+                            input1.setAttribute("value", element.id);
+                            form.appendChild(input1);
 
-                        var input1 = document.createElement("input");
-                        input1.setAttribute("type", "hidden");
-                        input1.setAttribute("name", "reservas");
-                        input1.setAttribute("value", element.id);
-                        form.appendChild(input1);
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
+                        });
+                        newCell.appendChild(newImg)
+                        
+                        newImg = document.createElement("img");
+                        newImg.setAttribute("src","../imagenes/editar.png");
+                        newImg.setAttribute("class","icono-redireccion");
+                        newImg.setAttribute("alt","Editar registro");
+                        newImg.setAttribute("style","float:right;");
+                        newImg.addEventListener("click", function() {
 
-                        document.body.appendChild(form);
-                        form.submit();
-                    }
-                    });
-                    newCell.appendChild(newImg)
+                            var form = document.createElement("form");
+                            form.setAttribute("method", "post");
+                            form.setAttribute("action", "solicitud_modif.php");
 
-                    newImg = document.createElement("img");
-                    newImg.setAttribute("src","../imagenes/editar.png");
-                    newImg.setAttribute("class","icono-redireccion");
-                    newImg.setAttribute("alt","Editar registro");
-                    newImg.setAttribute("style","float:right;");
-                    newImg.addEventListener("click", function() {
+                            var input1 = document.createElement("input");
+                            input1.setAttribute("type", "hidden");
+                            input1.setAttribute("name", "fecha_ini");
+                            input1.setAttribute("value", element.fecha_inicio);
+                            form.appendChild(input1);
 
-                        var form = document.createElement("form");
-                        form.setAttribute("method", "post");
-                        form.setAttribute("action", "solicitud_modif.php");
+                            var input2 = document.createElement("input");
+                            input2.setAttribute("type", "hidden");
+                            input2.setAttribute("name", "fecha_fin");
+                            input2.setAttribute("value", element.fecha_fin);
+                            form.appendChild(input2);
 
-                        var input1 = document.createElement("input");
-                        input1.setAttribute("type", "hidden");
-                        input1.setAttribute("name", "fecha_ini");
-                        input1.setAttribute("value", element.fecha_inicio);
-                        form.appendChild(input1);
+                            var input3 = document.createElement("input");
+                            input3.setAttribute("type", "hidden");
+                            input3.setAttribute("name", "id_reserva");
+                            input3.setAttribute("value", element.id);
+                            form.appendChild(input3);
 
-                        var input2 = document.createElement("input");
-                        input2.setAttribute("type", "hidden");
-                        input2.setAttribute("name", "fecha_fin");
-                        input2.setAttribute("value", element.fecha_fin);
-                        form.appendChild(input2);
+                            var input4 = document.createElement("input");
+                            input4.setAttribute("type", "hidden");
+                            input4.setAttribute("name", "tipo_hab");
+                            input4.setAttribute("value", element.tipoHabitacion);
+                            form.appendChild(input4);
 
-                        var input3 = document.createElement("input");
-                        input3.setAttribute("type", "hidden");
-                        input3.setAttribute("name", "id_reserva");
-                        input3.setAttribute("value", element.id);
-                        form.appendChild(input3);
+                            var input5 = document.createElement("input");
+                            input5.setAttribute("type", "hidden");
+                            input5.setAttribute("name", "precio");
+                            input5.setAttribute("value", element.precio);
+                            form.appendChild(input5);
 
-                        var input4 = document.createElement("input");
-                        input4.setAttribute("type", "hidden");
-                        input4.setAttribute("name", "tipo_hab");
-                        input4.setAttribute("value", element.tipoHabitacion);
-                        form.appendChild(input4);
-
-                        var input5 = document.createElement("input");
-                        input5.setAttribute("type", "hidden");
-                        input5.setAttribute("name", "precio");
-                        input5.setAttribute("value", element.precio);
-                        form.appendChild(input5);
-
-                        document.body.appendChild(form);
-                        form.submit();
-                    });
-                    newCell.appendChild(newImg)
-
+                            document.body.appendChild(form);
+                            form.submit();
+                        });
+                        newCell.appendChild(newImg)
+                    }    
 
                     newRow.appendChild(newCell);
 
@@ -295,6 +296,25 @@ function CargarTabla(){
     });
     document.addEventListener("DOMContentLoaded", function() {
         CargarTabla();
+        ajustarAnchoColumnas();
+
+        window.addEventListener("resize", function() {
+            ajustarAnchoColumnas();
+        });
+
+        function ajustarAnchoColumnas() {
+            const contTabla = document.getElementById('conttabla');
+            const filas = contTabla.getElementsByTagName('tr');
+
+            // Itera sobre las filas y ajusta el ancho de cada celda.
+            for (let i = 0; i < filas.length; i++) {
+                const celdas = filas[i].getElementsByTagName('td');
+
+                for (let j = 0; j < celdas.length; j++) {
+                    celdas[j].style.width = 'auto';
+                }
+            }
+        }
     });
 
 </script>

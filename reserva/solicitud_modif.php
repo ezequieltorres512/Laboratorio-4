@@ -2,6 +2,7 @@
 session_start();
 include("../check.php");
 include("../conexion.php");
+//include_once("../desuso/prueba.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,25 +19,25 @@ include("../conexion.php");
 <body onload="modificar()">
  
 <header>
-    <a href="../inicio.php" class="logo">La 7ma <span>Hotel</span></a>
+    <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
 
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
 
-        <li><a href="../inicio.php">Inicio</a></li>
+        <li><a href="../index.php">Inicio</a></li>
 
         <!-- <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>
         <li><a href="#services">Servicios</a></li>
         <li><a href="#contact">Contacto</a></li> -->
             <?php if(isset($_SESSION['usuario'])){?>   
-                <li><a href="../inicio.php#reservas">Reservas</a></li>
+                <li><a href="../index.php#reservas">Reservas</a></li>
             <?php } ?>
             <li><a href="../sobrenosotros.php#galeria">Galeria</a></li>
             <li><a href="../sobrenosotros.php#">Sobre Nosotros</a></li>
             <?php if($_SESSION["tipoUser"] == "cliente"){?>
-                <li><a href="../inicio.php#contact">Contacto</a></li>
+                <li><a href="../index.php#contact">Contacto</a></li>
             <?php } ?>
             <div class="bx bx-moon" id="darkmode"></div>
             <?php if(isset($_SESSION['usuario'])){ ?>
@@ -67,10 +68,11 @@ include("../conexion.php");
                         <span id="span">Ingresos de la Modificacion</span>
                         <input type="hidden" name="motivo" value="Modificacion de reserva">
                         <input type="hidden" name="id_seleccionado" value="<?php echo $_POST['id_reserva']; ?>">
+                        <?php $fechamin = date("Y-m-d"); ?>
                         <p id="fIniciop">Fecha de inicio</p>
-                        <input type="date" name="fInicioI" id="fInicioI" value="<?php echo $_POST['fecha_ini']?>">
+                        <input type="date" name="fInicioI" id="fInicioI" min= "<?php echo $fechamin ?>" value="<?php echo $_POST['fecha_ini']?>">
                         <p id="fFinp">Fecha de Salida</p>
-                        <input type="date" name="fFinI" id="fFinI" value="<?php echo $_POST['fecha_fin']?>">
+                        <input type="date" name="fFinI" id="fFinI" min= "<?php echo $fechamin ?>" value="<?php echo $_POST['fecha_fin']?>">
                         <p id="tHabip">Seleccione el tipo de habitacion
                         </p>
                         <select id="habitacion" name="tipoH">
@@ -86,9 +88,11 @@ include("../conexion.php");
                         include("../habitacion/precios.php");
                             ?>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
+                        <p>Seleccione Habitacion si desea asignar</p>
                         <select id="disponibilidad" name="habitacion_asignada">
                         </select>
-                    <input type="submit" id="submit">
+                        <br>
+                    <input type="submit" id="submit" style="margin-top: 5%;">
                     </div>
                 </div>
             </div>
@@ -120,17 +124,20 @@ include("../conexion.php");
         cargar_habitacion_disponible();
     }
     function cargar_habitacion_disponible() {
-        $("#disponibilidad").empty(); 
+        $("#disponibilidad").empty();
+        var select = document.getElementById('disponibilidad');
+        var option = document.createElement("option"); 
+        select.add(option);
         var request = $.ajax({
             type: "GET",
-            url: "../habitacion/habitacion_select.php",
+            url: "disponibilidad.php",
             data: {
-                fFin: $("#fInicioI").val(),
-                fPrecio: $("#fFinI").val(),
-                id : $("#habitacion").val(),
+                fInicioI: $("#fInicioI").val(),
+                fFinI: $("#fFinI").val(),
+                habitacion : $("#habitacion").val(),
             },
             success: function(respuestaDelServer,estado) {
-            // alert(respuestaDelServer,estado);
+            alert(respuestaDelServer,estado);
             //  alert("hola");
                 var habitaciones = new Array();
                 objJson=JSON.parse(respuestaDelServer);
