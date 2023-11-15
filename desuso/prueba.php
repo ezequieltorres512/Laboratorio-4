@@ -1,26 +1,20 @@
 <?php
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPass = "";
-$dbName = "labo4";
-
-$conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
-if(!$conn) die("No hay conexion: ".mysqli_connect_error());
+include_once("../conexion.php");
 
 // Rango de fechas deseado
 $fechaInicioDeseada = '2023-12-01';
 $fechaFinDeseada = '2023-12-05';
-
+$tipo = 3;
 // Obtén la lista de habitaciones disponibles (puedes obtenerla de tu base de datos)
-$habitacionesDisponibles = obtenerHabitacionesDisponibles($conn);
+$habitacionesDisponibles = obtenerHabitacionesDisponibles($conn, $tipo);
 echo"<pre>";
 print_r($habitacionesDisponibles);
 echo"</pre>";
 // Obtén la lista de reservas existentes (puedes obtenerla de tu base de datos)
-$reservas = obtenerReservas($conn);
-// echo"<pre>";
-// print_r($reservas);
-// echo"</pre>";
+$reservas = obtenerReservas($conn, $tipo);
+echo"<pre>";
+print_r($reservas);
+echo"</pre>";
 // Itera sobre las reservas existentes
 foreach ($reservas as $reserva) {
     // Verifica si hay superposición de fechas
@@ -33,7 +27,7 @@ foreach ($reservas as $reserva) {
         }
     }
 }
-echo "======================<br>";
+echo "<br>======================<br>";
 echo"<pre>";
 print_r($habitacionesDisponibles);
 echo"</pre>";
@@ -45,10 +39,10 @@ function haySuperposicion($inicioReserva, $finReserva, $inicioDeseado, $finDesea
 }
 
 // Función para obtener habitaciones disponibles (simulación)
-function obtenerHabitacionesDisponibles($conn) {
+function obtenerHabitacionesDisponibles($conn, $tipo) {
     // Aquí puedes realizar la lógica para obtener las habitaciones disponibles de tu base de datos
     // Retorna un array con las habitaciones disponibles
-    $sql = 'select a.id id, b.titulo titulo from habitacion a join tipohabitacion b on a.tipo_habitacion=b.id';
+    $sql = 'select a.id id, b.titulo titulo from habitacion a join tipohabitacion b on a.tipo_habitacion=b.id where tipo_habitacion = '.$tipo;
     $query = mysqli_query($conn, $sql);
     $salida = array();
     while($row = mysqli_fetch_assoc($query)){
@@ -59,18 +53,24 @@ function obtenerHabitacionesDisponibles($conn) {
 
 // Función para quitar una habitación de la lista de habitaciones disponibles
 function quitarHabitacion($habitaciones, $habitacionOcupada) {
-    echo"<pre>";
-    print_r([$habitacionOcupada,'Habitación Doble Twin Standard']);
-echo"</pre>";
-    $array = array([$habitacionOcupada,'Habitación Doble Twin Standard']);
-    echo"<pre>";
-    print_r($array);
-echo"</pre>";
-    //return array_diff($habitaciones, [$habitacionOcupada]);
-    return array_diff($habitaciones, $array);
+//     echo"<pre>";
+//     print_r([$habitacionOcupada,'Habitación Doble Twin Standard']);
+// echo"</pre>";
+    $array = array(['id' => $habitacionOcupada]);
+    // Utiliza un bucle para encontrar y eliminar la habitación ocupada
+    foreach ($habitaciones as $key => $habitacion) {
+        //echo $habitacion['id']."*".$habitacionOcupada."<br>";
+        if ($habitacion['id'] === $habitacionOcupada) {
+            unset($habitaciones[$key]);
+            break; // Rompe el bucle una vez que se ha encontrado y eliminado la habitación
+        }
+    }
+
+    // Muestra las habitaciones después de la eliminación
+    return $habitaciones;
 }
-function obtenerReservas($conn){
-    $sql = 'select * from reserva where baja is null';
+function obtenerReservas($conn, $tipo){
+    $sql = 'select * from reserva where baja is null and tipoHabitacion = '.$tipo;
     $query = mysqli_query($conn, $sql);
     $salida = array();
     while($row = mysqli_fetch_assoc($query)){

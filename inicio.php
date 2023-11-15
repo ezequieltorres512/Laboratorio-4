@@ -146,7 +146,7 @@
 </section>
 <?php } ?>
 <?php }
-if($_SESSION["tipoUser"] == "cliente"){ ?>
+if( !isset($_SESSION["tipoUser"]) || ( isset($_SESSION["tipoUser"]) && $_SESSION["tipoUser"] == "cliente")){ ?>
 <section class="contact" id="contact">
     <div class="heading">
         <h2>Contacto</h2>
