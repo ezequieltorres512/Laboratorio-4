@@ -17,7 +17,7 @@
 <body onload="alta()">
  
 <header>
-    <a href="../inicio.php" class="logo">La 7ma <span>Hotel</span></a>
+    <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
 
     <div class="bx bx-menu" id="menu-icon"></div>
 

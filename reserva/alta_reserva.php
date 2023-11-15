@@ -36,7 +36,7 @@ $vendedor=0;
 $query = mysqli_query($conn,"INSERT INTO reserva (precio,id_usuario,id_empleado, apellido, nombre, telefono, correo,fecha_inicio, fecha_fin, tipoHabitacion, adicional,vendedor, conocidosPor) VALUES 
                                                 ($precio,$id_usuario, $id_empleado,'$apellido','$nombre',$tel,'$correo','$llegada','$salida',$tipo_habitacion,$adicional,$vendedor,$canal)");
 if($query){
-    //  header("Location: inicio.php");
+    //  header("Location: index.php");
 
       require("../mensajes/redireccion_mensaje.php");
 }else{

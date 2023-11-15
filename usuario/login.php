@@ -29,7 +29,7 @@ if($nr == 1)
 		//print_r($_SESSION);
 		//echo "\n";
 		//print_r($row);
-		header("Location: ../inicio.php");
+		header("Location: ../index.php");
 	}else{
 		echo "<script> alert('Usuario dado de Baja');window.location= '../index.php' </script>";
 	}

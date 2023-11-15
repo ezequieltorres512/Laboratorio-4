@@ -24,7 +24,7 @@ include("../check.php");
 
     <ul class="navbar">
 
-        <li><a href="../inicio.php">Inicio</a></li>
+        <li><a href="../index.php">Inicio</a></li>
 
         <li><a href="#about">Reservas</a></li>
         <li><a href="#skills">Instalaciones</a></li>

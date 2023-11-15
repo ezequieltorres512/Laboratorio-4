@@ -63,7 +63,7 @@ else if ($nr == 0)
 {
 	//header("Location: login.html");
 	//echo "No ingreso"; 
-	echo "<script> alert('Error Login');window.location= 'index.php' </script>";
+	echo "<script> alert('Error Login');window.location= 'inicio.php' </script>";
 }
 
 /************************************************************* */
