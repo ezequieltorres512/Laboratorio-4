@@ -99,12 +99,12 @@
             </a>
         </div> -->
         <?php } ?>
-        <div class="services-box">
+        <!--<div class="services-box">
             <a href="reserva/solicitud_listado_reserva.php">
             <i class='bx bx-list-ul bx-flip-vertical' ></i>
                 <h3>Listado pendiente</h3>
             </a>
-        </div>
+        </div>-->
         <div class="services-box">
             <a href="reserva/solicitud_reserva.php">
                 <i class='bx bx-folder-plus bx-tada' ></i>
