@@ -50,6 +50,9 @@ $nr = mysqli_num_rows($query);
 $cantidad=0;
 while($row = mysqli_fetch_assoc($query)){
  // print_r($row);
+  $sql1 = 'SELECT titulo FROM tipohabitacion WHERE id = '.$row['tipoHabitacion']; 
+  $query1 = mysqli_query($conn,$sql1);
+  $row1 = mysqli_fetch_assoc($query1);
   $objPlan = new stdClass();
   $objPlan->id=$row['id_reserva'];
   $objPlan->precio=$row['precio'];
@@ -59,6 +62,8 @@ while($row = mysqli_fetch_assoc($query)){
   $objPlan->fecha_inicio=$row['fecha_inicio'];
   $objPlan->fecha_fin=$row['fecha_fin'];
   $objPlan->habitacion=$row['habitacion'];
+  $objPlan->habitacion=$row['descripci'];
+  $objPlan->tipoHabitacion=$row1['titulo'];
   $objPlan->tipoHabitacion=$row['tipoHabitacion'];
   $objPlan->adicional=$row['adicional'];
   $objPlan->vendedor=$row['vendedor'];
