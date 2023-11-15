@@ -49,7 +49,7 @@ include("../check.php");
             
 			<table id="">
 				<tr id="">
-						<th><label style='text-allign:center;' class="" disabled>ID</label></th>
+						<th><label class="" disabled>ID</label></th>
 						<th><label class="" disabled>Nombre y Apellido</label></th>
 						<th><label class="" disabled>Fecha inicio</label></th>
 						<th><label class="" disabled>Fecha finalizacion</label></th>

@@ -68,10 +68,11 @@ include("../conexion.php");
                         <span id="span">Ingresos de la Modificacion</span>
                         <input type="hidden" name="motivo" value="Modificacion de reserva">
                         <input type="hidden" name="id_seleccionado" value="<?php echo $_POST['id_reserva']; ?>">
+                        <?php $fechamin = date("Y-m-d"); ?>
                         <p id="fIniciop">Fecha de inicio</p>
-                        <input type="date" name="fInicioI" id="fInicioI" value="<?php echo $_POST['fecha_ini']?>">
+                        <input type="date" name="fInicioI" id="fInicioI" min= "<?php echo $fechamin ?>" value="<?php echo $_POST['fecha_ini']?>">
                         <p id="fFinp">Fecha de Salida</p>
-                        <input type="date" name="fFinI" id="fFinI" value="<?php echo $_POST['fecha_fin']?>">
+                        <input type="date" name="fFinI" id="fFinI" min= "<?php echo $fechamin ?>" value="<?php echo $_POST['fecha_fin']?>">
                         <p id="tHabip">Seleccione el tipo de habitacion
                         </p>
                         <select id="habitacion" name="tipoH">
