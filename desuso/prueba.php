@@ -18,20 +18,25 @@ print_r($habitacionesDisponibles);
 echo"</pre>";
 // Obtén la lista de reservas existentes (puedes obtenerla de tu base de datos)
 $reservas = obtenerReservas($conn);
-echo"<pre>";
-print_r($reservas);
-echo"</pre>";
+// echo"<pre>";
+// print_r($reservas);
+// echo"</pre>";
 // Itera sobre las reservas existentes
 foreach ($reservas as $reserva) {
     // Verifica si hay superposición de fechas
-    if (haySuperposicion($reserva['fecha_inicio'], $reserva['fecha_fin'], $fechaInicioDeseada, $fechaFinDeseada)) {
-        // Si hay superposición, la habitación está ocupada
-       $tipoHabitacionOcupada = $reserva['tipoHabitacion'];
-       // Remueve la habitación ocupada de la lista de habitaciones disponibles
-       $habitacionesDisponibles = quitarHabitacion($habitacionesDisponibles, $tipoHabitacionOcupada);
+    if($reserva['habitacion']){
+        if (haySuperposicion($reserva['fecha_inicio'], $reserva['fecha_fin'], $fechaInicioDeseada, $fechaFinDeseada)) {
+            // Si hay superposición, la habitación está ocupada
+            $tipoHabitacionOcupada = $reserva['habitacion'];
+            // Remueve la habitación ocupada de la lista de habitaciones disponibles
+            $habitacionesDisponibles = quitarHabitacion($habitacionesDisponibles, $tipoHabitacionOcupada);
+        }
     }
 }
-
+echo "======================<br>";
+echo"<pre>";
+print_r($habitacionesDisponibles);
+echo"</pre>";
 // Al finalizar, $habitacionesDisponibles contendrá las habitaciones que están disponibles para el rango de fechas deseado.
 
 // Función para verificar superposición de fechas
@@ -54,7 +59,15 @@ function obtenerHabitacionesDisponibles($conn) {
 
 // Función para quitar una habitación de la lista de habitaciones disponibles
 function quitarHabitacion($habitaciones, $habitacionOcupada) {
-    return array_diff($habitaciones, [$habitacionOcupada]);
+    echo"<pre>";
+    print_r([$habitacionOcupada,'Habitación Doble Twin Standard']);
+echo"</pre>";
+    $array = array([$habitacionOcupada,'Habitación Doble Twin Standard']);
+    echo"<pre>";
+    print_r($array);
+echo"</pre>";
+    //return array_diff($habitaciones, [$habitacionOcupada]);
+    return array_diff($habitaciones, $array);
 }
 function obtenerReservas($conn){
     $sql = 'select * from reserva where baja is null';
