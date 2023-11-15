@@ -176,6 +176,7 @@ function CargarTabla(){
                     newImg.setAttribute("src","../imagenes/editar.png");
                     newImg.setAttribute("class","icono-redireccion");
                     newImg.setAttribute("alt","Editar registro");
+                    newImg.setAttribute("style","float:right;");
                     newImg.addEventListener("click", function() {
 
                         var form = document.createElement("form");
@@ -221,6 +222,7 @@ function CargarTabla(){
                     newImg.setAttribute("src","../imagenes/eliminar.jpg");
                     newImg.setAttribute("class","icono-redireccion");
                     newImg.setAttribute("alt","Eliminar registro");
+                    newImg.setAttribute("style","float:right;");
                     newImg.addEventListener("click", function() {
                     if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
                         var form = document.createElement("form");
