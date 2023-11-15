@@ -140,6 +140,7 @@ function CargarTabla(){
                     
                     newCell = document.createElement("td");
                     newCell.setAttribute("campo-dato", "id")
+              //      newCell.setAttribute("style", "width:50%");
                     newCell.innerHTML = element.id;
                     newRow.appendChild(newCell)
 
