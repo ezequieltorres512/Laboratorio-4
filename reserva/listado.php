@@ -170,7 +170,10 @@ function CargarTabla(){
                     newRow.appendChild(newCell);
 
                     newCell = document.createElement("td");
-                    newCell.innerHTML = element.estado;
+                    newspan = document.createElement("span")
+                    newspan.innerHTML = element.estado;
+                    newspan.setAttribute("style", "background-color:"+element.color+";");
+                    newCell.appendChild(newspan);
                     newCell.setAttribute("campo-dato", "estado")
                     newImg = document.createElement("img");
                     newImg.setAttribute("src","../imagenes/editar.png");

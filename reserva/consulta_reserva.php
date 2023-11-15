@@ -58,13 +58,18 @@ while($row = mysqli_fetch_assoc($query)){
   $objPlan->conocidosPor=$row['conocidosPor'];
   $objPlan->baja=$row['baja'];
   if($row['habitacion'] == '' && $row['baja'] == ''){
-    $estado="PENDIENTE ";
+    $estado="PENDIENTE";
+    $color='lightblue';
   }elseif($row['habitacion'] != '' && $row['baja'] == ''){
     $estado="CONFIRMADA";
+    $color='green';
+  
   }elseif($row['baja']!=''){
     $estado="ELIMINADA ";
+    $color='red';
   }
   $objPlan->estado=$estado;
+  $objPlan->color=$color;
   array_push($planes,$objPlan);
   $cantidad++;
 }
