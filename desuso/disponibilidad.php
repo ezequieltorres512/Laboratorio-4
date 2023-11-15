@@ -1,25 +1,22 @@
-<?php
+<?php 
 include_once("../conexion.php");
+$planes=[];
 
-// Rango de fechas deseado
-$fechaInicioDeseada = '2023-12-01';
-$fechaFinDeseada = '2023-12-05';
-$tipo = 3;
-// Obtén la lista de habitaciones disponibles (puedes obtenerla de tu base de datos)
-$habitacionesDisponibles = obtenerHabitacionesDisponibles($conn, $tipo);
-// echo"<pre>";
-// print_r($habitacionesDisponibles);
-// echo"</pre>";
-// Obtén la lista de reservas existentes (puedes obtenerla de tu base de datos)
-$reservas = obtenerReservas($conn, $tipo);
-// echo"<pre>";
-// print_r($reservas);
-// echo"</pre>";
-// Itera sobre las reservas existentes
+// $finicio= $_GET['fInicioI'];
+// $ffin= $_GET['fFinI'];
+// $fhabitacion= $_GET['habitacion'];
+
+$finicio = '2023-12-01';
+$ffin = '2023-12-05';
+$fhabitacion = 3;
+
+$habitacionesDisponibles = obtenerHabitacionesDisponibles($conn, $fhabitacion);
+$reservas = obtenerReservas($conn, $fhabitacion);
+
 foreach ($reservas as $reserva) {
     // Verifica si hay superposición de fechas
     if($reserva['habitacion']){
-        if (haySuperposicion($reserva['fecha_inicio'], $reserva['fecha_fin'], $fechaInicioDeseada, $fechaFinDeseada)) {
+        if (haySuperposicion($reserva['fecha_inicio'], $reserva['fecha_fin'], $finicio, $ffin)) {
             // Si hay superposición, la habitación está ocupada
             $tipoHabitacionOcupada = $reserva['habitacion'];
             // Remueve la habitación ocupada de la lista de habitaciones disponibles
@@ -27,21 +24,36 @@ foreach ($reservas as $reserva) {
         }
     }
 }
-echo"<pre>";
-print_r($habitacionesDisponibles);
-echo"</pre>";
-// Al finalizar, $habitacionesDisponibles contendrá las habitaciones que están disponibles para el rango de fechas deseado.
+// echo"<pre>";
+// print_r($habitacionesDisponibles);
+// echo"</pre>";
 
-// Función para verificar superposición de fechas
+$cantidad=0;
+foreach($habitacionesDisponibles as $disponibles){
+    // echo"<pre>";
+    // print_r($disponibles);
+    // echo"</pre>";
+    $objPlan = new stdClass();
+    $objPlan->id=$disponibles['id'];
+    $objPlan->precio=$disponibles['piso'];
+    $objPlan->id_usuario=$disponibles['puerta'];
+    array_push($planes,$objPlan);
+    $cantidad++;
+}
+$totalregistros = $cantidad;
+
+$objPlanes = new stdClass(); 
+$objPlanes->planes=$planes; 
+$objPlanes->cuenta=$totalregistros;
+$salidaJson = json_encode($objPlanes);
+
+echo $salidaJson;
+
 function haySuperposicion($inicioReserva, $finReserva, $inicioDeseado, $finDeseado) {
     //echo "<br>$inicioReserva <= $finDeseado && $finReserva >= $inicioDeseado<br>";
     return ($inicioReserva <= $finDeseado && $finReserva >= $inicioDeseado);
 }
-
-// Función para obtener habitaciones disponibles (simulación)
 function obtenerHabitacionesDisponibles($conn, $tipo) {
-    // Aquí puedes realizar la lógica para obtener las habitaciones disponibles de tu base de datos
-    // Retorna un array con las habitaciones disponibles
     $sql = 'select a.id id,a.piso,a.puerta, a.descripcion from habitacion a join tipohabitacion b on a.tipo_habitacion=b.id where tipo_habitacion = '.$tipo;
     $query = mysqli_query($conn, $sql);
     $salida = array();
@@ -50,23 +62,15 @@ function obtenerHabitacionesDisponibles($conn, $tipo) {
     }
     return $salida;
 }
-
-// Función para quitar una habitación de la lista de habitaciones disponibles
 function quitarHabitacion($habitaciones, $habitacionOcupada) {
-//     echo"<pre>";
-//     print_r([$habitacionOcupada,'Habitación Doble Twin Standard']);
-// echo"</pre>";
     $array = array(['id' => $habitacionOcupada]);
-    // Utiliza un bucle para encontrar y eliminar la habitación ocupada
     foreach ($habitaciones as $key => $habitacion) {
         //echo $habitacion['id']."*".$habitacionOcupada."<br>";
         if ($habitacion['id'] === $habitacionOcupada) {
             unset($habitaciones[$key]);
-            break; // Rompe el bucle una vez que se ha encontrado y eliminado la habitación
+            break;
         }
     }
-
-    // Muestra las habitaciones después de la eliminación
     return $habitaciones;
 }
 function obtenerReservas($conn, $tipo){
@@ -78,4 +82,3 @@ function obtenerReservas($conn, $tipo){
     }
     return $salida;
 }
-

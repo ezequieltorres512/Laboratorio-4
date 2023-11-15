@@ -88,12 +88,13 @@ include_once("../desuso/prueba.php");
                             ?>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
                         <?php if($_SESSION['tipoUser'] != 'cliente'){?>
-                        <p id="fFinp">Habitaacion</p>
+                        <p id="fFinp">Habitacion</p>
                         <select id="habitacion" name="tipoH">
                             <?php
-                            
+                            echo "<option></option>";
                             for($i = 0;$i<count($habitacionesDisponibles);$i++){
-                                echo "<option id='habi' selected value=".$habitacionesDisponibles[$i]['id'].">".$habitacionesDisponibles[$i]['descripcion']."</option>";
+
+                                echo "<option value=".$habitacionesDisponibles[$i]['id'].">".$habitacionesDisponibles[$i]['piso']."-".$habitacionesDisponibles[$i]['puerta']."</option>";
                             }    
                             ?>
                         </select>
