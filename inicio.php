@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body onload="visible('<?echo $_SESSION['tipoUser']?>');">
+<body onload="visible('<?echo $_SESSION['tipoUser']?>')">
 <header>
     <a href="#" class="logo">La 7ma <span>Hotel</span></a>
 
@@ -146,7 +146,7 @@
 </section>
 <?php } ?>
 <?php }
-if($_SESSION["tipoUser"] == "cliente"){ ?>
+if( !isset($_SESSION["tipoUser"]) || ( isset($_SESSION["tipoUser"]) && $_SESSION["tipoUser"] == "cliente")){ ?>
 <section class="contact" id="contact">
     <div class="heading">
         <h2>Contacto</h2>
