@@ -44,6 +44,7 @@ include("../check.php");
 				<option value="2">CONFIRMADAS</option>
 				<option value="3">ELIMINADAS</option>
 				</select>
+                <input type="hidden" id="cliente" value="<?php if($_SESSION['tipoUser'] == 'cliente') echo $_SESSION['usuario'];?>">
 			</h2>
             
 			<table id="">
@@ -177,76 +178,76 @@ function CargarTabla(){
                     newCell.appendChild(newspan);
                     newCell.setAttribute("campo-dato", "estado")
                     
+                    if(element.estado == 'PENDIENTE'){
+                        newImg = document.createElement("img");
+                        newImg.setAttribute("src","../imagenes/eliminar.jpg");
+                        newImg.setAttribute("class","icono-redireccion");
+                        newImg.setAttribute("alt","Eliminar registro");
+                        newImg.setAttribute("style","float:right;");
+                        newImg.addEventListener("click", function() {
+                        if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
+                            var form = document.createElement("form");
+                            form.setAttribute("method", "post");
+                            form.setAttribute("action", "baja_reserva.php");
 
-                    newImg = document.createElement("img");
-                    newImg.setAttribute("src","../imagenes/eliminar.jpg");
-                    newImg.setAttribute("class","icono-redireccion");
-                    newImg.setAttribute("alt","Eliminar registro");
-                    newImg.setAttribute("style","float:right;");
-                    newImg.addEventListener("click", function() {
-                    if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
-                        var form = document.createElement("form");
-                        form.setAttribute("method", "post");
-                        form.setAttribute("action", "baja_reserva.php");
+                            var input1 = document.createElement("input");
+                            input1.setAttribute("type", "hidden");
+                            input1.setAttribute("name", "reservas");
+                            input1.setAttribute("value", element.id);
+                            form.appendChild(input1);
 
-                        var input1 = document.createElement("input");
-                        input1.setAttribute("type", "hidden");
-                        input1.setAttribute("name", "reservas");
-                        input1.setAttribute("value", element.id);
-                        form.appendChild(input1);
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
+                        });
+                        newCell.appendChild(newImg)
+                        
+                        newImg = document.createElement("img");
+                        newImg.setAttribute("src","../imagenes/editar.png");
+                        newImg.setAttribute("class","icono-redireccion");
+                        newImg.setAttribute("alt","Editar registro");
+                        newImg.setAttribute("style","float:right;");
+                        newImg.addEventListener("click", function() {
 
-                        document.body.appendChild(form);
-                        form.submit();
-                    }
-                    });
-                    newCell.appendChild(newImg)
+                            var form = document.createElement("form");
+                            form.setAttribute("method", "post");
+                            form.setAttribute("action", "solicitud_modif.php");
 
-                    newImg = document.createElement("img");
-                    newImg.setAttribute("src","../imagenes/editar.png");
-                    newImg.setAttribute("class","icono-redireccion");
-                    newImg.setAttribute("alt","Editar registro");
-                    newImg.setAttribute("style","float:right;");
-                    newImg.addEventListener("click", function() {
+                            var input1 = document.createElement("input");
+                            input1.setAttribute("type", "hidden");
+                            input1.setAttribute("name", "fecha_ini");
+                            input1.setAttribute("value", element.fecha_inicio);
+                            form.appendChild(input1);
 
-                        var form = document.createElement("form");
-                        form.setAttribute("method", "post");
-                        form.setAttribute("action", "solicitud_modif.php");
+                            var input2 = document.createElement("input");
+                            input2.setAttribute("type", "hidden");
+                            input2.setAttribute("name", "fecha_fin");
+                            input2.setAttribute("value", element.fecha_fin);
+                            form.appendChild(input2);
 
-                        var input1 = document.createElement("input");
-                        input1.setAttribute("type", "hidden");
-                        input1.setAttribute("name", "fecha_ini");
-                        input1.setAttribute("value", element.fecha_inicio);
-                        form.appendChild(input1);
+                            var input3 = document.createElement("input");
+                            input3.setAttribute("type", "hidden");
+                            input3.setAttribute("name", "id_reserva");
+                            input3.setAttribute("value", element.id);
+                            form.appendChild(input3);
 
-                        var input2 = document.createElement("input");
-                        input2.setAttribute("type", "hidden");
-                        input2.setAttribute("name", "fecha_fin");
-                        input2.setAttribute("value", element.fecha_fin);
-                        form.appendChild(input2);
+                            var input4 = document.createElement("input");
+                            input4.setAttribute("type", "hidden");
+                            input4.setAttribute("name", "tipo_hab");
+                            input4.setAttribute("value", element.tipoHabitacion);
+                            form.appendChild(input4);
 
-                        var input3 = document.createElement("input");
-                        input3.setAttribute("type", "hidden");
-                        input3.setAttribute("name", "id_reserva");
-                        input3.setAttribute("value", element.id);
-                        form.appendChild(input3);
+                            var input5 = document.createElement("input");
+                            input5.setAttribute("type", "hidden");
+                            input5.setAttribute("name", "precio");
+                            input5.setAttribute("value", element.precio);
+                            form.appendChild(input5);
 
-                        var input4 = document.createElement("input");
-                        input4.setAttribute("type", "hidden");
-                        input4.setAttribute("name", "tipo_hab");
-                        input4.setAttribute("value", element.tipoHabitacion);
-                        form.appendChild(input4);
-
-                        var input5 = document.createElement("input");
-                        input5.setAttribute("type", "hidden");
-                        input5.setAttribute("name", "precio");
-                        input5.setAttribute("value", element.precio);
-                        form.appendChild(input5);
-
-                        document.body.appendChild(form);
-                        form.submit();
-                    });
-                    newCell.appendChild(newImg)
-
+                            document.body.appendChild(form);
+                            form.submit();
+                        });
+                        newCell.appendChild(newImg)
+                    }    
 
                     newRow.appendChild(newCell);
 

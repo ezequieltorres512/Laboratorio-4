@@ -1,7 +1,10 @@
 <?php 
 include_once("../conexion.php");
 $planes=[];
-
+// echo"<pre>";
+// print_r($_GET);
+// echo"</pre>";
+//exit();
 $finicio= $_GET['fInicioI'];
 $ffin= $_GET['fFinI'];
 $fhabitacion= $_GET['habitacion'];
@@ -29,14 +32,14 @@ foreach ($reservas as $reserva) {
 // echo"</pre>";
 
 $cantidad=0;
-foreach($habitacionesDisponibles as $disponibles){
+foreach($habitacionesDisponibles as $id => $disponibles){
     // echo"<pre>";
     // print_r($disponibles);
     // echo"</pre>";
     $objPlan = new stdClass();
     $objPlan->id=$disponibles['id'];
-    $objPlan->precio=$disponibles['piso'];
-    $objPlan->id_usuario=$disponibles['puerta'];
+    $objPlan->piso=$disponibles['piso'];
+    $objPlan->puerta=$disponibles['puerta'];
     array_push($planes,$objPlan);
     $cantidad++;
 }
@@ -47,7 +50,7 @@ $objPlanes->planes=$planes;
 $objPlanes->cuenta=$totalregistros;
 $salidaJson = json_encode($objPlanes);
 
-//echo $salidaJson;
+echo $salidaJson;
 
 function haySuperposicion($inicioReserva, $finReserva, $inicioDeseado, $finDeseado) {
     //echo "<br>$inicioReserva <= $finDeseado && $finReserva >= $inicioDeseado<br>";

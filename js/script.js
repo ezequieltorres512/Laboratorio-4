@@ -1,5 +1,6 @@
 function modificar(){
-  cargar_habitacion_modi()
+  cargar_habitacion_modi(),
+  cargar_habitacion_disponible()
 }
 function alta(){
   cargar_habitacion()

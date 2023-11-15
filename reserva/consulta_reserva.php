@@ -11,6 +11,10 @@ $ftipo  =  $_GET['fHabitacion'];
 $finicio= $_GET['fInicio'];
 $ffin= $_GET['fFin'];
 $fprecio= $_GET['fPrecio'];
+$id = '';
+if($_GET['id'] != ''){
+  $id = $_GET['id'];
+}
 if($tipo == 0){
   $sql="SELECT * FROM reserva";
 }elseif($tipo  == 1) {
@@ -20,8 +24,8 @@ if($tipo == 0){
 }else{
   $sql="SELECT * FROM reserva WHERE BAJA IS NOT NULL ";  
 }
-if($fid != ''){
-  $sql=" AND id_usuario = $fid ";  
+if($id != ''){
+  $sql.=" and id_usuario = $id ";  
 }
 
 if($fpersona)
@@ -37,6 +41,9 @@ if($ffin)
  if($fprecio)
     $sql=$sql . " and precio LIKE '".$fprecio."%' ";
 //echo $sql;
+if(!strpos($sql, "WHERE")){
+  $sql = str_replace('reserva and', 'reserva where', $sql);
+}
 $query = mysqli_query($conn,$sql);
 
 $nr = mysqli_num_rows($query);

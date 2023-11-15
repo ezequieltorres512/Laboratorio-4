@@ -2,7 +2,7 @@
 session_start();
 include("../check.php");
 include("../conexion.php");
-include_once("../desuso/prueba.php");
+//include_once("../desuso/prueba.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,9 +87,11 @@ include_once("../desuso/prueba.php");
                         include("../habitacion/precios.php");
                             ?>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
+                        <p>Seleccione Habitacion si desea asignar</p>
                         <select id="disponibilidad" name="habitacion_asignada">
                         </select>
-                    <input type="submit" id="submit">
+                        <br>
+                    <input type="submit" id="submit" style="margin-top: 5%;">
                     </div>
                 </div>
             </div>
@@ -121,17 +123,20 @@ include_once("../desuso/prueba.php");
         cargar_habitacion_disponible();
     }
     function cargar_habitacion_disponible() {
-        $("#disponibilidad").empty(); 
+        $("#disponibilidad").empty();
+        var select = document.getElementById('disponibilidad');
+        var option = document.createElement("option"); 
+        select.add(option);
         var request = $.ajax({
             type: "GET",
-            url: "../habitacion/habitacion_select.php",
+            url: "disponibilidad.php",
             data: {
-                fFin: $("#fInicioI").val(),
-                fPrecio: $("#fFinI").val(),
-                id : $("#habitacion").val(),
+                fInicioI: $("#fInicioI").val(),
+                fFinI: $("#fFinI").val(),
+                habitacion : $("#habitacion").val(),
             },
             success: function(respuestaDelServer,estado) {
-            // alert(respuestaDelServer,estado);
+            alert(respuestaDelServer,estado);
             //  alert("hola");
                 var habitaciones = new Array();
                 objJson=JSON.parse(respuestaDelServer);
