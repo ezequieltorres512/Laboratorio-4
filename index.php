@@ -27,7 +27,9 @@
         <?php } ?>
         <li><a href="sobrenosotros.php#galeria">Galeria</a></li>
         <li><a href="sobrenosotros.php">Sobre Nosotros</a></li>
-        <li><a href="#contact">Contacto</a></li>
+        <?php if( !isset($_SESSION["tipoUser"]) || ( isset($_SESSION["tipoUser"]) && $_SESSION["tipoUser"] == "cliente")){ ?>
+                <li><a href="index.php#contact">Contacto</a></li>
+            <?php } ?>
         <div class="bx bx-moon" id="darkmode"></div>
         <?php if(isset($_SESSION['usuario'])){ ?>
             <li><a href="usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
