@@ -34,7 +34,6 @@ include_once("../conexion.php");
             <?php } ?>
             <li><a href="../sobrenosotros.php#galeria">Galeria</a></li>
             <li><a href="../sobrenosotros.php#">Sobre Nosotros</a></li>
-            <li><a href="../inicio.php#contact">Contacto</a></li>
             <div class="bx bx-moon" id="darkmode"></div>
             <?php if(isset($_SESSION['usuario'])){ ?>
                 <li><a href="../usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
