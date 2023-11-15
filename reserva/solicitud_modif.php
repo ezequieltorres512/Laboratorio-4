@@ -2,6 +2,7 @@
 session_start();
 include("../check.php");
 include("../conexion.php");
+include_once("../desuso/prueba.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
