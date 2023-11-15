@@ -2,13 +2,13 @@
 include_once("../conexion.php");
 $planes=[];
 
-// $finicio= $_GET['fInicioI'];
-// $ffin= $_GET['fFinI'];
-// $fhabitacion= $_GET['habitacion'];
+$finicio= $_GET['fInicioI'];
+$ffin= $_GET['fFinI'];
+$fhabitacion= $_GET['habitacion'];
 
-$finicio = '2023-12-01';
-$ffin = '2023-12-05';
-$fhabitacion = 3;
+// $finicio = '2023-12-01';
+// $ffin = '2023-12-05';
+// $fhabitacion = 3;
 
 $habitacionesDisponibles = obtenerHabitacionesDisponibles($conn, $fhabitacion);
 $reservas = obtenerReservas($conn, $fhabitacion);
@@ -47,7 +47,7 @@ $objPlanes->planes=$planes;
 $objPlanes->cuenta=$totalregistros;
 $salidaJson = json_encode($objPlanes);
 
-echo $salidaJson;
+//echo $salidaJson;
 
 function haySuperposicion($inicioReserva, $finReserva, $inicioDeseado, $finDeseado) {
     //echo "<br>$inicioReserva <= $finDeseado && $finReserva >= $inicioDeseado<br>";
