@@ -87,18 +87,8 @@ include_once("../desuso/prueba.php");
                         include("../habitacion/precios.php");
                             ?>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
-                        <?php if($_SESSION['tipoUser'] != 'cliente'){?>
-                        <p id="fFinp">Habitacion</p>
-                        <select id="habitacion" name="tipoH">
-                            <?php
-                            echo "<option></option>";
-                            for($i = 0;$i<count($habitacionesDisponibles);$i++){
-
-                                echo "<option value=".$habitacionesDisponibles[$i]['id'].">".$habitacionesDisponibles[$i]['piso']."-".$habitacionesDisponibles[$i]['puerta']."</option>";
-                            }    
-                            ?>
+                        <select id="disponibilidad" name="habitacion_asignada">
                         </select>
-                        <?php }?>
                     <input type="submit" id="submit">
                     </div>
                 </div>
