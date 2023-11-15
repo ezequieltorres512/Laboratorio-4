@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body onload="visible('<?echo $_SESSION['tipoUser']?>');">
+<body onload="visible('<?echo $_SESSION['tipoUser']?>')">
 <header>
     <a href="#" class="logo">La 7ma <span>Hotel</span></a>
 
@@ -146,7 +146,7 @@
 </section>
 <?php } ?>
 <?php }
-if($_SESSION["tipoUser"] == "cliente"){ ?>
+if( !isset($_SESSION["tipoUser"]) || ( isset($_SESSION["tipoUser"]) && $_SESSION["tipoUser"] == "cliente")){ ?>
 <section class="contact" id="contact">
     <div class="heading">
         <h2>Contacto</h2>
@@ -155,8 +155,8 @@ if($_SESSION["tipoUser"] == "cliente"){ ?>
         <div class="contact-form">
             <form action="comentario/comentario.php" method='post'>
                 <input type="hidden" name="motivo" value="Consulta cargada">
-                <input type="text" name='nombre 'placeholder="Tu nombre">
-                <input type="email" name="correo" id="" placeholder="Tu email">
+                <input type="text" name="nom" id="nom" placeholder="Tu nombre">
+                <input type="email" name="correo" id="correo" placeholder="Tu email">
                 <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu comentario que me contacto a la brevedad"></textarea>
                     <input type='submit'  class="btn"></input>
 
