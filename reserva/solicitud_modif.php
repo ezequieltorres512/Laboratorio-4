@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../check.php");
+include("../conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ include("../check.php");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body>
+<body onload="modificar()">
  
 <header>
     <a href="../inicio.php" class="logo">La 7ma <span>Hotel</span></a>
@@ -46,7 +47,14 @@ include("../check.php");
 // echo "<br>";
 // echo "<br>";
 // echo "<pre>";
-// print_r($_POST);
+ //print_r($_POST);
+ if($_POST['tipo_hab'] != ''){
+    $sql="SELECT * FROM tipohabitacion where id=".$_POST['tipo_hab'];
+    $query = mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_assoc($query)){
+        $descripcion=$row['titulo'];
+    }
+}
 // echo "</pre>";
 ?>
     <section class="about" id="about">
@@ -61,9 +69,14 @@ include("../check.php");
                         <p id="fFinp">Fecha de Salida</p>
                         <input type="date" name="fFinI" id="fFinI" value="<?php echo $_POST['fecha_fin']?>">
                         <p id="tHabip">Seleccione el tipo de habitacion
-                        <?php
-                            require("../habitacion/select_habitacion.php");
-                        ?></p>
+                        </p>
+                        <select id="habitacion" name="tipoH">
+                           <?php
+                                if($_POST['tipo_hab'] != ''){
+                                    echo "<option id='tipo' selected value=".$_POST['tipo_hab'].">".$descripcion."</option>";
+                                }
+                           ?>
+                        </select>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
                     <input type="submit" id="submit">
                     </div>
@@ -126,6 +139,7 @@ include("../check.php");
         habilitar();
     }
     </script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>
