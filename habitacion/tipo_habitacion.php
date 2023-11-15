@@ -1,6 +1,6 @@
 <?php
     session_start();
-      
+    include("../check.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +17,12 @@
 <body>
  
 <header>
-    <a href="../inicio.php" class="logo">La 7ma <span>Hotel</span></a>
+    <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
 
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
-        <li><a href="../inicio.php">Inicio</a></li>
+        <li><a href="../index.php">Inicio</a></li>
         <li><a href="#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
     </ul>

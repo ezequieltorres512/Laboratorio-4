@@ -17,7 +17,7 @@
 <body>
  
 <header>
-    <a href="../inicio.php" class="logo">La 7ma <span>Hotel</span></a>
+    <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
 
     <div class="bx bx-menu" id="menu-icon"></div>
 
@@ -39,7 +39,7 @@ if(isset($_POST['habi']) && $_POST['motivo'] == "Alta de habitacion"){//DAR DE A
     $puerta = $_POST["puerta"];
     $tipoH = $_POST["tipoH"];
     $descripcion = $_POST["descripcion"];
-    $sql = "INSERT INTO habitacion (piso, puerta, tipo_habitacion, reservado, descripcion) VALUES ($piso, $puerta, $tipoH, 0, '$descripcion')";
+    $sql = "INSERT INTO habitacion (piso, puerta, tipo_habitacion, descripcion) VALUES ($piso, $puerta, $tipoH, '$descripcion')";
     $query = mysqli_query($conn,$sql);                                    
     if($query){
         require("../mensajes/redireccion_mensaje.php");
