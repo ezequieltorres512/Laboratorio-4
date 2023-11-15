@@ -74,7 +74,7 @@
 
         </h3>
         <p>Los invitamos a conocer mas sobre nuestros servicios<br> <br>
-        <a href="sobrenosotros.php" class="btn">SOBRE NOSOTROS</a>
+        <a href="#sobre_nosotros" class="btn">SOBRE NOSOTROS</a>
         
     </div>
 </section>
