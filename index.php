@@ -100,6 +100,12 @@
         </div> -->
         <?php } ?>
         <div class="services-box">
+            <a href="reserva/solicitud_listado_reserva.php">
+            <i class='bx bx-list-ul bx-flip-vertical' ></i>
+                <h3>Listado</h3>
+            </a>
+        </div>
+        <div class="services-box">
             <a href="reserva/solicitud_reserva.php">
                 <i class='bx bx-folder-plus bx-tada' ></i>
                 <h3>Alta</h3>
@@ -112,6 +118,7 @@
                 <h3>Modificacion</h3>
             </a>
         </div>
+
         <?php } ?>    
     </div>
 </section>
