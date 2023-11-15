@@ -1,6 +1,6 @@
 <?php
     session_start();
-      
+      require("../check.php");      
 ?>
 <!DOCTYPE html>
 <html lang="en">
