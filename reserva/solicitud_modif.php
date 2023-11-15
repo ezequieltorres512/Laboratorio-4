@@ -64,6 +64,7 @@ include("../conexion.php");
                     <div class="home-text">
                         <span id="span">Ingresos de la Modificacion</span>
                         <input type="hidden" name="motivo" value="Modificacion de reserva">
+                        <input type="hidden" name="id_seleccionado" value="<?php echo $_POST['id_reserva']; ?>">
                         <p id="fIniciop">Fecha de inicio</p>
                         <input type="date" name="fInicioI" id="fInicioI" value="<?php echo $_POST['fecha_ini']?>">
                         <p id="fFinp">Fecha de Salida</p>
@@ -79,7 +80,7 @@ include("../conexion.php");
                            ?>
                         </select>
                          <?php
-                         
+                         //print_r($_POST);
                         include("../habitacion/precios.php");
                             ?>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
