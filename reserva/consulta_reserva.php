@@ -4,17 +4,24 @@ include_once("../conexion.php");
 $planes=[];
 //print_r($_GET);
 /*FILTROS */
+$tipo = $_GET['tipo'];
 $fid = $_GET['fId'];
 $fpersona  = $_GET['fPerso'];
 $ftipo  =  $_GET['fHabitacion'];
 $finicio= $_GET['fInicio'];
 $ffin= $_GET['fFin'];
 $fprecio= $_GET['fPrecio'];
-$id = $_GET['id'];
-if($id != ''){
-  $sql="SELECT * FROM reserva WHERE BAJA IS NULL AND id_usuario = $id ";  
+if($tipo == 0){
+  $sql="SELECT * FROM reserva";
+}elseif($tipo  == 1) {
+  $sql="SELECT * FROM reserva WHERE BAJA IS NULL AND habitacion is null ";  
+}elseif($tipo  == 2) {
+  $sql="SELECT * FROM reserva WHERE BAJA IS NULL AND habitacion is not null ";  
 }else{
-  $sql="SELECT * FROM reserva WHERE BAJA IS NULL ";
+  $sql="SELECT * FROM reserva WHERE BAJA IS NOT NULL ";  
+}
+if($fid != ''){
+  $sql=" AND id_usuario = $fid ";  
 }
 
 if($fpersona)
@@ -50,6 +57,19 @@ while($row = mysqli_fetch_assoc($query)){
   $objPlan->vendedor=$row['vendedor'];
   $objPlan->conocidosPor=$row['conocidosPor'];
   $objPlan->baja=$row['baja'];
+  if($row['habitacion'] == '' && $row['baja'] == ''){
+    $estado="PENDIENTE";
+    $color='lightblue';
+  }elseif($row['habitacion'] != '' && $row['baja'] == ''){
+    $estado="CONFIRMADA";
+    $color='green';
+  
+  }elseif($row['baja']!=''){
+    $estado="ELIMINADA ";
+    $color='red';
+  }
+  $objPlan->estado=$estado;
+  $objPlan->color=$color;
   array_push($planes,$objPlan);
   $cantidad++;
 }

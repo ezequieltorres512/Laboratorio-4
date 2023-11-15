@@ -44,11 +44,6 @@ include("../check.php");
 				<option value="2">CONFIRMADAS</option>
 				<option value="3">ELIMINADAS</option>
 				</select>
-                <input id='cliente' value="<?php if($_SESSION['tipoUser'] == 'cliente') echo $_SESSION['usuario'];?>" ></input>				
-				<button id="mostrar"><label for="mostrar"></label><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-				<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-				<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-				</svg></button>
 			</h2>
             
 			<table id="">
@@ -119,6 +114,7 @@ function CargarTabla(){
             type: "GET",
             url: "consulta_reserva.php",
             data: {
+                tipo: $("#tipo_solicitud").val(),
                 fId: $("#fId").val(),
                 fPerso: $("#fPerso").val(), 
                 fHabitacion: $("#fTipo").val(), 
@@ -128,7 +124,7 @@ function CargarTabla(){
                 id : $("#cliente").val(),
             },
             success: function(respuestaDelServer,estado) {
-               // alert(estado+"->"+respuestaDelServer);
+                alert(estado+"->"+respuestaDelServer);
                 $('#conttabla').empty();
                 objJson=JSON.parse(respuestaDelServer);
                 let isGray = true;
@@ -174,11 +170,16 @@ function CargarTabla(){
                     newRow.appendChild(newCell);
 
                     newCell = document.createElement("td");
+                    newspan = document.createElement("span")
+                    newspan.innerHTML = element.estado;
+                    newspan.setAttribute("style", "background-color:"+element.color+";");
+                    newCell.appendChild(newspan);
                     newCell.setAttribute("campo-dato", "estado")
                     newImg = document.createElement("img");
                     newImg.setAttribute("src","../imagenes/editar.png");
                     newImg.setAttribute("class","icono-redireccion");
                     newImg.setAttribute("alt","Editar registro");
+                    newImg.setAttribute("style","float:right;");
                     newImg.addEventListener("click", function() {
 
                         var form = document.createElement("form");
@@ -224,6 +225,7 @@ function CargarTabla(){
                     newImg.setAttribute("src","../imagenes/eliminar.jpg");
                     newImg.setAttribute("class","icono-redireccion");
                     newImg.setAttribute("alt","Eliminar registro");
+                    newImg.setAttribute("style","float:right;");
                     newImg.addEventListener("click", function() {
                     if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
                         var form = document.createElement("form");
@@ -283,10 +285,9 @@ function CargarTabla(){
     $("#fPrecio").on("keyup", function() {
     CargarTabla();
     });
-    var Cargar = document.getElementById("mostrar");
-    Cargar.onclick = function() {
-      CargarTabla();
-    }
+    $("#tipo_solicitud").change(function() {
+    CargarTabla();
+    });
     document.addEventListener("DOMContentLoaded", function() {
         CargarTabla();
     });
