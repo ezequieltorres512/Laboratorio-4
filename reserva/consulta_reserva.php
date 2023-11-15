@@ -11,7 +11,6 @@ $ftipo  =  $_GET['fHabitacion'];
 $finicio= $_GET['fInicio'];
 $ffin= $_GET['fFin'];
 $fprecio= $_GET['fPrecio'];
-$id = $_GET['id'];
 if($tipo == 0){
   $sql="SELECT * FROM reserva";
 }elseif($tipo  == 1) {
@@ -21,8 +20,8 @@ if($tipo == 0){
 }else{
   $sql="SELECT * FROM reserva WHERE BAJA IS NOT NULL ";  
 }
-if($id != ''){
-  $sql=" AND id_usuario = $id ";  
+if($fid != ''){
+  $sql=" AND id_usuario = $fid ";  
 }
 
 if($fpersona)
