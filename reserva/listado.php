@@ -176,6 +176,31 @@ function CargarTabla(){
                     newspan.setAttribute("style", "background-color:"+element.color+";");
                     newCell.appendChild(newspan);
                     newCell.setAttribute("campo-dato", "estado")
+                    
+
+                    newImg = document.createElement("img");
+                    newImg.setAttribute("src","../imagenes/eliminar.jpg");
+                    newImg.setAttribute("class","icono-redireccion");
+                    newImg.setAttribute("alt","Eliminar registro");
+                    newImg.setAttribute("style","float:right;");
+                    newImg.addEventListener("click", function() {
+                    if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
+                        var form = document.createElement("form");
+                        form.setAttribute("method", "post");
+                        form.setAttribute("action", "baja_reserva.php");
+
+                        var input1 = document.createElement("input");
+                        input1.setAttribute("type", "hidden");
+                        input1.setAttribute("name", "reservas");
+                        input1.setAttribute("value", element.id);
+                        form.appendChild(input1);
+
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
+                    });
+                    newCell.appendChild(newImg)
+
                     newImg = document.createElement("img");
                     newImg.setAttribute("src","../imagenes/editar.png");
                     newImg.setAttribute("class","icono-redireccion");
@@ -222,28 +247,7 @@ function CargarTabla(){
                     });
                     newCell.appendChild(newImg)
 
-                    newImg = document.createElement("img");
-                    newImg.setAttribute("src","../imagenes/eliminar.jpg");
-                    newImg.setAttribute("class","icono-redireccion");
-                    newImg.setAttribute("alt","Eliminar registro");
-                    newImg.setAttribute("style","float:right;");
-                    newImg.addEventListener("click", function() {
-                    if (window.confirm("¿Seguro que quieres eliminar este registro?")) {    
-                        var form = document.createElement("form");
-                        form.setAttribute("method", "post");
-                        form.setAttribute("action", "baja_reserva.php");
 
-                        var input1 = document.createElement("input");
-                        input1.setAttribute("type", "hidden");
-                        input1.setAttribute("name", "reservas");
-                        input1.setAttribute("value", element.id);
-                        form.appendChild(input1);
-
-                        document.body.appendChild(form);
-                        form.submit();
-                    }
-                    });
-                    newCell.appendChild(newImg)
                     newRow.appendChild(newCell);
 
             /*      newCell = document.createElement("td");
