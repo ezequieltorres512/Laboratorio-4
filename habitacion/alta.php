@@ -22,7 +22,7 @@
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
-        <li><a href="#home">Inicio</a></li>
+        <li><a href="../index.php">Inicio</a></li>
         <li><a href="#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
     </ul>
