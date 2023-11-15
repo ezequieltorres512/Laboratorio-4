@@ -1,5 +1,5 @@
 <?php
-include_once("../conexion.php");
+// include_once("../conexion.php");
 
 // Rango de fechas deseado
 $fechaInicioDeseada = '2023-12-01';
@@ -7,14 +7,14 @@ $fechaFinDeseada = '2023-12-05';
 $tipo = 3;
 // Obtén la lista de habitaciones disponibles (puedes obtenerla de tu base de datos)
 $habitacionesDisponibles = obtenerHabitacionesDisponibles($conn, $tipo);
-echo"<pre>";
-print_r($habitacionesDisponibles);
-echo"</pre>";
+// echo"<pre>";
+// print_r($habitacionesDisponibles);
+// echo"</pre>";
 // Obtén la lista de reservas existentes (puedes obtenerla de tu base de datos)
 $reservas = obtenerReservas($conn, $tipo);
-echo"<pre>";
-print_r($reservas);
-echo"</pre>";
+// echo"<pre>";
+// print_r($reservas);
+// echo"</pre>";
 // Itera sobre las reservas existentes
 foreach ($reservas as $reserva) {
     // Verifica si hay superposición de fechas
@@ -27,14 +27,14 @@ foreach ($reservas as $reserva) {
         }
     }
 }
-echo "<br>======================<br>";
-echo"<pre>";
-print_r($habitacionesDisponibles);
-echo"</pre>";
+// echo"<pre>";
+// print_r($habitacionesDisponibles);
+// echo"</pre>";
 // Al finalizar, $habitacionesDisponibles contendrá las habitaciones que están disponibles para el rango de fechas deseado.
 
 // Función para verificar superposición de fechas
 function haySuperposicion($inicioReserva, $finReserva, $inicioDeseado, $finDeseado) {
+    //echo "<br>$inicioReserva <= $finDeseado && $finReserva >= $inicioDeseado<br>";
     return ($inicioReserva <= $finDeseado && $finReserva >= $inicioDeseado);
 }
 
@@ -42,7 +42,7 @@ function haySuperposicion($inicioReserva, $finReserva, $inicioDeseado, $finDesea
 function obtenerHabitacionesDisponibles($conn, $tipo) {
     // Aquí puedes realizar la lógica para obtener las habitaciones disponibles de tu base de datos
     // Retorna un array con las habitaciones disponibles
-    $sql = 'select a.id id, b.titulo titulo from habitacion a join tipohabitacion b on a.tipo_habitacion=b.id where tipo_habitacion = '.$tipo;
+    $sql = 'select a.id id,a.piso,a.puerta, a.descripcion, b.titulo titulo from habitacion a join tipohabitacion b on a.tipo_habitacion=b.id where tipo_habitacion = '.$tipo;
     $query = mysqli_query($conn, $sql);
     $salida = array();
     while($row = mysqli_fetch_assoc($query)){

@@ -2,6 +2,7 @@
 session_start();
 include("../check.php");
 include("../conexion.php");
+include_once("../desuso/prueba.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +89,14 @@ include("../conexion.php");
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
                         <?php if($_SESSION['tipoUser'] != 'cliente'){?>
                         <p id="fFinp">Habitaacion</p>
-                        <input type="numbre" name="habitacion" id="habitacion">
+                        <select id="habitacion" name="tipoH">
+                            <?php
+                            
+                            for($i = 0;$i<count($habitacionesDisponibles);$i++){
+                                echo "<option id='habi' selected value=".$habitacionesDisponibles[$i]['id'].">".$habitacionesDisponibles[$i]['descripcion']."</option>";
+                            }    
+                            ?>
+                        </select>
                         <?php }?>
                     <input type="submit" id="submit">
                     </div>
