@@ -38,7 +38,7 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body>
+<body onload="alta()">
  
 <header>
     <a href="../inicio.php" class="logo">La 7ma <span>Hotel</span></a>
@@ -86,8 +86,10 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
                     <p>Fecha de Salida<br>
                     <input type="date" name="salida" id="salida" required>                
                     <p>Seleccione el tipo de habitacion<br>
+                    <select id="habitacion" name="tipoH">
+                    </select>
                     <?php
-                        require("../habitacion/select_habitacion.php");
+                        include("../habitacion/precios.php");
                     ?>
                     <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
                     <p>Seleccione como nos conocio<br>
@@ -105,30 +107,33 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
 
 </section>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="../js/script.js"></script>
 <script>
-    const llegadaInput = document.getElementById('llegada');
-    const salidaInput = document.getElementById('salida');
-    const tipoHInput = document.getElementById('tipoH');
-    const precioElement = document.getElementById('precio');
+    document.addEventListener("DOMContentLoaded", function() {
+        const llegadaInput = document.getElementById('llegada');
+        const salidaInput = document.getElementById('salida');
+        const tipoHInput = document.getElementById('habitacion');
+        const precioInput = document.getElementById('precio');
 
-    llegadaInput.addEventListener('input', calcularPrecioTotal);
-    salidaInput.addEventListener('input', calcularPrecioTotal);
-    tipoHInput.addEventListener('change', calcularPrecioTotal);
+        llegadaInput.addEventListener('input', calcularPrecio);
+        salidaInput.addEventListener('input', calcularPrecio);
+        tipoHInput.addEventListener('change', calcularPrecio);
 
-    function calcularPrecioTotal() {
-        const fechaLlegada = new Date(llegadaInput.value);
-        const fechaSalida = new Date(salidaInput.value);
-        if(tipoHInput.value == ''){
-            return false;
-         }
-        const tipoHValue = tipoHInput.value;
-        const precio = document.querySelector(`input[name="${tipoHValue}"]`).value;
-        const unDia = 24 * 60 * 60 * 1000; 
-        const numeroDias = Math.round((fechaSalida - fechaLlegada) / unDia);
-        const precioTotal = precio * numeroDias;
-        precioElement.value  = `$${precioTotal}`;
-    }
+        function calcularPrecio() {
+            const fechaLlegada = new Date(llegadaInput.value);
+            const fechaSalida = new Date(salidaInput.value);
+
+            const tipoHValue = tipoHInput.value;
+            const precio = parseFloat(document.querySelector(`input[name="${tipoHValue}"]`).value);
+
+            const unDia = 24 * 60 * 60 * 1000;
+            const numeroDias = Math.round((fechaSalida - fechaLlegada) / unDia);
+            const precioTotal = precio * numeroDias;
+            precioInput.value = `$${precioTotal.toFixed(2)}`;
+        }
+    });
 </script>
+
 
 </html>

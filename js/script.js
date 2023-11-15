@@ -1,7 +1,9 @@
 function modificar(){
   cargar_habitacion_modi()
 }
-
+function alta(){
+  cargar_habitacion()
+}
 let header = document.querySelector("header");
 let menu = document.querySelector("#menu-icon");
 let navbar = document.querySelector(".navbar");
@@ -51,6 +53,25 @@ function cargar_habitacion_modi() {
             if(element.id != document.getElementById('tipo').value){
               habitaciones.push(element.id+"|"+element.descripcion);
             }
+        });//cierra for each
+        habitaciones.sort();
+        //alert(habitaciones);
+      addOptions("habitacion", habitaciones);
+      }//cierra funcion asignada al success
+  });//cierra ajax
+}
+function cargar_habitacion() {
+  var request = $.ajax({
+      url: "../habitacion/habitacion_select.php",
+      data: {
+      },
+      success: function(respuestaDelServer,estado) {
+      // alert(respuestaDelServer,estado);
+      //  alert("hola");
+          var habitaciones = new Array();
+          objJson=JSON.parse(respuestaDelServer);
+          objJson.planes.forEach(element => {
+              habitaciones.push(element.id+"|"+element.descripcion);
         });//cierra for each
         habitaciones.sort();
         //alert(habitaciones);
