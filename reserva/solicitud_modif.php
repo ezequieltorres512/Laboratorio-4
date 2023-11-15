@@ -137,7 +137,7 @@ include("../conexion.php");
                 habitacion : $("#habitacion").val(),
             },
             success: function(respuestaDelServer,estado) {
-            alert(respuestaDelServer,estado);
+            //alert(respuestaDelServer,estado);
             //  alert("hola");
                 var habitaciones = new Array();
                 objJson=JSON.parse(respuestaDelServer);

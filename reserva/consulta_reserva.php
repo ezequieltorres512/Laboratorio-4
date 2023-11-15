@@ -38,6 +38,7 @@ if ($id != '') {
 
 if ($fpersona) {
   $sql .= " AND (apellido LIKE '%$fpersona%' OR nombre LIKE '%$fpersona%')";
+
 }
 if ($fid) {
   $sql .= " AND id_reserva LIKE '$fid%'";
@@ -61,9 +62,11 @@ $cantidad = 0;
 //echo "$sql";
 while ($row = mysqli_fetch_assoc($query)) {
  // print_r($row);
+
  // $sql1 = 'SELECT titulo FROM tipohabitacion WHERE id = '.$row['tipoHabitacion']; 
  // $query1 = mysqli_query($conn,$sql1);
  // $row1 = mysqli_fetch_assoc($query1);
+
   $objPlan = new stdClass();
   $objPlan->id=$row['id_reserva'];
   $objPlan->precio=$row['precio'];
