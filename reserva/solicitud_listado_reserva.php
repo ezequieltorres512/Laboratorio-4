@@ -49,7 +49,7 @@ include_once("../conexion.php");
         , tipohabitacion.descripcionCamas AS descripcion
         , tipohabitacion.titulo, tipohabitacion.precio
         FROM reserva 
-        INNER JOIN tipohabitacion ON reserva.tipoHabitacion = tipohabitacion.id WHERE reserva.id_usuario = ".$_SESSION["usuario"];
+        INNER JOIN tipohabitacion ON reserva.tipoHabitacion = tipohabitacion.id WHERE baja IS NULL and reserva.id_usuario = ".$_SESSION["usuario"];
         $query = mysqli_query($conn, $sql);
 
         if($nr = mysqli_num_rows($query)){
@@ -60,7 +60,7 @@ include_once("../conexion.php");
                   <h1>Lista de solicitudes</h1>
                   <br>
                   
-                  <span>Lista solicitudes de <?php  echo " ".$_SESSION["nombre"]." ".$_SESSION["apellido"]; ?> </span>
+                  <span>Lista solicitudes pendientes de <?php  echo " ".$_SESSION["nombre"]." ".$_SESSION["apellido"]; ?> </span>
                     <table>
                             <tr>
                                 <th>Nro. Reserva</th>
