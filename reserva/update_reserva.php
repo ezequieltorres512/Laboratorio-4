@@ -15,7 +15,7 @@ include_once("../conexion.php");
 //         print_r($_SESSION);
 //         echo "</pre>";
         if(isset($_POST['habitacion_asignada'])){
-                $sql1 = 'update reserva set habitacion = '.$_POST['habitacion_asignada'];
+                $sql1 = 'update reserva set habitacion = '.$_POST['habitacion_asignada'].' where id_reserva = '.$_POST['id_seleccionado'];
                 $query1 = mysqli_query($conn,$sql1);
         }
                                                
