@@ -80,7 +80,7 @@ include("../conexion.php");
                         </select>
                          <?php
                          
-                        include("../habitacion/select_habitacion.php");
+                        include("../habitacion/precios.php");
                             ?>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
                     <input type="submit" id="submit">
