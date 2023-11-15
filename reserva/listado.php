@@ -168,7 +168,7 @@ function CargarTabla(){
 
                     newCell = document.createElement("td");
                     newCell.setAttribute("campo-dato", "tipo_hab")
-                    newCell.innerHTML = element.tipoHabitacion;
+                    newCell.innerHTML = element.titulo;
                     newRow.appendChild(newCell);
 
                     newCell = document.createElement("td");
