@@ -44,7 +44,7 @@ if ($fid) {
   $sql .= " AND id_reserva LIKE '$fid%'";
 }
 if ($ftipo) {
-  $sql .= " AND titulo LIKE '$ftipo%'";
+  $sql .= " AND titulo LIKE '%$ftipo%'";
 }
 if ($finicio) {
   $sql .= " AND fecha_inicio >= '$finicio'";
