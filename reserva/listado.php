@@ -49,20 +49,20 @@ include("../check.php");
             
 			<table id="">
 				<tr id="">
-						<th><button class="" disabled>ID</button></th>
-						<th><button class="" disabled>Nombre y Apellido</button></th>
-						<th><button class="" disabled>Fecha inicio</button></th>
-						<th><button class="" disabled>Fecha finalizacion</button></th>
-						<th><button class="" disabled>Precio</button></th>
-                        <th><button class="" disabled>Tipo Habitacion</button></th>
-						<th><button class="" disabled>Estado</button></th>				
+						<th><label style='text-allign:center;' class="" disabled>ID</label></th>
+						<th><label class="" disabled>Nombre y Apellido</label></th>
+						<th><label class="" disabled>Fecha inicio</label></th>
+						<th><label class="" disabled>Fecha finalizacion</label></th>
+						<th><label class="" disabled>Precio</label></th>
+                        <th><label class="" disabled>Tipo Habitacion</label></th>
+						<th><label class="" disabled>Estado</label></th>				
 				</tr>
                 <tr>
-						<td ><input class="" id="fId" type='text' placeholder="Filtro ID"></input></td>
+						<td ><input style='width:55px;' class="" id="fId" type='text' placeholder="Filtro ID"></input></td>
 						<td ><input class="" id="fPerso" type='text' placeholder="Filtro Nombre"></input></td>
 						<td ><input class="" id="fInicio" type='date' placeholder="Filtro inicio"></input></td>
                         <td ><input class="" id="fFin" type='date' placeholder="Filtro fin"></input></td>
-						<td ><input class="" id="fPrecio" type='text' placeholder="Filtro Precio $$"></input></td>
+						<td ><input  style='width:65px;' class="" id="fPrecio" type='text' placeholder="Precio $$"></input></td>
                         <td ><input class="" id="fTipo" type='text' placeholder="Filtro Habitacion"></input></td>
 						<td ><input  class="" id='colorfondo' disabled></input></td>				
 				</tr>
@@ -296,6 +296,25 @@ function CargarTabla(){
     });
     document.addEventListener("DOMContentLoaded", function() {
         CargarTabla();
+        ajustarAnchoColumnas();
+
+        window.addEventListener("resize", function() {
+            ajustarAnchoColumnas();
+        });
+
+        function ajustarAnchoColumnas() {
+            const contTabla = document.getElementById('conttabla');
+            const filas = contTabla.getElementsByTagName('tr');
+
+            // Itera sobre las filas y ajusta el ancho de cada celda.
+            for (let i = 0; i < filas.length; i++) {
+                const celdas = filas[i].getElementsByTagName('td');
+
+                for (let j = 0; j < celdas.length; j++) {
+                    celdas[j].style.width = 'auto';
+                }
+            }
+        }
     });
 
 </script>
