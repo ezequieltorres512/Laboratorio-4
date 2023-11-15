@@ -57,6 +57,14 @@ while($row = mysqli_fetch_assoc($query)){
   $objPlan->vendedor=$row['vendedor'];
   $objPlan->conocidosPor=$row['conocidosPor'];
   $objPlan->baja=$row['baja'];
+  if($row['habitacion'] == '' && $row['baja'] == ''){
+    $estado="PENDIENTE";
+  }elseif($row['habitacion'] != '' && $row['baja'] == ''){
+    $estado="CONFIRMADA";
+  }elseif($row['baja']!=''){
+    $estado="ELIMINADA";
+  }
+  $objPlan->estado=$estado;
   array_push($planes,$objPlan);
   $cantidad++;
 }
