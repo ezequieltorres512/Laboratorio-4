@@ -29,12 +29,14 @@ include("../check.php");
         <li><a href="#skills">Instalaciones</a></li>
         <li><a href="#services">Servicios</a></li>
         <li><a href="#contact">Contacto</a></li> -->
-        <?php if(isset($_SESSION['usuario'])){ ?>   
+            <?php if(isset($_SESSION['usuario'])){?>   
                 <li><a href="../inicio.php#reservas">Reservas</a></li>
             <?php } ?>
             <li><a href="../sobrenosotros.php#galeria">Galeria</a></li>
             <li><a href="../sobrenosotros.php#">Sobre Nosotros</a></li>
-            <li><a href="../inicio.php#contact">Contacto</a></li>
+            <?php if($_SESSION["tipoUser"] == "cliente"){?>
+                <li><a href="../inicio.php#contact">Contacto</a></li>
+            <?php } ?>
             <div class="bx bx-moon" id="darkmode"></div>
             <?php if(isset($_SESSION['usuario'])){ ?>
                 <li><a href="../usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>

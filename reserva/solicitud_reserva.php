@@ -58,7 +58,9 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
             <?php } ?>
             <li><a href="../sobrenosotros.php#galeria">Galeria</a></li>
             <li><a href="../sobrenosotros.php#">Sobre Nosotros</a></li>
-            <li><a href="../inicio.php#contact">Contacto</a></li>
+            <?php if($_SESSION["tipoUser"] == "cliente"){?>
+                <li><a href="../inicio.php#contact">Contacto</a></li>
+            <?php } ?>
             <div class="bx bx-moon" id="darkmode"></div>
             <?php if(isset($_SESSION['usuario'])){ ?>
                 <li><a href="../usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
@@ -82,9 +84,10 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
                     <p>Telefono<br>
                     <input type="number" name="tel" id="tel" required value = "<?php echo $telefono ?>">
                     <p>Fecha de inicio<br>
-                    <input type="date" name="llegada" id="llegada" required>
+                    <?php $fechamin = date("Y-m-d"); ?>
+                    <input type="date" name="llegada" id="llegada" min= "<?php echo $fechamin ?>" required>
                     <p>Fecha de Salida<br>
-                    <input type="date" name="salida" id="salida" required>                
+                    <input type="date" name="salida" id="salida" min= "<?php echo $fechamin ?>" required>                
                     <p>Seleccione el tipo de habitacion<br>
                     <?php
                         require("../habitacion/select_habitacion.php");
