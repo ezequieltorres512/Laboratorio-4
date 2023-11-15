@@ -119,6 +119,7 @@ function CargarTabla(){
             type: "GET",
             url: "consulta_reserva.php",
             data: {
+                tipo: $("#tipo_solicitud").val(),
                 fId: $("#fId").val(),
                 fPerso: $("#fPerso").val(), 
                 fHabitacion: $("#fTipo").val(), 
@@ -283,10 +284,9 @@ function CargarTabla(){
     $("#fPrecio").on("keyup", function() {
     CargarTabla();
     });
-    var Cargar = document.getElementById("mostrar");
-    Cargar.onclick = function() {
-      CargarTabla();
-    }
+    $("#tipo_solicitud").change(function() {
+    CargarTabla();
+    });
     document.addEventListener("DOMContentLoaded", function() {
         CargarTabla();
     });

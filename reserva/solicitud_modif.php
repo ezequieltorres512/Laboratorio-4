@@ -119,6 +119,31 @@ include("../conexion.php");
         const precioTotal = precio * numeroDias;
 
         precioInput.value = `$${precioTotal}`;
+        cargar_habitacion_disponible();
+    }
+    function cargar_habitacion_disponible() {
+        $("#disponibilidad").empty(); 
+        var request = $.ajax({
+            type: "GET",
+            url: "../habitacion/habitacion_select.php",
+            data: {
+                fFin: $("#fInicioI").val(),
+                fPrecio: $("#fFinI").val(),
+                id : $("#habitacion").val(),
+            },
+            success: function(respuestaDelServer,estado) {
+            // alert(respuestaDelServer,estado);
+            //  alert("hola");
+                var habitaciones = new Array();
+                objJson=JSON.parse(respuestaDelServer);
+                objJson.planes.forEach(element => {
+                    habitaciones.push(element.id+"|Piso: "+element.piso+"- Puerta: "+element.puerta);
+                });//cierra for each
+                habitaciones.sort();
+                //alert(habitaciones);
+            addOptions("disponibilidad", habitaciones);
+            }//cierra funcion asignada al success
+        });//cierra ajax
     }
     </script>
 
