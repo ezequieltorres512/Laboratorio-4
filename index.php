@@ -21,7 +21,7 @@
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
-        <li><a href="#home">Inicio</a></li>
+        <li><a href="index.php">Inicio</a></li>
         <?php if(isset($_SESSION['usuario'])){ ?>   
             <li><a href="#reservas">Reservas</a></li>
         <?php } ?>
