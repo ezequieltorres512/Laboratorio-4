@@ -16,30 +16,30 @@ if($_GET['id'] != ''){
   $id = $_GET['id'];
 }
 if($tipo == 0){
-  $sql="SELECT * FROM reserva";
+  $sql="SELECT a.*, b.titulo FROM reserva a join tipohabitacion b on a.tipoHabitacion=b.id";
 }elseif($tipo  == 1) {
-  $sql="SELECT * FROM reserva WHERE BAJA IS NULL AND habitacion is null ";  
+  $sql="SELECT a.*, b.titulo FROM reserva a join tipohabitacion b on a.tipoHabitacion=b.id WHERE a.BAJA IS NULL AND a.habitacion is null ";  
 }elseif($tipo  == 2) {
-  $sql="SELECT * FROM reserva WHERE BAJA IS NULL AND habitacion is not null ";  
+  $sql="SELECT a.*, b.titulo FROM reserva WHERE a.BAJA IS NULL AND b.habitacion is not null ";  
 }else{
-  $sql="SELECT * FROM reserva WHERE BAJA IS NOT NULL ";  
+  $sql="SELECT a.*, b.titulo FROM reserva WHERE a.BAJA IS NOT NULL ";  
 }
 if($id != ''){
-  $sql.=" and id_usuario = $id ";  
+  $sql.=" and a.id_usuario = $id ";  
 }
 
 if($fpersona)
-  $sql=$sql . " and apellido LIKE '%$fpersona%' or nombre like '%$fpersona%'";
+  $sql=$sql . " and a.apellido LIKE '%$fpersona%' or a.nombre like '%$fpersona%'";
 if($fid)
-  $sql=$sql . " and id_reserva LIKE '$fid%' ";
+  $sql=$sql . " and a.id_reserva LIKE '$fid%' ";
 if($ftipo)
-  $sql=$sql . " and tipoHabitacion LIKE '$ftipo%' ";
+  $sql=$sql . " and a.tipoHabitacion LIKE '$ftipo%' ";
 if($finicio)
-    $sql=$sql . " and fecha_inicio >='".$finicio."' ";
+    $sql=$sql . " and a.fecha_inicio >='".$finicio."' ";
 if($ffin)
-  $sql=$sql . " and fecha_fin ='".$ffin."' ";
+  $sql=$sql . " and a.fecha_fin ='".$ffin."' ";
  if($fprecio)
-    $sql=$sql . " and precio LIKE '".$fprecio."%' ";
+    $sql=$sql . " and a.precio LIKE '".$fprecio."%' ";
 //echo $sql;
 if(!strpos($sql, "WHERE")){
   $sql = str_replace('reserva and', 'reserva where', $sql);
@@ -50,9 +50,9 @@ $nr = mysqli_num_rows($query);
 $cantidad=0;
 while($row = mysqli_fetch_assoc($query)){
  // print_r($row);
-  $sql1 = 'SELECT titulo FROM tipohabitacion WHERE id = '.$row['tipoHabitacion']; 
-  $query1 = mysqli_query($conn,$sql1);
-  $row1 = mysqli_fetch_assoc($query1);
+  // $sql1 = 'SELECT titulo FROM tipohabitacion WHERE id = '.$row['tipoHabitacion']; 
+  // $query1 = mysqli_query($conn,$sql1);
+  // $row1 = mysqli_fetch_assoc($query1);
   $objPlan = new stdClass();
   $objPlan->id=$row['id_reserva'];
   $objPlan->precio=$row['precio'];
@@ -63,7 +63,7 @@ while($row = mysqli_fetch_assoc($query)){
   $objPlan->fecha_fin=$row['fecha_fin'];
   $objPlan->habitacion=$row['habitacion'];
   //$objPlan->habitacion=$row['descripci'];
-  $objPlan->titulo=$row1['titulo'];
+  $objPlan->titulo=$row['titulo'];
   $objPlan->tipoHabitacion=$row['tipoHabitacion'];
   $objPlan->adicional=$row['adicional'];
   $objPlan->vendedor=$row['vendedor'];
