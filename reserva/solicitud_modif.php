@@ -88,10 +88,11 @@ include("../conexion.php");
                         include("../habitacion/precios.php");
                             ?>
                         <p id="pPrecio">Precio: <input type="text" id="precio" name="precio" value="<?php echo "$".$_POST['precio']?>"></p>
+                        <?php if($_SESSION['tipoUser'] != 'cliente'){?>
                         <p>Seleccione Habitacion si desea asignar</p>
-                        <select id="disponibilidad" name="habitacion_asignada">
+                            <select id="disponibilidad" name="habitacion_asignada">
                         </select>
-                        <br>
+                        <?php }?>    
                     <input type="submit" id="submit" style="margin-top: 5%;">
                     </div>
                 </div>
