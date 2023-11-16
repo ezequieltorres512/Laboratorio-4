@@ -73,8 +73,7 @@
         ?>
 
         </h3>
-        <p>Los invitamos a conocer mas sobre nuestros servicios<br> <br>
-        <a href="#sobre_nosotros" class="btn">SOBRE NOSOTROS</a>
+       
         
     </div>
 </section>
