@@ -79,7 +79,7 @@
     </div>
 </section>
 <?php 
-if (!isset($_SESSION['tipoUser']) || $_SESSION['tipoUser'] !== 'admin') {?>
+if (!isset($_SESSION['tipoUser']) || $_SESSION['tipoUser'] === 'cliente') {?>
 <section class="home" id="sobre_nosotros">
 <div class="social">
         </div>
