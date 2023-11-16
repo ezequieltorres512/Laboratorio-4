@@ -78,6 +78,8 @@
         
     </div>
 </section>
+<?php 
+if (!isset($_SESSION['tipoUser']) || $_SESSION['tipoUser'] !== 'admin') {?>
 <section class="home" id="sobre_nosotros">
 <div class="social">
         </div>
@@ -117,7 +119,7 @@
             </div>
         </div>
     </section>
-
+<?php }?>
 <?php if(isset($_SESSION['usuario'])){ ?>
 <section class="services" id="reservas">
     <div class="heading">
