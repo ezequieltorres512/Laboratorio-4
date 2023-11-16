@@ -125,7 +125,7 @@ function CargarTabla(){
                 id : $("#cliente").val(),
             },
             success: function(respuestaDelServer,estado) {
-                alert(estado+"->"+respuestaDelServer);
+                //alert(estado+"->"+respuestaDelServer);
                 $('#conttabla').empty();
                 objJson=JSON.parse(respuestaDelServer);
                 let isGray = true;

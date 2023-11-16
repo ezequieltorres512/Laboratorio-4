@@ -28,7 +28,7 @@ session_start();
             <?php } ?>
             <li><a href="#galeria">Galeria</a></li>
             <li><a href="#">Sobre Nosotros</a></li>
-            <?php if($_SESSION["tipoUser"] == "cliente"){?>
+            <?php if(isset($_SESSION['tipoUser']))if($_SESSION["tipoUser"] == "cliente"){?>
                 <li><a href="index.php#contact">Contacto</a></li>
             <?php } ?>
             <div class="bx bx-moon" id="darkmode"></div>
