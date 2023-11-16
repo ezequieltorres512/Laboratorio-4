@@ -74,10 +74,12 @@
 
         </h3>
         <p>Los invitamos a conocer mas sobre nuestros servicios<br> <br>
-        <a href="sobrenosotros.php" class="btn">SOBRE NOSOTROS</a>
+        <a href="#sobre_nosotros" class="btn">SOBRE NOSOTROS</a>
         
     </div>
 </section>
+<?php 
+if (!isset($_SESSION['tipoUser']) || $_SESSION['tipoUser'] === 'cliente') {?>
 <section class="home" id="sobre_nosotros">
 <div class="social">
         </div>
@@ -117,7 +119,7 @@
             </div>
         </div>
     </section>
-
+<?php }?>
 <?php if(isset($_SESSION['usuario'])){ ?>
 <section class="services" id="reservas">
     <div class="heading">
