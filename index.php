@@ -129,7 +129,7 @@ if (!isset($_SESSION['tipoUser']) || $_SESSION['tipoUser'] === 'cliente') {?>
     <?php if($_SESSION['tipoUser'] == 'admin' || $_SESSION['tipoUser'] == 'recepcionista'){ ?>
         <div class="services-box">
             <a href="reserva/listado.php">
-                <i class='bx bx-list-ul bx-flip-vertical' ></i>
+                <i class='bx bx-list-ul' ></i>
                 <h3>Listado</h3>
             </a>
         </div>
@@ -200,9 +200,9 @@ if( !isset($_SESSION["tipoUser"]) || ( isset($_SESSION["tipoUser"]) && $_SESSION
         <div class="contact-form">
             <form action="comentario/comentario.php" method='post'>
                 <input type="hidden" name="motivo" value="Consulta cargada">
-                <input type="text" name="nom" id="nom" placeholder="Tu nombre">
-                <input type="email" name="correo" id="correo" placeholder="Tu email">
-                <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejame tu comentario que me contacto a la brevedad"></textarea>
+                <input type="text" name="nom" id="nom" <?php if(isset($_SESSION['usuario'])) echo "value = '".$_SESSION['apellido']." ".$_SESSION['nombre']."'"; else echo "placeholder='Nombre'";?> required>
+                <input type="email" name="correo" id="correo" <?php if(isset($_SESSION['usuario'])) echo "value = '".$_SESSION['email']."'"; else echo "placeholder='Email'";?> required>
+                <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Dejenos su comentario y lo contactaremos a la brevedad" required></textarea>
                     <input type='submit'  class="btn"></input>
 
             </form>

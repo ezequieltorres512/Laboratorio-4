@@ -179,7 +179,8 @@ function CargarTabla(){
                     newCell.setAttribute("campo-dato", "estado")
                     
                     if(element.estado == 'PENDIENTE'){
-                        newImg = document.createElement("img");
+                        <?php if($_SESSION['tipoUser'] != 'cliente'){ ?>
+                            newImg = document.createElement("img");
                         newImg.setAttribute("src","../imagenes/eliminar.jpg");
                         newImg.setAttribute("class","icono-redireccion");
                         newImg.setAttribute("alt","Eliminar registro");
@@ -201,6 +202,7 @@ function CargarTabla(){
                         }
                         });
                         newCell.appendChild(newImg)
+                    <?php } ?>
                         
                         newImg = document.createElement("img");
                         newImg.setAttribute("src","../imagenes/editar.png");
