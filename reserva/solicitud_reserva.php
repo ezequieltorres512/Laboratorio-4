@@ -95,10 +95,6 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
                         include("../habitacion/precios.php");
                     ?>
                     <p>Precio: <input type="text" id="precio" name="precio" readonly></p>
-                    <p>Seleccione como nos conocio<br>
-                    <?php
-                        require("../publicidad/publicidad.php");
-                    ?>
                     <input type="text" name="origen" id="origen" value="8" hidden>
                     <input type="submit">
             </div>

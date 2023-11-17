@@ -1,6 +1,6 @@
 <?php
     session_start();
-  //    require("../check.php");      
+      //require("../check.php");      
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +46,9 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       }
       /*termina function */
       include_once("../conexion.php");
+      // echo "<pre>";
+      // print_r($_POST);
+      // echo "</pre>";
       $user = $_POST["user"];
       $pw = $_POST["pw"];
       $apellido = $_POST["ape"];
@@ -58,13 +61,14 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       if(isset($_POST["tel"])){
             $telefono = $_POST['tel'];
       }
+      $conocidosPor = $_POST['canal_difusion'];
       $contrasenaCifrada = md5($pw);
       //$palabra_clave = $_POST["clave_palabra"];
       $numeroAleatorio = generarNumeroAleatorio();
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO cliente (clave,email,fecha_registro,estado,apellido, nombre , direccion, telefono) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$direccion', $telefono)");
+      $query = mysqli_query($conn,"INSERT INTO cliente (clave,email,fecha_registro,estado,apellido, nombre , direccion, telefono, conocidosPor) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$direccion', $telefono, $conocidosPor)");
 
                                                
       if($query){
@@ -91,12 +95,11 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       $telefono = null;
       $puesto = $_POST['puesto'];
       $contrasenaCifrada = md5($pw);
-      //$palabra_clave = $_POST["clave_palabra"];
       $numeroAleatorio = generarNumeroAleatorio();
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto')");
+      $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto', $conocidosPor)");
 
                                                
       if($query){
@@ -126,9 +129,11 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
                         <input type="password" name="pw" id="pw">
                         <p>Repita la contrase&nacute;a<br>
                         <input type="password" name="pw2" id="pw2">
-      <!--                   <p>Palabra para recupero de clave<br>
-                        <input type="text" name="clave_palabra" id="clave_palabra"> -->
-                        <input type="submit">
+                        <p>Seleccione como nos conocio<br>
+                        <?php
+                              require("../publicidad/publicidad.php");
+                        ?>
+                        <input type="submit" style="margin-top: 8%;">
                   </div>
             </div>
       </div>

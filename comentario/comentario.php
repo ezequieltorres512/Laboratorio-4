@@ -10,13 +10,13 @@
       $asunto="Contacto desde el sitio";
       $mensaje="Nombre: ".$persona." Email: ".$correo." Mensaje: ".$comentario;
       $header="From: ".$persona."<".$correo.">";
-      $enviado = mail($destino,$asunto,$mensaje,$header);
+      // $enviado = mail($destino,$asunto,$mensaje,$header);
       
-      if($enviado == true){
-      	echo "Su mensaje ha sido enviado.";
-      }else{
-      	echo "Hubo un error en el envio del mail.";
-      }
+      // if($enviado == true){
+      // 	echo "Su mensaje ha sido enviado.";
+      // }else{
+      // 	echo "Hubo un error en el envio del mail.";
+      // }
 
       $query = mysqli_query($conn,"INSERT INTO comentarios (persona,correo,comentario) VALUES ('$persona','$correo','$comentario')");
 

@@ -14,14 +14,13 @@ $query = mysqli_query($conn,"	SELECT 'empleado' AS tipo_usuario, ID AS id_usuari
 								WHERE email = '$email' AND clave = '$pass';");
 $nr = mysqli_num_rows($query);
 $row = mysqli_fetch_assoc($query);
-$usuario = $row['id_usuario'];
 if($nr == 1)
 {
 		
 	if($row['estado'] == 1){
 		session_start();
 		$_SESSION['email']  = $email;
-		$_SESSION['usuario'] = $usuario;
+		$_SESSION['usuario'] = $row['id_usuario'];
 
 		$_SESSION['apellido'] = $row['apellido'];
 		$_SESSION['nombre'] = $row['nombre'];
