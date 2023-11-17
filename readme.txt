@@ -7,3 +7,12 @@ d. Ejecutar "git status" para verificar si hay algo para hacer
 
 
 Botones: https://boxicons.com/?query=
+
+
+
+admin: 
+  usr: admin@admin
+  pw: admin
+cliente:
+  usr: cliente@cliente
+  pw: cliente
