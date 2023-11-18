@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body>
+<body onload = "validarContra()">
  
 <header>
     <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
@@ -56,3 +56,6 @@
     </form>
 </center>
 </body>
+
+<script src="../js/script.js"></script>
+

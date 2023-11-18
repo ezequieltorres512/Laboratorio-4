@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body>
+<body onload="validarContra()">
  
 <header>
     <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
@@ -99,7 +99,7 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto', $conocidosPor)");
+      $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto')");
 
                                                
       if($query){
@@ -140,17 +140,6 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       </form>
       </center>   
       </body>
-      <script>
-      document.getElementById("alta_usr").addEventListener("submit", function(event) {
-      var password1 = document.getElementById("pw").value;
-      var password2 = document.getElementById("pw2").value;
-
-      if (password1 !== password2) {
-            alert("Los campos no coinciden. Por favor, intentelo de nuevo.");
-            event.preventDefault(); 
-      }
-      });
-      </script>
       <?php
 }
       ?>
