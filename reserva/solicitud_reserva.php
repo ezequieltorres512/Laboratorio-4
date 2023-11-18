@@ -8,14 +8,15 @@ $nombre="";
 $email="";
 
 if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
-    $query = mysqli_query($conn," SELECT telefono, apellido, nombre, email 
+    $query = mysqli_query($conn," SELECT telefono, apellido, nombre, email, conocidosPor 
 								FROM Cliente
 								WHERE id =".$_SESSION['usuario']);
     $row = mysqli_fetch_assoc($query);
     $telefono = $row['telefono'];
     $apellido = $row['apellido'];
     $nombre = $row['nombre'];
-    $email = $row['email'];   
+    $email = $row['email'];
+    $conocidoX = $row['conocidosPor'];   
 }
 
 //echo "<pre>"; 
