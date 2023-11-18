@@ -129,7 +129,7 @@ if (!isset($_SESSION['tipoUser']) || $_SESSION['tipoUser'] === 'cliente') {?>
     <?php if($_SESSION['tipoUser'] == 'admin' || $_SESSION['tipoUser'] == 'recepcionista'){ ?>
         <div class="services-box">
             <a href="reserva/listado.php">
-                <i class='bx bx-list-ul bx-flip-vertical' ></i>
+                <i class='bx bx-list-ul' ></i>
                 <h3>Listado</h3>
             </a>
         </div>
