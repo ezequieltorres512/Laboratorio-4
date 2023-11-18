@@ -94,3 +94,18 @@ var select = document.getElementById(domElement);
         }
   }
 }
+
+
+function validarContra(){
+document.getElementById("alta_usr").addEventListener("submit", function(event) {
+var password1 = document.getElementById("pw").value;
+var password2 = document.getElementById("pw2").value;
+
+if (password1 !== password2) {
+      alert("Los campos no coinciden. Por favor, intentelo de nuevo.");
+      event.preventDefault(); 
+}
+});
+
+}
+

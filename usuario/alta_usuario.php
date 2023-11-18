@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body>
+<body onload="validarContra()">
  
 <header>
     <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
@@ -29,11 +29,7 @@
 </header>
 <center>
 <?php
-// echo "<br>";
-// echo "<br>";
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
+
 if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA USUARIO y validar con mail
       /*   FUNCION */
       function generarNumeroAleatorio() {
@@ -68,15 +64,23 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO cliente (clave,email,fecha_registro,estado,apellido, nombre , direccion, telefono, conocidosPor) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$direccion', $telefono, $conocidosPor)");
-
-                                               
-      if($query){
-            require("../mensajes/redireccion_mensaje.php");
+      //Validar correo en alta de usuario
+      $correo = mysqli_num_rows(mysqli_query($conn, "SELECT cliente.id FROM cliente WHERE cliente.email='$user'"));
+      if($correo == 0){ 
+            $query = mysqli_query($conn,"INSERT INTO cliente (clave,email,fecha_registro,estado,apellido, nombre , direccion, telefono, conocidosPor) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$direccion', $telefono, $conocidosPor)");                                              
+            if($query){
+                  require("../mensajes/redireccion_mensaje.php");
+            }else{
+                  echo mysqli_error($conn);
+            }
       }else{
-            echo mysqli_error($conn);
-      }
-}else if($_POST['motivo'] == "Alta de empleado" && $_POST['empleado'] == "ok"){
+            echo '<script>    
+                        alert("Ya existe un usuario registrado a este correo"); 
+                        window.location.href="alta_usuario.php";
+                  </script>';
+      }    
+
+}else if(isset($_SESSION['tipoUser']) && $_POST['motivo'] == "Alta de empleado" && $_POST['empleado'] == "ok"){
       function generarNumeroAleatorio() {
             $numero = '';
             for ($i = 0; $i < 9; $i++) {
@@ -99,14 +103,22 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       $adicional = 0;
       $vendedor=0;
 
-      $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto', $conocidosPor)");
-
-                                               
-      if($query){
-            require("../mensajes/redireccion_mensaje.php");
+      //Validar correo en alta de empleado
+      $correo = mysqli_num_rows(mysqli_query($conn, "SELECT empleado.id FROM empleado WHERE empleado.email='$user'"));
+      if($correo == 0){ 
+            $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto')");                                               
+            if($query){
+                  require("../mensajes/redireccion_mensaje.php");
+            }else{
+                  echo mysqli_error($conn);
+            }
       }else{
-            echo mysqli_error($conn);
+            echo '<script>    
+                        alert("Ya existe un empleado registrado a este correo"); 
+                        window.location.href="alta_empleado.php";
+                  </script>';
       }
+
 }else{//Formulario para llenar alta
 ?>
       <form id = 'alta_usr' action="alta_usuario.php" method="post">
@@ -140,17 +152,6 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       </form>
       </center>   
       </body>
-      <script>
-      document.getElementById("alta_usr").addEventListener("submit", function(event) {
-      var password1 = document.getElementById("pw").value;
-      var password2 = document.getElementById("pw2").value;
-
-      if (password1 !== password2) {
-            alert("Los campos no coinciden. Por favor, intentelo de nuevo.");
-            event.preventDefault(); 
-      }
-      });
-      </script>
       <?php
 }
       ?>
