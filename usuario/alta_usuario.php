@@ -45,21 +45,21 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       }
       /*termina function */
       include_once("../conexion.php");
-      // echo "<pre>";
-      // print_r($_POST);
-      // echo "</pre>";
+
       $user = $_POST["user"];
       $pw = $_POST["pw"];
       $apellido = $_POST["ape"];
       $nombre = $_POST["nom"];
-      $direccion = '';
-      $telefono = null;
-      if(isset($_POST["dir"])){
-            $direccion = $_POST["dir"];
-      }
-      if(isset($_POST["tel"])){
-            $telefono = $_POST['tel'];
-      }
+      $direccion = !empty($_POST["dir"]) ? $_POST["dir"] : '';
+      $telefono = !empty($_POST["tel"]) ? $_POST["tel"] : 'NULL';
+//    $direccion = '';
+//    $telefono = 'NULL';
+      // if(!empty($_POST["dir"])){
+      //       $direccion = $_POST["dir"];
+      // }
+      // if(!empty($_POST["tel"])){
+      //       $telefono = $_POST['tel'];
+      // }
       $conocidosPor = $_POST['canal_difusion'];
       $contrasenaCifrada = md5($pw);
       //$palabra_clave = $_POST["clave_palabra"];
@@ -141,7 +141,7 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
                         <p>Telefono<br>
                         <input type="number" name="tel" id="tel">
                         <p>Contrase&nacute;a<br>
-                        <input type="password" name="pw" id="pw">
+                        <input type="password" name="pw" id="pw" required>
                         <p>Repita la contrase&nacute;a<br>
                         <input type="password" name="pw2" id="pw2">
                         <p>Seleccione como nos conocio<br>

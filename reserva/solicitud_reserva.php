@@ -80,6 +80,12 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
                     <input type="email" name="correo" id="correo" required value = "<?php echo $email ?>">
                     <p>Telefono<br>
                     <input type="number" name="tel" id="tel" required value = "<?php echo $telefono ?>">
+                    <?php if($_SESSION['tipoUser'] =="admin" or $_SESSION['tipoUser'] !="cliente") { ?>
+                        <p>Seleccione como nos conocio<br>
+                        <?php  require("../publicidad/publicidad.php");
+                    }else {//ConocidoPor del cliente ?>
+                    <input type="hidden" name="canal_difusion" value="<?php echo $conocidoX ?>">
+                    <?php } ?>
                     <p>Fecha de inicio<br>
                     <?php $fechamin = date("Y-m-d"); ?>
                     <input type="date" name="llegada" id="llegada" min= "<?php echo $fechamin ?>" required>
