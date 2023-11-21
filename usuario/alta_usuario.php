@@ -23,8 +23,11 @@
 
     <ul class="navbar">
         <li><a href="../index.php">Inicio</a></li>
-        <li><a href="#contact">Contacto</a></li>
+        <li><a href="../index.php#sobre_nosotros">Nosotros</a></li>
+        <li><a href="../index.php#galeria">Galeria</a></li>
+        <li><a href="../index.php#contact">Contacto</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
+        <li><a href="../inicio.php">Iniciar Sesion</a></li>
     </ul>
 </header>
 <center>
@@ -113,7 +116,7 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
                   echo mysqli_error($conn);
             }
       }else{
-            echo '<script>    
+            echo '<script>
                         alert("Ya existe un empleado registrado a este correo"); 
                         window.location.href="alta_empleado.php";
                   </script>';
@@ -151,6 +154,20 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       </div>
       </form>
       </center>   
+
+      <div class="footer">
+        <h2>Redes Sociales</h2>
+        <div class="footer-social">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            
+        </div>
+
+    </div>
+
+
       </body>
       <?php
 }
