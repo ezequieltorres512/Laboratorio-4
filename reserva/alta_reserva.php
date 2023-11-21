@@ -1,10 +1,11 @@
 <?php
 session_start();
 include_once("../conexion.php");
-//echo "<pre>";
-//print_r($_POST);
-//print_r($_SESSION);
-//echo "</pre>";
+// echo "<pre>";
+// print_r($_POST);
+// print_r($_SESSION);
+// echo "</pre>";
+// exit();
 $apellido = $_POST["ape"];
 $nombre = $_POST["nom"];
 $correo = $_POST["correo"];

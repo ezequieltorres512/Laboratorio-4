@@ -18,19 +18,27 @@ include("../check.php");
 <body>
  
 <header>
-    <a href="#" class="logo">La 7ma <span>Hotel</span></a>
+    <a href="../index.php" class="logo">La 7ma <span>Hotel</span></a>
 
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
 
         <li><a href="../index.php">Inicio</a></li>
-
-        <li><a href="#about">Reservas</a></li>
-        <li><a href="#skills">Instalaciones</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><a href="#contact">Contacto</a></li>
+        <?php if(isset($_SESSION['usuario'])){ ?>   
+            <li><a href="../index.php#reservas">Reservas</a></li>
+            <?php if ($_SESSION["tipoUser"] == "admin"){ ?>
+            <li><a href="../index.php#control">Control</a></li>
+        <?php } } ?>
+        <?php if($_SESSION["tipoUser"] == "cliente"){?>
+            <li><a href="../index.php#">Nosotros</a></li>
+            <li><a href="../index.php#galeria">Galeria</a></li>
+            <li><a href="../index.php#contact">Contacto</a></li>
+        <?php } ?>
         <div class="bx bx-moon" id="darkmode"></div>
+        <?php if(isset($_SESSION['usuario'])){ ?>
+            <li><a href="../usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
+        <?php } ?>
     </ul>
 </header>
 <section class="about" id="about">
@@ -49,7 +57,7 @@ include("../check.php");
             
 			<table id="">
 				<tr id="">
-						<th><label class="" disabled>ID</label></th>
+						<th><label class="" disabled>Nro. Reserva</label></th>
 						<th><label class="" disabled>Nombre y Apellido</label></th>
 						<th><label class="" disabled>Fecha inicio</label></th>
 						<th><label class="" disabled>Fecha finalizacion</label></th>
@@ -58,7 +66,7 @@ include("../check.php");
 						<th><label class="" disabled>Estado</label></th>				
 				</tr>
                 <tr>
-						<td ><input style='width:55px;' class="" id="fId" type='text' placeholder="Filtro ID"></input></td>
+						<td ><input style='width:55px;' class="" id="fId" type='text' placeholder="Nro."></input></td>
 						<td ><input class="" id="fPerso" type='text' placeholder="Filtro Nombre"></input></td>
 						<td ><input class="" id="fInicio" type='date' placeholder="Filtro inicio"></input></td>
                         <td ><input class="" id="fFin" type='date' placeholder="Filtro fin"></input></td>
@@ -76,12 +84,26 @@ include("../check.php");
    
 			
 		    </table>
-                <div class="ultima">		</div>	
+            <div class="ultima">		</div>	
 			<footer class="footer" id="footervalor">
 			<div id="totalRegistros"></div>
 		</footer>
 	</div>
 </section>
+
+<div class="footer">
+        <h2>Redes Sociales</h2>
+        <div class="footer-social">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            
+        </div>
+
+    </div>
+
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
