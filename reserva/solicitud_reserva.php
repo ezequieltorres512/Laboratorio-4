@@ -46,25 +46,21 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
-
         <li><a href="../index.php">Inicio</a></li>
-
-        <!-- <li><a href="#about">Reservas</a></li>
-        <li><a href="#skills">Instalaciones</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><a href="#contact">Contacto</a></li> -->
         <?php if(isset($_SESSION['usuario'])){ ?>   
-                <li><a href="../index.php#reservas">Reservas</a></li>
-            <?php } ?>
-            <li><a href="../sobrenosotros.php#galeria">Galeria</a></li>
-            <li><a href="../sobrenosotros.php#">Sobre Nosotros</a></li>
-            <?php if($_SESSION["tipoUser"] == "cliente"){?>
-                <li><a href="../index.php#contact">Contacto</a></li>
-            <?php } ?>
-            <div class="bx bx-moon" id="darkmode"></div>
-            <?php if(isset($_SESSION['usuario'])){ ?>
-                <li><a href="../usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
-            <?php } ?>
+        <li><a href="../index.php#reservas">Reservas</a></li>
+        <?php if ($_SESSION["tipoUser"] == "admin"){ ?>
+        <li><a href="../index.php#control">Control</a></li>
+        <?php } } ?>
+        <?php if($_SESSION["tipoUser"] == "cliente"){?>
+            <li><a href="../index.php#">Nosotros</a></li>
+            <li><a href="../index.php#galeria">Galeria</a></li>
+            <li><a href="../index.php#contact">Contacto</a></li>
+        <?php } ?>
+        <div class="bx bx-moon" id="darkmode"></div>
+        <?php if(isset($_SESSION['usuario'])){ ?>
+            <li><a href="../usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
+        <?php } ?>
     </ul>
 </header>
 
@@ -102,9 +98,19 @@ if(isset($_SESSION['usuario']) && $_SESSION['tipoUser'] =="cliente" ){
     </div>
     </form>
 </section>
-<section>
 
-</section>
+<div class="footer">
+        <h2>Redes Sociales</h2>
+        <div class="footer-social">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            
+        </div>
+
+    </div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="../js/script.js"></script>

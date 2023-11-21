@@ -22,14 +22,16 @@
     <div class="bx bx-menu" id="menu-icon"></div>
 
     <ul class="navbar">
-        <li><a href="index.php">Inicio</a></li>
+        <li><a href="#">Inicio</a></li>
         <?php if(isset($_SESSION['usuario'])){ ?>   
             <li><a href="#reservas">Reservas</a></li>
-        <?php } ?>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
+            <?php if ($_SESSION["tipoUser"] == "admin"){ ?>
+            <li><a href="#control">Control</a></li>
+        <?php } } ?>
         <?php if( !isset($_SESSION["tipoUser"]) || ( isset($_SESSION["tipoUser"]) && $_SESSION["tipoUser"] == "cliente")){ ?>
-                <li><a href="index.php#contact">Contacto</a></li>
+            <li><a href="#sobre_nosotros">Nosotros</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contact">Contacto</a></li>
             <?php } ?>
         <div class="bx bx-moon" id="darkmode"></div>
         <?php if(isset($_SESSION['usuario'])){ ?>
@@ -164,7 +166,7 @@ if (!isset($_SESSION['tipoUser']) || $_SESSION['tipoUser'] === 'cliente') {?>
     </div>
 </section>
 <?php if($_SESSION['tipoUser'] == 'admin'){ ?>
-<section class="services" id="reservas">
+<section class="services" id="control">
     <div class="heading">
         <h2>Centro de Control</h2>
     </div>

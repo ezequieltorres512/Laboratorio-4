@@ -23,11 +23,15 @@
 
     <ul class="navbar">
         <li><a href="../index.php">Inicio</a></li>
-        <li><a href="../index.php#contact">Contacto</a></li>
+        <li><a href="../index.php#reservas">Reservas</a></li>
+        <li><a href="../index.php#control">Control</a></li>
         <div class="bx bx-moon" id="darkmode"></div>
+        <?php if(isset($_SESSION['usuario'])){ ?>
+            <li><a href="../usuario/controlador_cerrar_session.php">Cerrar Sesion</a></li>
+        <?php } ?>
     </ul>
 </header>
-<center>  
+<center>
     <form id = 'alta_usr' action="alta_usuario.php" method="post">
         <div class="about-container">
                 <div class="about-text">
@@ -55,6 +59,19 @@
         </div>
     </form>
 </center>
+
+<div class="footer">
+        <h2>Redes Sociales</h2>
+        <div class="footer-social">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            
+        </div>
+
+    </div>
+
 </body>
 
 <script src="../js/script.js"></script>
