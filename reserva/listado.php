@@ -57,7 +57,7 @@ include("../check.php");
             
 			<table id="">
 				<tr id="">
-						<th><label class="" disabled>ID</label></th>
+						<th><label class="" disabled>Nro. Reserva</label></th>
 						<th><label class="" disabled>Nombre y Apellido</label></th>
 						<th><label class="" disabled>Fecha inicio</label></th>
 						<th><label class="" disabled>Fecha finalizacion</label></th>
@@ -66,7 +66,7 @@ include("../check.php");
 						<th><label class="" disabled>Estado</label></th>				
 				</tr>
                 <tr>
-						<td ><input style='width:55px;' class="" id="fId" type='text' placeholder="Filtro ID"></input></td>
+						<td ><input style='width:55px;' class="" id="fId" type='text' placeholder="Nro."></input></td>
 						<td ><input class="" id="fPerso" type='text' placeholder="Filtro Nombre"></input></td>
 						<td ><input class="" id="fInicio" type='date' placeholder="Filtro inicio"></input></td>
                         <td ><input class="" id="fFin" type='date' placeholder="Filtro fin"></input></td>
@@ -84,7 +84,7 @@ include("../check.php");
    
 			
 		    </table>
-                <div class="ultima">		</div>	
+            <div class="ultima">		</div>	
 			<footer class="footer" id="footervalor">
 			<div id="totalRegistros"></div>
 		</footer>
