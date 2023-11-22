@@ -92,9 +92,9 @@ include("../conexion.php");
                         <p>Seleccione Habitacion si desea asignar</p>
                             <select id="disponibilidad" name="habitacion_asignada">
                         </select>
-                        <p>Seleccione como nos conocio<br>
+                        <!-- <p>Seleccione como nos conocio<br> -->
                         <?php
-                              require("../publicidad/publicidad.php");
+                              //require("../publicidad/publicidad.php");
                         }?>    
                     <input type="submit" id="submit" style="margin-top: 5%;">
                     </div>

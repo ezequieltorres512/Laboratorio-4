@@ -13,7 +13,7 @@ include_once("../conexion.php");
     $sql .= (isset($_POST['fFinI']) && $_POST['fFinI'] != '')? " fecha_fin = '".$_POST['fFinI']."', ": "";
     $sql .= (isset($_POST['tipoH']) && $_POST['tipoH'] != '')? " tipoHabitacion = ".$_POST['tipoH'].", precio = $precio, ": "";
     $sql .= (isset($_POST['habitacion_asignada']) && $_POST['habitacion_asignada'] != '')? " habitacion = '".$_POST['habitacion_asignada']."', ": "";
-    $sql .= (isset($_POST['canal_difusion']) && $_POST['canal_difusion'] != '')? " conocidosPor = ".$_POST['canal_difusion']." ": "";
+    //$sql .= (isset($_POST['canal_difusion']) && $_POST['canal_difusion'] != '')? " conocidosPor = ".$_POST['canal_difusion']." ": "";
 
     $sql .= "WHERE id_reserva = ".$_POST['id_seleccionado'];
     $sql = str_replace(", WHERE", " WHERE", $sql);
