@@ -6,11 +6,11 @@ $pass = $_POST["txtpassword"];
 $pass=md5($pass);
 
 $query = mysqli_query($conn,"	SELECT 'empleado' AS tipo_usuario, ID AS id_usuario, puesto as puesto, apellido, nombre, estado 
-								FROM Empleado 
+								FROM empleado 
 								WHERE email = '$email' AND clave = '$pass' 
 								UNION ALL 
 								SELECT 'cliente' AS tipo_usuario, ID AS id_usuario, 'cliente' as puesto, apellido, nombre, estado 
-								FROM Cliente
+								FROM cliente
 								WHERE email = '$email' AND clave = '$pass';");
 $nr = mysqli_num_rows($query);
 $row = mysqli_fetch_assoc($query);
