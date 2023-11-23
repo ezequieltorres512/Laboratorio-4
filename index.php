@@ -128,7 +128,7 @@ if (!isset($_SESSION['tipoUser']) || $_SESSION['tipoUser'] === 'cliente') {?>
         
     </div>
     <div class="services-content">
-    <?php if($_SESSION['tipoUser'] == 'admin' || $_SESSION['tipoUser'] == 'recepcionista'){ ?>
+    <?php if($_SESSION['tipoUser'] != 'cliente'){ ?>
         <div class="services-box">
             <a href="reserva/listado.php">
                 <i class='bx bx-list-ul' ></i>
