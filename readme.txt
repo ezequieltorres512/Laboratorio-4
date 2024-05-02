@@ -13,6 +13,9 @@ Botones: https://boxicons.com/?query=
 admin: 
   usr: admin@admin
   pw: admin
+empleado:
+  usr: emple1@emple1
+  pw: emple1
 cliente:
   usr: cliente@cliente
   pw: cliente
