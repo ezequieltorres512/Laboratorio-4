@@ -1,6 +1,6 @@
 <?php
     session_start();
- //   include("check.php");
+ //   include("check.php"); agrego comentario
 ?>
 <!DOCTYPE html>
 <html lang="en">
