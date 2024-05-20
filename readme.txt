@@ -9,6 +9,7 @@ d. Ejecutar "git status" para verificar si hay algo para hacer
 Botones: https://boxicons.com/?query=
 
 
+Agrego una linea
 
 admin: 
   usr: admin@admin
