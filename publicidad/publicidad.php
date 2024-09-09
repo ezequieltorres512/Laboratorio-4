@@ -1,7 +1,7 @@
 <?php
 include_once("../conexion.php");
 
-$query = mysqli_query($conn,"SELECT * FROM canales-difusion");
+$query = mysqli_query($conn,"SELECT * FROM 'canales-difusion'");
 $nr = mysqli_num_rows($query);
 echo "<select name='canal_difusion' id='canal_difusion' required>";
 echo "<option></option>";

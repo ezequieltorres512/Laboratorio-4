@@ -68,9 +68,9 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       $vendedor=0;
 
       //Validar correo en alta de usuario
-      $correo = mysqli_num_rows(mysqli_query($conn, "SELECT cliente.id FROM cliente WHERE cliente.email='$user'"));
+      $correo = mysqli_num_rows(mysqli_query($conn, "SELECT cliente.id FROM clientes WHERE cliente.email='$user'"));
       if($correo == 0){ 
-            $query = mysqli_query($conn,"INSERT INTO cliente (clave,email,fecha_registro,estado,apellido, nombre , direccion, telefono, conocidosPor) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$direccion', $telefono, $conocidosPor)");                                              
+            $query = mysqli_query($conn,"INSERT INTO clientes (clave,email,fecha_registro,estado,apellido, nombre , direccion, telefono, conocidosPor) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$direccion', $telefono, $conocidosPor)");                                              
             if($query){
                   require("../mensajes/redireccion_mensaje.php");
             }else{
@@ -107,9 +107,9 @@ if(isset($_POST['user']) && $_POST['motivo'] == "Alta de usuario"){//DAR DE ALTA
       $vendedor=0;
 
       //Validar correo en alta de empleado
-      $correo = mysqli_num_rows(mysqli_query($conn, "SELECT empleado.id FROM empleado WHERE empleado.email='$user'"));
+      $correo = mysqli_num_rows(mysqli_query($conn, "SELECT empleados.id FROM empleados WHERE empleado.email='$user'"));
       if($correo == 0){ 
-            $query = mysqli_query($conn,"INSERT INTO empleado (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto')");                                               
+            $query = mysqli_query($conn,"INSERT INTO empleados (clave, email, fecha_registro, estado, apellido, nombre, puesto) VALUES ('$contrasenaCifrada','$user',NOW(),1,'$apellido','$nombre', '$puesto')");                                               
             if($query){
                   require("../mensajes/redireccion_mensaje.php");
             }else{
