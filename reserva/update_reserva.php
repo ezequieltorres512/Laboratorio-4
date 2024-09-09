@@ -7,8 +7,8 @@ include_once("../conexion.php");
 
     preg_match('/\d+/', $_POST['precio'], $matches);
     $precio = $matches[0];
-    $sql = "UPDATE reserva SET fecha_inicio = '".$_POST['fInicioI']."', fecha_fin = '".$_POST['fFinI']."', tipoHabitacion = ".$_POST['tipoH'].", precio = $precio WHERE id_reserva = ".$_POST['id_seleccionado'];
-    $sql = "UPDATE reserva SET";
+    $sql = "UPDATE reservas SET fecha_inicio = '".$_POST['fInicioI']."', fecha_fin = '".$_POST['fFinI']."', tipoHabitacion = ".$_POST['tipoH'].", precio = $precio WHERE id_reserva = ".$_POST['id_seleccionado'];
+    $sql = "UPDATE reservas SET";
     $sql .= (isset($_POST['fInicioI']) && $_POST['fInicioI'] != '')? " fecha_inicio = '".$_POST['fInicioI']."', ": "";
     $sql .= (isset($_POST['fFinI']) && $_POST['fFinI'] != '')? " fecha_fin = '".$_POST['fFinI']."', ": "";
     $sql .= (isset($_POST['tipoH']) && $_POST['tipoH'] != '')? " tipoHabitacion = ".$_POST['tipoH'].", precio = $precio, ": "";
